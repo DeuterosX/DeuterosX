@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Teraluwide.Blackbird.Core.BlackbirdException" Collapsed="true">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BlackbirdException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.XmlHelper">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>XmlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.BlackbirdGame">
+    <Position X="7.75" Y="3.75" Width="2.25" />
+    <AssociationLine Name="GameInfo" Type="Teraluwide.Blackbird.Core.BlackbirdGameInfo" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="4.813" />
+        <Point X="6.625" Y="4.813" />
+        <Point X="6.625" Y="4.812" />
+        <Point X="5.5" Y="4.812" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TextureManager" Type="Teraluwide.Blackbird.Core.TextureManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="4.938" />
+        <Point X="10.43" Y="4.938" />
+        <Point X="10.43" Y="3.915" />
+        <Point X="12" Y="3.915" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CustomComponents" Type="Teraluwide.Blackbird.Core.CustomComponentCollection" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="4.763" />
+        <Point X="10.233" Y="4.763" />
+        <Point X="10.233" Y="2.252" />
+        <Point X="12" Y="2.252" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GameScreenManager" Type="Teraluwide.Blackbird.Core.GameScreenManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="4.938" />
+        <Point X="7.135" Y="4.938" />
+        <Point X="7.135" Y="9.888" />
+        <Point X="5.5" Y="9.888" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GuiMenuManager" Type="Teraluwide.Blackbird.Core.GuiMenuManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="5.062" />
+        <Point X="7.302" Y="5.062" />
+        <Point X="7.302" Y="8.812" />
+        <Point X="8.75" Y="8.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAIAAAAAEBhBAAAAAAEEAAAQgAQRASAAAAQAI=</HashCode>
+      <FileName>BlackbirdGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameInfo" />
+      <Property Name="TextureManager" />
+      <Property Name="FontManager" />
+      <Property Name="CustomComponents" />
+      <Property Name="GameScreenManager" />
+      <Property Name="GuiMenuManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.BlackbirdGameInfo" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="4" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAQCAggEAAoIAAAIAAAAgCAAAAAgACAABAAwA=</HashCode>
+      <FileName>BlackbirdGameInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.CommonHelper" Collapsed="true">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.CustomComponentCollection">
+    <Position X="12" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>CustomComponentCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.Log">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQQAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.TextureManager" BaseTypeListCollapsed="true">
+    <Position X="12" Y="3.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAgIACACAAAAAAAAAAAAAAAAgAAIAAAAAAAABAAAA=</HashCode>
+      <FileName>TextureManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="innerData" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.TextureManagerItem" BaseTypeListCollapsed="true">
+    <Position X="15" Y="3.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEGAAAAACAAAAAAAAAAAAAGAAAAAgAgBAIAAABIAgA=</HashCode>
+      <FileName>TextureManagerItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.VirtualPathProvider">
+    <Position X="2.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABCAAAACAAAAAAAAAAAAAAAAAAAAEAAAEEAAAAAA=</HashCode>
+      <FileName>VirtualPathProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.FontManager">
+    <Position X="12" Y="7.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="innerData" Type="SdlDotNet.Graphics.Font" FixedFromPoint="true">
+      <Path>
+        <Point X="14" Y="8.127" />
+        <Point X="15" Y="8.127" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.098" Y="0.084" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAACAAAAAAAAAAAAAAAAgAAIAAAAAAAABAAIA=</HashCode>
+      <FileName>FontManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="innerData" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SdlDotNet.Graphics.Font">
+    <Position X="15" Y="7.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.GameScreenManager">
+    <Position X="3.5" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAACAAAAAABAAAAAAAAAgAAIAAAAAAAABAAAA=</HashCode>
+      <FileName>GameScreenManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="innerData" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.GameScreen" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameScreen.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.GuiMenuManager">
+    <Position X="8.75" Y="8.5" Width="2" />
+    <AssociationLine Name="innerData" Type="Teraluwide.Blackbird.Core.GuiMenu" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="9.256" />
+        <Point X="7.375" Y="9.256" />
+        <Point X="7.375" Y="11.781" />
+        <Point X="7.75" Y="11.781" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.393" Y="0.797" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAACAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>GuiMenuManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="innerData" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.GuiMenu" Collapsed="true">
+    <Position X="7.75" Y="11.5" Width="1.5" />
+    <AssociationLine Name="Buttons" Type="Teraluwide.Blackbird.Core.GuiButtonInfo">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.641" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GuiMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Buttons" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teraluwide.Blackbird.Core.GuiButtonInfo" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GuiButtonInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Teraluwide.Blackbird.Core.IBlackbirdComponent" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IBlackbirdComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Teraluwide.Blackbird.Core.ICustomBlackbirdComponent" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICustomBlackbirdComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Teraluwide.Blackbird.Core.IBlackbirdSimulationComponent">
+    <Position X="0.5" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>IBlackbirdSimulationComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Teraluwide.Blackbird.Core.VirtualPathKind">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABA=</HashCode>
+      <FileName>VirtualPathProvider.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

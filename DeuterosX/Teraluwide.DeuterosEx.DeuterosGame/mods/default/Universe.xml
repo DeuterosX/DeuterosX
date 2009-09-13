@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDRFile version="0.10" type="universe">
+  <Galaxies>
+    <MilkyWay Name="Milky Way">
+      <Sol Type="Deuteros.Universe.SolarSystem" Name="Sol">
+        <Mercury Type="Deuteros.Universe.SpaceItem">
+          <Name>Mercury</Name>
+          <Orbit>Sol</Orbit>
+          <Surveys>
+            <Iron MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Titanium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Aluminium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Carbon MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Copper MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Hydrogen MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Deuterium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Methane MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Helium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Paladium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Platinum MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silver MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Gold MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silica MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+          </Surveys>
+        </Mercury>
+        <Venus Type="Deuteros.Universe.SpaceItem">
+          <Name>Venus</Name>
+          <Orbit>Sol</Orbit>
+          <Surveys>
+            <Iron MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Titanium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Aluminium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Carbon MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Copper MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Hydrogen MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Deuterium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Methane MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Helium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Paladium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Platinum MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Silver MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Gold MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silica MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+          </Surveys>
+        </Venus>
+        <Earth Type="Deuteros.Universe.SpaceItem">
+          <Name>Earth</Name>
+          <Orbit>Sol</Orbit>
+          <Surveys>
+            <Iron MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Titanium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Aluminium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Carbon MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Copper MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Hydrogen MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Deuterium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Methane MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Helium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Paladium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Platinum MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silver MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Gold MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silica MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+          </Surveys>
+        </Earth>
+        <Moon Type="Deuteros.Universe.SpaceItem">
+          <Name>Moon</Name>
+          <Orbit>Earth</Orbit>
+          <Surveys>
+            <Iron MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Titanium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Aluminium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Carbon MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Copper MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Hydrogen MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Deuterium MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Methane MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Helium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Paladium MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Platinum MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Silver MaxMineLimit="150000" MineralMineable="False" MinMineLimit="1000" />
+            <Gold MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+            <Silica MaxMineLimit="150000" MineralMineable="True" MinMineLimit="1000" />
+          </Surveys>
+        </Moon>
+      </Sol>
+    </MilkyWay>
+  </Galaxies>
+</FDRFile>

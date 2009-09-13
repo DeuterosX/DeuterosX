@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.01" type="screens">
+  <GameScreenList>
+    <GameScreen id="station" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.StationGameScreen" />
+  </GameScreenList>
+</FDRFile>

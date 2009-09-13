@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDRFile version="0.03" type="info">
+  <GameInfo>
+    <Title>Deuteros PC</Title>
+    <ShowEngineVersion>1</ShowEngineVersion>
+    <ShowModVersion>0</ShowModVersion>
+    <ModVersion>0.01</ModVersion>
+    <Author>The Deuteros X Project Team</Author>
+    <Description>The port of Deuteros game to PC.</Description>
+    <Website>http://www.deuterosx.org/</Website>    
+  </GameInfo>
+  <Components>
+    
+  </Components>
+</FDRFile>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDRFile version="0.07" type="fonts">
+  <FontList>
+    <Font>
+      <Id>fntMain</Id>
+      <SystemFont>0</SystemFont>
+      <FontName>fonts/consola.ttf</FontName>
+      <FontSize>20</FontSize>
+      <FontStyles>Bold|Italic</FontStyles>
+    </Font>
+    <Font>
+      <Id>fntMenuButon</Id>
+      <SystemFont>0</SystemFont>
+      <FontName>fonts/consola.ttf</FontName>
+      <FontSize>12</FontSize>
+      <FontStyles>None</FontStyles>
+    </Font>
+    <Font>
+      <Id>fntGui</Id>
+      <SystemFont>0</SystemFont>
+      <FontName>fonts/consola.ttf</FontName>
+      <FontSize>14</FontSize>
+      <FontStyles>None</FontStyles>
+    </Font>
+  </FontList>
+</FDRFile>

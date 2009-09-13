@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EDB192F6-9BC3-410F-A4B6-D82D58CE49D9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Teraluwide.DeuterosEx.DeuterosGame</RootNamespace>
+    <AssemblyName>DeuterosGame</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Mono Debug|AnyCPU' ">
+    <OutputPath>Mono\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MonoRelease|AnyCPU' ">
+    <OutputPath>Mono\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tao.Sdl, Version=1.2.13.0, Culture=neutral, PublicKeyToken=9c7a200e36c0094e, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\StationComponent.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <Content Include="mods\default\Fonts.xml" />
+    <Content Include="mods\default\GameInfo.xml" />
+    <None Include="mods\default\gfx\leftGuiBottom-improved.xcf" />
+    <Content Include="mods\default\Textures.xml" />
+    <Content Include="mods\default\Items.xml" />
+    <Content Include="mods\default\ModGui.xml" />
+    <Content Include="mods\default\save\_newGame.xml" />
+    <Content Include="mods\default\Strings.xml" />
+    <Content Include="mods\default\Universe.xml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Screens\StationGameScreen.cs" />
+    <Compile Include="Stations\StationBase.cs" />
+    <Compile Include="Stations\StationModuleBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Teraluwide.Blackbird.Core\Teraluwide.Blackbird.Core.csproj">
+      <Project>{7838BF6B-03CC-4175-BAB7-42BD8A6E6C39}</Project>
+      <Name>Teraluwide.Blackbird.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mods\default\GameScreens.xml" />
+    <Content Include="mods\default\gfx\bottomGui.png" />
+    <Content Include="mods\default\gfx\bottomLog.png" />
+    <Content Include="mods\default\gfx\buttonMainMenu.png" />
+    <Content Include="mods\default\gfx\buttonMainMenuActive.png" />
+    <Content Include="mods\default\gfx\cursor.png" />
+    <Content Include="mods\default\gfx\factoryItemDescription.bmp" />
+    <Content Include="mods\default\gfx\gameScreen.Production.AOC.bmp" />
+    <Content Include="mods\default\gfx\gameScreen.Production.AOC.png" />
+    <Content Include="mods\default\gfx\gameScreen.Production.old.png" />
+    <Content Include="mods\default\gfx\gameScreen.Production.oldImpr.png" />
+    <Content Include="mods\default\gfx\gameScreen.Production.png" />
+    <Content Include="mods\default\gfx\gameScreen.Research.png" />
+    <Content Include="mods\default\gfx\gameScreen.Storage.ItemBlink.png" />
+    <Content Include="mods\default\gfx\gameScreen.Storage.ItemDescription.png" />
+    <Content Include="mods\default\gfx\gameScreen.Storage.png" />
+    <Content Include="mods\default\gfx\leftGui.EarthCity.png" />
+    <Content Include="mods\default\gfx\leftGui.MiningStores.png" />
+    <Content Include="mods\default\gfx\leftGui.old.png" />
+    <Content Include="mods\default\gfx\leftGui.png" />
+    <Content Include="mods\default\gfx\leftGui.Production.png" />
+    <Content Include="mods\default\gfx\leftGui.Research.png" />
+    <Content Include="mods\default\gfx\leftGui.Resources.png" />
+    <Content Include="mods\default\gfx\leftGui.Shuttle.png" />
+    <Content Include="mods\default\gfx\leftGui.ShuttleBay.png" />
+    <Content Include="mods\default\gfx\leftGui.Training.png" />
+    <Content Include="mods\default\gfx\leftGuiBottom.png" />
+    <Content Include="mods\default\gfx\leftGuiTop.png" />
+    <Content Include="mods\default\gfx\menuAlpha.png" />
+    <Content Include="mods\default\gfx\messageBoxAlpha.png" />
+    <Content Include="mods\default\gfx\placeholder.png" />
+    <Content Include="mods\default\gfx\production.Derrick.base.png" />
+    <Content Include="mods\default\gfx\production.Derrick.png" />
+    <Content Include="mods\default\gfx\systemName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="mods\default\fonts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

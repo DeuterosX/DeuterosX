@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDRFile version="0.10" type="menu">
+  <GuiMenuGlobal>
+    <leftGuiTop Type="GuiMenu">
+      <Id>leftGuiTop</Id>
+      <TextureArea Left="0" Top="0" Width="120" Height="180" />
+      <Picture>leftGuiTop</Picture>
+      <Location X="0" Y="40" />
+      <Buttons>
+        <AdvanceTimeSwitch />
+        <GoEarthCity />
+      </Buttons>
+    </leftGuiTop>
+    <bottomGui Type="GuiMenu">
+      <Id>bottomGui</Id>
+      <TextureArea Left="0" Top="1" Width="800" Height="43" />
+      <Picture>bottomGui</Picture>
+      <Location X="0" Y="-43" />
+      <Buttons>
+        <AdvanceTimeOnHold />
+        <CurrentLocation />
+      </Buttons>
+    </bottomGui>
+  </GuiMenuGlobal>
+  <GuiMenuStation>
+    <leftGuiBottom Type="GuiMenu">
+      <Id>leftGuiBottom</Id>
+      <TextureArea Left="0" Top="0" Width="120" Height="240" />
+      <Picture>leftGuiBottom</Picture>
+      <Location X="0" Y="220" />
+      <Buttons>
+        <StationModuleFactory />
+        <StationModuleMiningFacility />
+        <StationModuleMiningStore />
+      </Buttons>
+    </leftGuiBottom>
+  </GuiMenuStation>
+  <GuiButtonTemplates>
+    <AdvanceTimeSwitch Type="GuiButtonInfo">
+      <Text>
+      </Text>
+      <Font>
+      </Font>
+      <ForeColor>#00000000</ForeColor>
+      <TextFormat>Left</TextFormat>
+      <ButtonRect Left="0" Top="0" Width="60" Height="40" />
+      <Tooltip>Advance Time</Tooltip>
+      <Params>
+        <TimeAdvance Type="Deuteros.Gui.GuiButtonParamTimeAdvance">False</TimeAdvance>
+        <CheckTimeAdvance Type="Deuteros.Gui.GuiButtonParamCheckTimeAdvance">True</CheckTimeAdvance>
+      </Params>
+      <Picture>
+      </Picture>
+      <PictureColor>White</PictureColor>
+      <Enabled>True</Enabled>
+      <AnimationFrames>1</AnimationFrames>
+      <AnimationTime>500</AnimationTime>
+    </AdvanceTimeSwitch>
+    <GoEarthCity Type="GuiButtonInfo">
+      <Text>
+      </Text>
+      <Font>
+      </Font>
+      <ForeColor>#00000000</ForeColor>
+      <TextFormat>Left</TextFormat>
+      <ButtonRect Left="0" Top="120" Width="60" Height="40" />
+      <Tooltip>Earth City</Tooltip>
+      <Params>
+        <NextScreen Type="Deuteros.Gui.GuiButtonParamChangeScreen">EarthCity</NextScreen>
+        <NextStation Type="Deuteros.Gui.GuiButtonParamChangeStation">Earth City</NextStation>
+        <NextLocation Type="Deuteros.Gui.GuiButtonParamChangeLocation">Earth City</NextLocation>
+        <NextStationModule Type="Deuteros.Gui.GuiButtonParamChangeStationModule">
+        </NextStationModule>
+        <CheckStation Type="Deuteros.Gui.GuiButtonParamCheckStation">Earth City</CheckStation>
+        <CheckTimeAdvance Type="Deuteros.Gui.GuiButtonParamCheckTimeAdvance">True</CheckTimeAdvance>
+      </Params>
+      <Picture>leftGui.EarthCity</Picture>
+      <PictureColor>White</PictureColor>
+      <Enabled>True</Enabled>
+      <AnimationFrames>6</AnimationFrames>
+      <AnimationTime>500</AnimationTime>
+    </GoEarthCity>
+    <AdvanceTimeOnHold Type="GuiButtonInfo">
+      <Text>$#[CurrentYear] $#[CurrentCycle:d3].$#[CurrentDotTime:d2]</Text>
+      <Font>fntGui</Font>
+      <ForeColor>White</ForeColor>
+      <TextFormat>38</TextFormat>
+      <ButtonRect Left="266" Top="17" Width="204" Height="18" />
+      <Tooltip>Current Time</Tooltip>
+      <Params>
+        <TimeAdvance Type="Deuteros.Gui.GuiButtonParamTimeAdvance">True</TimeAdvance>
+      </Params>
+      <Picture>
+      </Picture>
+      <PictureColor>White</PictureColor>
+      <Enabled>True</Enabled>
+      <AnimationFrames>1</AnimationFrames>
+      <AnimationTime>100</AnimationTime>
+    </AdvanceTimeOnHold>
+    <CurrentLocation Type="GuiButtonInfo">
+      <Text>$#[CurrentLocation]</Text>
+      <Font>fntGui</Font>
+      <ForeColor>White</ForeColor>
+      <TextFormat>36</TextFormat>
+      <ButtonRect Left="490" Top="17" Width="300" Height="18" />
+      <Tooltip>Current Location</Tooltip>
+      <Params />
+      <Picture>
+      </Picture>
+      <PictureColor>White</PictureColor>
+      <Enabled>True</Enabled>
+      <AnimationFrames>1</AnimationFrames>
+      <AnimationTime>100</AnimationTime>
+    </CurrentLocation>
+  </GuiButtonTemplates>
+</FDRFile>

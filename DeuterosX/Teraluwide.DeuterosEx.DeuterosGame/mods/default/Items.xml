@@ -1,0 +1,971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDRFile version="0.12" type="prods">
+  <ItemTemplates>
+    <Iron Type="Deuteros.Items.StoreItem">
+      <Title>Iron</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Iron>
+    <Titanium Type="Deuteros.Items.StoreItem">
+      <Title>Titanium</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Titanium>
+    <Aluminium Type="Deuteros.Items.StoreItem">
+      <Title>Aluminium</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Aluminium>
+    <Carbon Type="Deuteros.Items.StoreItem">
+      <Title>Carbon</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Carbon>
+    <Copper Type="Deuteros.Items.StoreItem">
+      <Title>Copper</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Copper>
+    <Hydrogen Type="Deuteros.Items.StoreItem">
+      <Title>Hydrogen</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Hydrogen>
+    <Deuterium Type="Deuteros.Items.StoreItem">
+      <Title>Deuterium</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Deuterium>
+    <Methane Type="Deuteros.Items.StoreItem">
+      <Title>Methane</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Methane>
+    <Helium Type="Deuteros.Items.StoreItem">
+      <Title>Helium</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Helium>
+    <Paladium Type="Deuteros.Items.StoreItem">
+      <Title>Paladium</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Paladium>
+    <Platinum Type="Deuteros.Items.StoreItem">
+      <Title>Platinum</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Platinum>
+    <Silver Type="Deuteros.Items.StoreItem">
+      <Title>Silver</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Silver>
+    <Gold Type="Deuteros.Items.StoreItem">
+      <Title>Gold</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Gold>
+    <Silica Type="Deuteros.Items.StoreItem">
+      <Title>Silica</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Mineral</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>-4</BuildTime>
+      <BuildRank>0</BuildRank>
+      <ResearchRank>0</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>
+      </Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>1</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Silica>
+    <UnknownItem Type="Deuteros.Items.StoreItem">
+      <Title>Unknown Item</Title>
+      <Researched>False</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Special</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>600</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.Derrick</Picture>
+      <TextureArea Left="0" Top="0" Width="138" Height="118" />
+      <Resources />
+      <Mass>0</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </UnknownItem>
+    <Derrick Type="Deuteros.Items.StoreItem">
+      <Title>Derrick</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Special</ItemType>
+      <Description>Fully Automated
+Ore Recovery And
+Refining Unit.
+
+Can Adapt To All
+Known Elements.
+
+Semi-Portable To
+Allow Location On
+Any Mining Site.</Description>
+      <BuildTime>600</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.Derrick</Picture>
+      <TextureArea Left="0" Top="0" Width="138" Height="118" />
+      <Resources>
+        <Resource Id="Iron" Amount="3" />
+        <Resource Id="Titanium" Amount="4" />
+        <Resource Id="Carbon" Amount="1" />
+      </Resources>
+      <Mass>8</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Derrick>
+    <ShuttleChassis Type="Deuteros.Items.StoreItem">
+      <Title>Shuttle Chassis</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>ShuttleChassis</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.ShuttleChassis</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="20" />
+        <Resource Id="Titanium" Amount="50" />
+        <Resource Id="Aluminium" Amount="35" />
+        <Resource Id="Carbon" Amount="10" />
+        <Resource Id="Copper" Amount="15" />
+      </Resources>
+      <Mass>130</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </ShuttleChassis>
+    <ShuttleDrive Type="Deuteros.Items.StoreItem">
+      <Title>Shuttle Drive</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>ShuttleDrive</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.ShuttleDrive</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="6" />
+        <Resource Id="Titanium" Amount="10" />
+        <Resource Id="Copper" Amount="4" />
+      </Resources>
+      <Mass>20</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </ShuttleDrive>
+    <MeHFuel Type="Deuteros.Items.StoreItem">
+      <Title>Methanol Hydrogen Fuel</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.MeHFuel</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Methane" Amount="2" />
+        <Resource Id="Hydrogen" Amount="2" />
+      </Resources>
+      <Mass>3</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </MeHFuel>
+    <OFFrame Type="Deuteros.Items.StoreItem">
+      <Title>Orbital Factory Frame</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.OFFrame</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="55" />
+        <Resource Id="Titanium" Amount="80" />
+        <Resource Id="Aluminium" Amount="50" />
+        <Resource Id="Carbon" Amount="25" />
+        <Resource Id="Copper" Amount="40" />
+      </Resources>
+      <Mass>250</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </OFFrame>
+    <SupplyPod Type="Deuteros.Items.StoreItem">
+      <Title>Supply Pod</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.SupplyPod</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>4</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </SupplyPod>
+    <ToolPod Type="Deuteros.Items.StoreItem">
+      <Title>Tool Pod</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.ToolPod</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>4</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </ToolPod>
+    <CryoPod Type="Deuteros.Items.StoreItem">
+      <Title>Cryogenic Holding Pod</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>1</BuildRank>
+      <ResearchRank>1</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.CryoPod</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>4</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </CryoPod>
+    <Blaser Type="Deuteros.Items.StoreItem">
+      <Title>Pulse Blast Laser</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.Blaser</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Paladium" Amount="120" />
+        <Resource Id="Platinum" Amount="30" />
+        <Resource Id="HeDFuel" Amount="600" />
+      </Resources>
+      <Mass>750</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Blaser>
+    <IOSChassis Type="Deuteros.Items.StoreItem">
+      <Title>IOS Chassis</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>2</BuildRank>
+      <ResearchRank>2</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.IOSChassis</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="100" />
+        <Resource Id="Titanium" Amount="250" />
+        <Resource Id="Aluminium" Amount="175" />
+        <Resource Id="Carbon" Amount="50" />
+        <Resource Id="Copper" Amount="75" />
+      </Resources>
+      <Mass>650</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </IOSChassis>
+    <IOSDrive Type="Deuteros.Items.StoreItem">
+      <Title>IOS Drive</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>2</BuildRank>
+      <ResearchRank>2</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.IOSDrive</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="30" />
+        <Resource Id="Titanium" Amount="50" />
+        <Resource Id="Copper" Amount="15" />
+      </Resources>
+      <Mass>95</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </IOSDrive>
+    <SCGChassis Type="Deuteros.Items.StoreItem">
+      <Title>SCG Chassis</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.SCGChassis</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="250" />
+        <Resource Id="Titanium" Amount="600" />
+        <Resource Id="Aluminium" Amount="400" />
+        <Resource Id="Copper" Amount="185" />
+        <Resource Id="Platinum" Amount="100" />
+        <Resource Id="Silver" Amount="100" />
+        <Resource Id="Gold" Amount="50" />
+      </Resources>
+      <Mass>1585</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </SCGChassis>
+    <SCGDrive Type="Deuteros.Items.StoreItem">
+      <Title>SCG Drive</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.SCGDrive</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="50" />
+        <Resource Id="Titanium" Amount="100" />
+        <Resource Id="Copper" Amount="30" />
+        <Resource Id="Paladium" Amount="50" />
+        <Resource Id="Platinum" Amount="25" />
+        <Resource Id="Silver" Amount="10" />
+      </Resources>
+      <Mass>265</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </SCGDrive>
+    <HeDFuel Type="Deuteros.Items.StoreItem">
+      <Title>Helium Deuterium Fuel</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.HeDFuel</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Deuterium" Amount="2" />
+        <Resource Id="Helium" Amount="2" />
+      </Resources>
+      <Mass>3</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </HeDFuel>
+    <ACC Type="Deuteros.Items.StoreItem">
+      <Title>Auto Cargo Computer</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.ACC</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Carbon" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>5</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </ACC>
+    <AOC Type="Deuteros.Items.StoreItem">
+      <Title>Automatic Operations Computer</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.ACC</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="4" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Carbon" Amount="2" />
+        <Resource Id="Silver" Amount="1" />
+      </Resources>
+      <Mass>8</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </AOC>
+    <Bandaid Type="Deuteros.Items.StoreItem">
+      <Title>Installation Repair Equipment</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.Bandaid</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="30" />
+        <Resource Id="Titanium" Amount="30" />
+        <Resource Id="Aluminium" Amount="30" />
+        <Resource Id="Carbon" Amount="30" />
+        <Resource Id="Copper" Amount="30" />
+      </Resources>
+      <Mass>150</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Bandaid>
+    <SDM Type="Deuteros.Items.StoreItem">
+      <Title>Self Destruct Mechanism</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.SDM</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Aluminium" Amount="5" />
+        <Resource Id="Copper" Amount="1" />
+        <Resource Id="Paladium" Amount="1" />
+        <Resource Id="Platinum" Amount="2" />
+      </Resources>
+      <Mass>9</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </SDM>
+    <Grapple Type="Deuteros.Items.StoreItem">
+      <Title>Hydrolic Grapple</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.Grapple</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="2" />
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>5</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Grapple>
+    <DFCC Type="Deuteros.Items.StoreItem">
+      <Title>D.F.C.C.</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.DFCC</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Carbon" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+        <Resource Id="Platinum" Amount="2" />
+        <Resource Id="Gold" Amount="1" />
+      </Resources>
+      <Mass>8</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </DFCC>
+    <AMA Type="Deuteros.Items.StoreItem">
+      <Title>Asteroid Mining Attachment</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.AMA</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="6" />
+        <Resource Id="Titanium" Amount="70" />
+        <Resource Id="Aluminium" Amount="10" />
+        <Resource Id="Carbon" Amount="30" />
+        <Resource Id="Copper" Amount="2" />
+        <Resource Id="Platinum" Amount="5" />
+        <Resource Id="Silver" Amount="1" />
+      </Resources>
+      <Mass>124</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </AMA>
+    <Hyperlight Type="Deuteros.Items.StoreItem">
+      <Title>Hyperlight Travel</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.Hyperlight</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources />
+      <Mass>0</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Hyperlight>
+    <MTX Type="Deuteros.Items.StoreItem">
+      <Title>Mass Transceiver</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.MTX</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="500" />
+        <Resource Id="Copper" Amount="82" />
+        <Resource Id="Paladium" Amount="100" />
+        <Resource Id="Gold" Amount="40" />
+      </Resources>
+      <Mass>722</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </MTX>
+    <FuzLaser Type="Deuteros.Items.StoreItem">
+      <Title>Methanoid Fusion Laser</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.FuzLaser</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Copper" Amount="5" />
+        <Resource Id="Paladium" Amount="10" />
+        <Resource Id="Platinum" Amount="10" />
+      </Resources>
+      <Mass>25</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </FuzLaser>
+    <RFrame Type="Deuteros.Items.StoreItem">
+      <Title>Resource Station Section</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.RFrame</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="35" />
+        <Resource Id="Titanium" Amount="50" />
+        <Resource Id="Aluminium" Amount="20" />
+        <Resource Id="Carbon" Amount="15" />
+        <Resource Id="Copper" Amount="30" />
+        <Resource Id="Platinum" Amount="25" />
+        <Resource Id="Silver" Amount="10" />
+        <Resource Id="Silica" Amount="15" />
+      </Resources>
+      <Mass>200</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </RFrame>
+    <PTL Type="Deuteros.Items.StoreItem">
+      <Title>Prejudice Torpedo Launcher</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.PTL</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="96" />
+        <Resource Id="Aluminium" Amount="45" />
+        <Resource Id="Copper" Amount="10" />
+      </Resources>
+      <Mass>151</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </PTL>
+    <CommsPod Type="Deuteros.Items.StoreItem">
+      <Title>Communications Adaptor</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.CommsPod</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Aluminium" Amount="2" />
+        <Resource Id="Carbon" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+        <Resource Id="Gold" Amount="1" />
+      </Resources>
+      <Mass>5</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </CommsPod>
+    <IOSDrone Type="Deuteros.Items.StoreItem">
+      <Title>IOS Drone</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.IOSDrone</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="120" />
+        <Resource Id="Titanium" Amount="120" />
+        <Resource Id="Aluminium" Amount="120" />
+        <Resource Id="Carbon" Amount="15" />
+        <Resource Id="Copper" Amount="55" />
+        <Resource Id="Paladium" Amount="30" />
+        <Resource Id="Platinum" Amount="30" />
+      </Resources>
+      <Mass>490</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </IOSDrone>
+    <StarDrone Type="Deuteros.Items.StoreItem">
+      <Title>Star Drone</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.StarDrone</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Iron" Amount="300" />
+        <Resource Id="Titanium" Amount="300" />
+        <Resource Id="Aluminium" Amount="300" />
+        <Resource Id="Copper" Amount="100" />
+        <Resource Id="Paladium" Amount="90" />
+        <Resource Id="Platinum" Amount="80" />
+        <Resource Id="Silver" Amount="95" />
+        <Resource Id="Gold" Amount="50" />
+      </Resources>
+      <Mass>1015</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </StarDrone>
+    <PrisonPod Type="Deuteros.Items.StoreItem">
+      <Title>Cryogenic Prison Pod</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>False</OrbitalOnly>
+      <Picture>production.PrisonPod</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="2" />
+        <Resource Id="Aluminium" Amount="1" />
+        <Resource Id="Copper" Amount="1" />
+      </Resources>
+      <Mass>4</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </PrisonPod>
+    <Blaster Type="Deuteros.Items.StoreItem">
+      <Title>Sonic Blaster</Title>
+      <Researched>True</Researched>
+      <CanResearch>False</CanResearch>
+      <ItemType>Unknown</ItemType>
+      <Description>
+      </Description>
+      <BuildTime>1200</BuildTime>
+      <BuildRank>3</BuildRank>
+      <ResearchRank>3</ResearchRank>
+      <OrbitalOnly>True</OrbitalOnly>
+      <Picture>production.Blaster</Picture>
+      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <Resources>
+        <Resource Id="Titanium" Amount="1000" />
+        <Resource Id="Aluminium" Amount="1500" />
+        <Resource Id="Copper" Amount="800" />
+        <Resource Id="Paladium" Amount="1200" />
+        <Resource Id="Silver" Amount="3000" />
+        <Resource Id="Gold" Amount="3000" />
+      </Resources>
+      <Mass>10500</Mass>
+      <ResearchPointsNeeded>0</ResearchPointsNeeded>
+    </Blaster>
+  </ItemTemplates>
+</FDRFile>
