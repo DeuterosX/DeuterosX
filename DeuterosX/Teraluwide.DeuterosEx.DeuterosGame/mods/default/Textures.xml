@@ -27,5 +27,6 @@
     <Texture id="gameScreen.Storage.ItemDescription" fileName="gfx/gameScreen.Storage.ItemDescription.png" />
     <Texture id="gameScreen.Research" fileName="gfx/gameScreen.Research.png" />
     <Texture id="production.Derrick" fileName="gfx/production.Derrick.png" />
+    <Texture id="deuterosLogo" fileName="gfx/deuterosLogo.png" />
   </TextureList>
 </FDRFile>

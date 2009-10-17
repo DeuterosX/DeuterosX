@@ -98,6 +98,9 @@ namespace Teraluwide.Blackbird.Core
 				if (screen == null)
 					throw new BlackbirdException(string.Format(Resources.GameScreenTypeNotInitialized, type));
 
+				if (CurrentGameScreen == null)
+					CurrentGameScreen = screen;
+
 				innerData.Add(id, screen);
 				screen.Load();
 			}

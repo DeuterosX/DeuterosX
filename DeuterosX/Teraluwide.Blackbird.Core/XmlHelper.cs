@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Teraluwide.Blackbird.Core.Properties;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -54,6 +55,26 @@ namespace Teraluwide.Blackbird.Core
 			foreach (string part in text.Split('|'))
 				ret = ret | (int)Enum.Parse(typeof(T), part.Trim());
 			
+			return ret;
+		}
+
+		/// <summary>
+		/// Creates the object of the specified type.
+		/// </summary>
+		/// <param name="typeName">Name of the type.</param>
+		/// <returns></returns>
+		public static object CreateType(string typeName)
+		{
+			Type type = Type.GetType(typeName, false);
+
+			if (type == null)
+				throw new BlackbirdException(string.Format(Resources.TypeNotFound, typeName));
+
+			object ret = Activator.CreateInstance(type);
+
+			if (ret == null)
+				throw new BlackbirdException(string.Format(Resources.TypeNotInitialized, typeName));
+
 			return ret;
 		}
 	}

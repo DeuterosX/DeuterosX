@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using Teraluwide.Blackbird.Core;
+using Teraluwide.DeuterosEx.DeuterosGame.Properties;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 {
@@ -78,7 +79,9 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			this.modules.Clear();
 			foreach (XmlNode xMod in node["Modules"].ChildNodes)
 			{
-				StationModuleBase mod = StationModuleBase.InvokeCreate(xMod.Name);
+				StationModuleBase mod = XmlHelper.CreateType(xMod.Name) as StationModuleBase;
+				if (mod == null)
+					throw new DeuterosException(string.Format(Resources.InvalidStationModule, xMod.Name));
 
 				mod.LoadXml(xMod);
 				this.MountModule(mod);
@@ -143,8 +146,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 				}
 
 				modules.Add(module);
-				module.parent = this;
-				module.OnMount();
+				module.Mount(this);
 
 				return 0;
 			}
@@ -161,7 +163,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			if (modules != null)
 			{
-				module.OnDismount();
+				module.Dismount();
 
 				return modules.Remove(module);
 			}
@@ -172,13 +174,13 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// <summary>
 		/// Process turn
 		/// </summary>
-		public void OnNextTurn()
+		public virtual void ProcessTurn()
 		{
 			for (int i = 0; i < Modules.Count; i++)
 			{
 				if (Modules[i] != null)
 				{
-					Modules[i].OnNextTurn();
+					Modules[i].ProcessTurn();
 				}
 			}
 		}

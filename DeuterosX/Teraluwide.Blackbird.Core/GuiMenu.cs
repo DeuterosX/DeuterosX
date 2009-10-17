@@ -19,7 +19,7 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		#endregion

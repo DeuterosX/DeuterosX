@@ -14,7 +14,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 	/// </summary>
 	public class Game : BlackbirdGame
 	{
-		TextureManagerItem item;
+		TextureManagerItem cursor;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Game"/> class.
@@ -31,7 +31,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		/// <param name="e">The <see cref="SdlDotNet.Core.QuitEventArgs"/> instance containing the event data.</param>
 		void Game_BeforeQuit(object sender, SdlDotNet.Core.QuitEventArgs e)
 		{
-			TextureManager.ReturnTexture(item.Id);
+			TextureManager.ReturnTexture(cursor.Id);
 		}
 
 		/// <summary>
@@ -42,7 +42,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		{
 			base.Init(args);
 
-			item = TextureManager.GetTexture("cursor");
+			Video.SetVideoMode(1088, 672, false, true, false);
+			cursor = TextureManager.GetTexture("cursor");
 			Mouse.ShowCursor = false;
 		}
 
@@ -53,10 +54,17 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		/// <param name="e">The <see cref="SdlDotNet.Core.TickEventArgs"/> instance containing the event data.</param>
 		public override void Tick(object sender, SdlDotNet.Core.TickEventArgs e)
 		{
-			Video.Screen.Fill(Color.CornflowerBlue);
-			Video.Screen.Blit(item.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
-			Video.Screen.Blit(FontManager.DrawText("fntMain", "Nazdar ptáku", Color.Black), new Point(100, 20));
+			Video.Screen.Fill(Color.CornflowerBlue);			
 			
+			// render the current game screen
+			GameScreenManager.CurrentGameScreen.Render(Video.Screen);
+
+			// render the FPS
+			Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
+
+			// render the mouse cursor
+			Video.Screen.Blit(cursor.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
+
 			Video.Screen.Update();
 		}
 

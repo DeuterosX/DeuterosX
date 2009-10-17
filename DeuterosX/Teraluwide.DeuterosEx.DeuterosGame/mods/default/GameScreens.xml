@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.01" type="screens">
   <GameScreenList>
-    <GameScreen id="station" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.StationGameScreen" />
+    <GameScreen id="intro" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.IntroGameScreen, DeuterosGame, Version=0.25.0.0, Culture=neutral, PublicKeyToken=null" />
+    <GameScreen id="station" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.StationGameScreen, DeuterosGame, Version=0.25.0.0, Culture=neutral, PublicKeyToken=null" />
   </GameScreenList>
 </FDRFile>

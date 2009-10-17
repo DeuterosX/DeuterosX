@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\StationComponent.cs" />
+    <Compile Include="DeuterosException.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <Content Include="mods\default\Fonts.xml" />
@@ -102,7 +104,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Screens\IntroGameScreen.cs" />
     <Compile Include="Screens\StationGameScreen.cs" />
+    <Compile Include="Stations\Station.cs" />
     <Compile Include="Stations\StationBase.cs" />
     <Compile Include="Stations\StationModuleBase.cs" />
   </ItemGroup>
@@ -147,6 +151,7 @@
     <Content Include="mods\default\gfx\production.Derrick.base.png" />
     <Content Include="mods\default\gfx\production.Derrick.png" />
     <Content Include="mods\default\gfx\systemName.png" />
+    <Content Include="mods\default\Intro.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mods\default\fonts\" />

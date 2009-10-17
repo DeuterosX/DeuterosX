@@ -210,4 +210,12 @@ Value '{1}' is invalid for the option '{2}'.</value>
     <value>The texture {0} was unloaded too many times.</value>
     <comment>Represents the error message shown when a texture is unloaded more times than it was loaded.</comment>
   </data>
+  <data name="TypeNotFound" xml:space="preserve">
+    <value>The type {0} could not be found.</value>
+    <comment>Represents the error message shown when a type could not be found.</comment>
+  </data>
+  <data name="TypeNotInitialized" xml:space="preserve">
+    <value>The type {0} could not be initialized.</value>
+    <comment>Represents the error message shown when a type could not be initialized.</comment>
+  </data>
 </root>
