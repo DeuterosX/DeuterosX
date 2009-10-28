@@ -5,6 +5,9 @@ using System.Text;
 using SdlDotNet.Graphics;
 using Teraluwide.Blackbird.Core.Properties;
 using System.IO;
+using Tao.OpenGl;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -15,7 +18,7 @@ namespace Teraluwide.Blackbird.Core
 	{
 		private int userCount = 0;
 		private TextureManager manager;
-		private Surface texture;
+		private int textureId;
 
 		/// <summary>
 		/// Gets the unique identifier of this texture.
@@ -71,22 +74,22 @@ namespace Teraluwide.Blackbird.Core
 		/// Gets the texture.
 		/// </summary>
 		/// <value>The texture.</value>
-		public Surface Texture
+		public int TextureId
 		{
 			get
 			{
-				if (texture != null)
-					return texture;
+				if (textureId != 0)
+					return textureId;
 
 				if (!OnDemand)
 					throw new BlackbirdException(string.Format(Resources.TextureNotLoaded, Id));
 
 				LoadTexture(true);
 
-				if (texture == null)
+				if (textureId == 0)
 					throw new BlackbirdException(string.Format(Resources.TextureCouldNotBeLoaded, Id));
 
-				return texture;
+				return textureId;
 			}
 		}
 
@@ -118,20 +121,46 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="forced">if set to <c>true</c> the texture is reloaded even if it is already loaded.</param>
 		public void LoadTexture(bool forced)
 		{
-			if (!forced && this.texture != null)
+			if (!forced && this.textureId != 0)
 				return;
 
 			Dispose();
 
 			using (Stream stream = VirtualPathProvider.GetFile(VirtualPathProvider.EnsureModVirtualPath(FileName, manager.Game.ModName)))
 			{
-				int length = (int)stream.Length;
+				Image buf = Image.FromStream(stream);
+				Bitmap bmp;
+				if (buf is Bitmap)
+					bmp = buf as Bitmap;
+				else
+				{
+					bmp = new Bitmap(buf);
+					using (Graphics gr = Graphics.FromImage(bmp))
+					{
+						gr.DrawImage(buf, 0, 0);
+					}
+					buf.Dispose();
+				}
 
-				byte[] data = new byte[length];
-				if (stream.Read(data, 0, length) != length)
-					return;
+				// Create a new unique OpenGL texture id.
+				int[] texids = new int[1];
+				Gl.glGenTextures(1, texids);
+				this.textureId = texids[0];
 
-				this.texture = new Surface(data);
+				// OpenGL uses Y-flipped textures, so we have to do this not to have everything bottom-up.
+				bmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+				// Lock the bitmap data of the texture.
+				BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+				// Load the texture.
+				Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
+				Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA8, bmp.Width, bmp.Height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, Gl.GL_LINEAR);
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR);
+
+				bmp.UnlockBits(data);
+				bmp.Dispose();
 			}
 		}
 
@@ -142,10 +171,11 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		public void Dispose()
 		{
-			if (this.texture != null)
+			if (this.textureId != 0)
 			{
-				this.texture.Dispose();
-				this.texture = null;
+				// TODO: Dispose the OpenGL texture.
+
+				this.textureId = 0;
 			}
 		}
 

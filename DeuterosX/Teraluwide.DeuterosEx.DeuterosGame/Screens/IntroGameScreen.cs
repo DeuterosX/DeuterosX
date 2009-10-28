@@ -6,6 +6,7 @@ using Teraluwide.Blackbird.Core;
 using SdlDotNet.Graphics;
 using System.IO;
 using System.Drawing;
+using Tao.OpenGl;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 {
@@ -67,7 +68,18 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// <param name="surface">The target surface.</param>
 		public override void Render(Surface surface)
 		{
-			surface.Blit(logo.Texture, new Point(-100, -200));
+			Gl.glMatrixMode(Gl.GL_MODELVIEW);
+			Gl.glLoadIdentity();
+			Gl.glTranslatef(0f, 0f, -2f);
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, logo.TextureId);
+
+			Gl.glBegin(Gl.GL_QUADS);
+			Gl.glTexCoord2f(0f, 0f); Gl.glVertex3f(-1f, -1f, 0f);
+			Gl.glTexCoord2f(1f, 0f); Gl.glVertex3f(1f, -1f, 0f);
+			Gl.glTexCoord2f(1f, 1f); Gl.glVertex3f(1f, 1f, 0f);
+			Gl.glTexCoord2f(0f, 1f); Gl.glVertex3f(-1f, 1f, 0f);
+			Gl.glEnd();
+			//surface.Blit(logo.Texture, new Point(-100, -200));
 		}
 	}
 }

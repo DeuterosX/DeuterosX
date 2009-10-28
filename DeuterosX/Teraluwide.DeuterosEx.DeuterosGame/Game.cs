@@ -48,7 +48,15 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 
 			Video.SetVideoMode(BackbufferWidth, BackbufferHeight, false, true, false, true);
 			Video.GLDoubleBufferEnabled = true;
-			
+
+			Gl.glEnable(Gl.GL_TEXTURE_2D);                                      // Enable Texture Mapping ( NEW )
+			Gl.glShadeModel(Gl.GL_SMOOTH);                                      // Enable Smooth Shading
+			Gl.glClearColor(0, 0, 0, 0.5f);                                     // Black Background
+			Gl.glClearDepth(1);                                                 // Depth Buffer Setup
+			Gl.glEnable(Gl.GL_DEPTH_TEST);                                      // Enables Depth Testing
+			Gl.glDepthFunc(Gl.GL_LEQUAL);                                       // The Type Of Depth Testing To Do
+			Gl.glHint(Gl.GL_PERSPECTIVE_CORRECTION_HINT, Gl.GL_NICEST);         // Really Nice Perspective Calculations
+
 			cursor = TextureManager.GetTexture("cursor");
 			Mouse.ShowCursor = false;
 		}
@@ -67,42 +75,28 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Gl.glMatrixMode(Gl.GL_MODELVIEW);
 			Gl.glLoadIdentity();
 
-			Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);        // Clear Screen And Depth Buffer
+			Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
 
-			Gl.glLoadIdentity();                                                // Reset The Current Modelview Matrix
-			Gl.glTranslatef(-1.5f, 0, -6);                                      // Move Left 1.5 Units And Into The Screen 6.0
-			Gl.glBegin(Gl.GL_TRIANGLES);                                        // Drawing Using Triangles
-			Gl.glColor3f(1, 0, 0);                                          // Set The Color To Red
-			Gl.glVertex3f(0, 1, 0);                                         // Top
-			Gl.glColor3f(0, 1, 0);                                          // Set The Color To Green
-			Gl.glVertex3f(-1, -1, 0);                                       // Bottom Left
-			Gl.glColor3f(0, 0, 1);                                          // Set The Color To Blue
-			Gl.glVertex3f(1, -1, 0);                                        // Bottom Right
-			Gl.glEnd();                                                         // Finished Drawing The Triangle
-			Gl.glTranslatef(3, 0, 0);                                           // Move Right 3 Units
-			Gl.glColor3f(0.5f, 0.5f, 1);                                        // Set The Color To Blue One Time Only
-			
-			//Gl.glBindTexture(Gl.GL_TEXTURE_2D, cursor.Texture);
-			
-			Gl.glBegin(Gl.GL_QUADS);                                            // Draw A Quad
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, cursor.TextureId);
+			Gl.glBegin(Gl.GL_QUADS);
 			Gl.glTexCoord2f(0, 0); Gl.glVertex3f(-1, -1, 0);
 			Gl.glTexCoord2f(1, 0); Gl.glVertex3f(1, -1, 0);
 			Gl.glTexCoord2f(1, 1); Gl.glVertex3f(1, 1, 0);
-			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(-1, 1, 0); 
-			Gl.glEnd();    
-			
+			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(-1, 1, 0);
+			Gl.glEnd();
+
 			// render the current game screen
 			GameScreenManager.CurrentGameScreen.Render(Video.Screen);
 
 			// render the FPS
-			Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
-			
+			// Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
+
 			// render the mouse cursor
-			Video.Screen.Blit(cursor.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
-			
+			// Video.Screen.Blit(cursor.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
+
 			Video.GLSwapBuffers();
 		}
 
-		
+
 	}
 }
