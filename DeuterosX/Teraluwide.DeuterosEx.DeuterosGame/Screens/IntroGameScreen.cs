@@ -70,14 +70,13 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		{
 			Gl.glMatrixMode(Gl.GL_MODELVIEW);
 			Gl.glLoadIdentity();
-			Gl.glTranslatef(0f, 0f, -2f);
 			Gl.glBindTexture(Gl.GL_TEXTURE_2D, logo.TextureId);
 
 			Gl.glBegin(Gl.GL_QUADS);
-			Gl.glTexCoord2f(0f, 0f); Gl.glVertex3f(-1f, -1f, 0f);
-			Gl.glTexCoord2f(1f, 0f); Gl.glVertex3f(1f, -1f, 0f);
-			Gl.glTexCoord2f(1f, 1f); Gl.glVertex3f(1f, 1f, 0f);
-			Gl.glTexCoord2f(0f, 1f); Gl.glVertex3f(-1f, 1f, 0f);
+			Gl.glTexCoord2f(0, 0); Gl.glVertex3f(0, 0, 0);
+			Gl.glTexCoord2f(1, 0); Gl.glVertex3f(1088, 0, 0);
+			Gl.glTexCoord2f(1, 1); Gl.glVertex3f(1088, 672, 0);
+			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(0, 672, 0);
 			Gl.glEnd();
 			//surface.Blit(logo.Texture, new Point(-100, -200));
 		}

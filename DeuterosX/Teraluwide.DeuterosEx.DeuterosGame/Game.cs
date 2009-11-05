@@ -50,6 +50,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Video.GLDoubleBufferEnabled = true;
 
 			Gl.glEnable(Gl.GL_TEXTURE_2D);                                      // Enable Texture Mapping ( NEW )
+			Gl.glEnable(Gl.GL_ALPHA);
 			Gl.glShadeModel(Gl.GL_SMOOTH);                                      // Enable Smooth Shading
 			Gl.glClearColor(0, 0, 0, 0.5f);                                     // Black Background
 			Gl.glClearDepth(1);                                                 // Depth Buffer Setup
@@ -71,19 +72,9 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Gl.glViewport(0, 0, BackbufferWidth, BackbufferHeight);
 			Gl.glMatrixMode(Gl.GL_PROJECTION);
 			Gl.glLoadIdentity();
-			Glu.gluPerspective(45d, (double)BackbufferWidth / (double)BackbufferHeight, 0.1d, 100d);
-			Gl.glMatrixMode(Gl.GL_MODELVIEW);
-			Gl.glLoadIdentity();
+			Glu.gluOrtho2D(0, BackbufferWidth, 0, BackbufferHeight);
 
 			Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-
-			Gl.glBindTexture(Gl.GL_TEXTURE_2D, cursor.TextureId);
-			Gl.glBegin(Gl.GL_QUADS);
-			Gl.glTexCoord2f(0, 0); Gl.glVertex3f(-1, -1, 0);
-			Gl.glTexCoord2f(1, 0); Gl.glVertex3f(1, -1, 0);
-			Gl.glTexCoord2f(1, 1); Gl.glVertex3f(1, 1, 0);
-			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(-1, 1, 0);
-			Gl.glEnd();
 
 			// render the current game screen
 			GameScreenManager.CurrentGameScreen.Render(Video.Screen);
@@ -93,6 +84,20 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 
 			// render the mouse cursor
 			// Video.Screen.Blit(cursor.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
+
+			Gl.glMatrixMode(Gl.GL_MODELVIEW);
+			Gl.glLoadIdentity();
+			Gl.glTranslatef(Mouse.MousePosition.X - 15, BackbufferHeight - (Mouse.MousePosition.Y - 13), 0);
+
+			Gl.glEnable(Gl.GL_ALPHA_TEST);
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, cursor.TextureId);
+			Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
+			Gl.glBegin(Gl.GL_QUADS);
+			Gl.glTexCoord2f(0, 0); Gl.glVertex3f(0, 0, 0);
+			Gl.glTexCoord2f(1, 0); Gl.glVertex3f(30, 0, 0);
+			Gl.glTexCoord2f(1, 1); Gl.glVertex3f(30, 26, 0);
+			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(0, 26, 0);
+			Gl.glEnd();
 
 			Video.GLSwapBuffers();
 		}

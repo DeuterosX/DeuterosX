@@ -134,14 +134,14 @@ namespace Teraluwide.Blackbird.Core
 					bmp = buf as Bitmap;
 				else
 				{
-					bmp = new Bitmap(buf);
+					bmp = new Bitmap(buf.Width, buf.Height, PixelFormat.Format32bppArgb);
 					using (Graphics gr = Graphics.FromImage(bmp))
 					{
 						gr.DrawImage(buf, 0, 0);
 					}
 					buf.Dispose();
 				}
-
+				
 				// Create a new unique OpenGL texture id.
 				int[] texids = new int[1];
 				Gl.glGenTextures(1, texids);
@@ -155,7 +155,7 @@ namespace Teraluwide.Blackbird.Core
 
 				// Load the texture.
 				Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
-				Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA8, bmp.Width, bmp.Height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
+				Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, bmp.Width, bmp.Height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
 				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, Gl.GL_LINEAR);
 				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR);
 
