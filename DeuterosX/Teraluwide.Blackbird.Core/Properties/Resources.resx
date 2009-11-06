@@ -153,6 +153,10 @@
     <value>Mod game info file version: {0}</value>
     <comment>Represents the format in which game info version is logged.</comment>
   </data>
+  <data name="GameScreenDefinitionVersion" xml:space="preserve">
+    <value>Game screen definition file version: {0}</value>
+    <comment>Represents the format in which texture definition version is logged.</comment>
+  </data>
   <data name="GameScreenAlreadyRegistered" xml:space="preserve">
     <value>The game screen {0} has already been registered.</value>
     <comment>Represents the error message shown when a custom component is registered for the second time.</comment>
