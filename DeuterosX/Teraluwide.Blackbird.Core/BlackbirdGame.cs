@@ -60,6 +60,34 @@ namespace Teraluwide.Blackbird.Core
 		public GuiMenuManager GuiMenuManager { get; private set; }
 
 		/// <summary>
+		/// Gets the scale used on all graphics.
+		/// </summary>
+		/// <value>The scale.</value>
+		public abstract int Scale { get; }
+
+		/// <summary>
+		/// Gets the width of the backbuffer.
+		/// </summary>
+		/// <value>The width of the backbuffer.</value>
+		public abstract int BackbufferWidth { get; }
+		/// <summary>
+		/// Gets the height of the backbuffer.
+		/// </summary>
+		/// <value>The height of the backbuffer.</value>
+		public abstract int BackbufferHeight { get; }
+
+		/// <summary>
+		/// Gets the mouse X-coordinate.
+		/// </summary>
+		/// <value>The mouse X.</value>
+		public int MouseX { get { return SdlDotNet.Input.Mouse.MousePosition.X / Scale; } }
+		/// <summary>
+		/// Gets the mouse Y-coordinate.
+		/// </summary>
+		/// <value>The mouse Y.</value>
+		public int MouseY { get { return SdlDotNet.Input.Mouse.MousePosition.Y / Scale; } }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="BlackbirdGame"/> class.
 		/// </summary>
 		public BlackbirdGame()

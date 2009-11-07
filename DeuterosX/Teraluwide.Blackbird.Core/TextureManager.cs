@@ -91,7 +91,9 @@ namespace Teraluwide.Blackbird.Core
 								this, id, fileName,
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "onLoad", "0")),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "onDemand", "1")),
-								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "trackUsers", "1"))
+								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "trackUsers", "1")),
+								XmlHelper.ParseRectangle(el, "DrawArea", System.Drawing.Rectangle.Empty),
+								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "1"))
 							)
 					);
 

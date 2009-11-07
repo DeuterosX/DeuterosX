@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using Teraluwide.Blackbird.Core.Properties;
+using System.Drawing;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -27,6 +28,32 @@ namespace Teraluwide.Blackbird.Core
 		}
 
 		/// <summary>
+		/// Parses a Rectangle from a XmlElement.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="name">The name.</param>
+		/// <param name="defaultValue">The default value.</param>
+		/// <returns></returns>
+		public static Rectangle ParseRectangle(XmlElement parent, string name, Rectangle defaultValue)
+		{
+			if (parent == null)
+				return defaultValue;
+
+			XmlElement el = parent.SelectSingleNode(name) as XmlElement;
+
+			if (el == null)
+				return defaultValue;
+
+			return
+				new Rectangle(
+						int.Parse(GetAttribute(el, "x", "0")),
+						int.Parse(GetAttribute(el, "y", "0")),
+						int.Parse(GetAttribute(el, "width", "0")),
+						int.Parse(GetAttribute(el, "height", "0"))
+					);
+		}
+
+		/// <summary>
 		/// Gets the specified attribute from a XmlElement.
 		/// </summary>
 		/// <param name="parent">The parent.</param>
@@ -35,11 +62,15 @@ namespace Teraluwide.Blackbird.Core
 		/// <returns></returns>
 		public static string GetAttribute(XmlElement parent, string name, string defaultValue)
 		{
+			if (parent == null)
+				return defaultValue;
+
 			string ret = parent.GetAttribute(name);
 			if (string.IsNullOrEmpty(ret)) ret = defaultValue;
 
 			return ret;
 		}
+
 
 		/// <summary>
 		/// Parses the enumeration using the specified generic parameter as enum type and a text string (Flags enums are supported in A|B|C format).

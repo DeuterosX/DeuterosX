@@ -52,6 +52,47 @@ namespace Teraluwide.Blackbird.Core
 		public bool TrackUsers { get; private set; }
 
 		/// <summary>
+		/// Gets or sets the texture draw area.
+		/// </summary>
+		/// <value>The draw area.</value>
+		public Rectangle DrawArea { get; private set; }
+
+		/// <summary>
+		/// Gets or sets the real size of the texture.
+		/// </summary>
+		/// <value>The real size of the texture.</value>
+		public Size RealSize { get; private set; }
+
+		RectangleF textureCoordinates;
+		/// <summary>
+		/// Gets the texture coordinates.
+		/// </summary>
+		/// <value>The texture coordinates.</value>
+		RectangleF TextureCoordinates
+		{
+			get
+			{
+				if (textureCoordinates == RectangleF.Empty)
+				{
+					textureCoordinates = new RectangleF(
+							(float)DrawArea.X / (float)RealSize.Width,
+							(float)DrawArea.Y / (float)RealSize.Height,
+							(float)DrawArea.Width / (float)RealSize.Width,
+							(float)DrawArea.Height / (float)RealSize.Height
+						);
+				}
+
+				return textureCoordinates;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether to enable smooth scaling.
+		/// </summary>
+		/// <value><c>true</c> if smooth scaling is enabled; otherwise, <c>false</c>.</value>
+		public bool SmoothScale { get; private set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="TextureManagerItem"/> class.
 		/// </summary>
 		/// <param name="manager">The manager.</param>
@@ -60,7 +101,7 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="onLoad">if set to <c>true</c> the texture will be loaded immediately.</param>
 		/// <param name="onDemand">if set to <c>true</c> the texture will be loaded on demand.</param>
 		/// <param name="trackUsers">if set to <c>true</c> the texture will have its users tracked.</param>
-		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers)
+		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers, Rectangle drawArea, bool smoothScale)
 		{
 			this.manager = manager;
 			this.Id = id;
@@ -68,6 +109,8 @@ namespace Teraluwide.Blackbird.Core
 			this.OnLoad = onLoad;
 			this.OnDemand = onDemand;
 			this.TrackUsers = trackUsers;
+			this.DrawArea = drawArea;
+			this.SmoothScale = smoothScale;
 		}
 
 		/// <summary>
@@ -141,14 +184,16 @@ namespace Teraluwide.Blackbird.Core
 					}
 					buf.Dispose();
 				}
-				
+
+				// Update meta information about the texture
+				RealSize = bmp.Size;
+				if (DrawArea == Rectangle.Empty)
+					DrawArea = new Rectangle(new Point(0, 0), bmp.Size);
+
 				// Create a new unique OpenGL texture id.
 				int[] texids = new int[1];
 				Gl.glGenTextures(1, texids);
 				this.textureId = texids[0];
-
-				// OpenGL uses Y-flipped textures, so we have to do this not to have everything bottom-up.
-				bmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
 				// Lock the bitmap data of the texture.
 				BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
@@ -156,12 +201,40 @@ namespace Teraluwide.Blackbird.Core
 				// Load the texture.
 				Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
 				Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, bmp.Width, bmp.Height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, Gl.GL_LINEAR);
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR);
+
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP);
+				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_CLAMP);
 
 				bmp.UnlockBits(data);
 				bmp.Dispose();
 			}
+		}
+
+		/// <summary>
+		/// Draws this texture to the specified coordinates.
+		/// </summary>
+		/// <param name="x">The x-coordinate.</param>
+		/// <param name="y">The y-coordinate.</param>
+		public void Draw(int x, int y)
+		{
+			Gl.glMatrixMode(Gl.GL_MODELVIEW);
+			Gl.glLoadIdentity();
+
+			Gl.glScalef(manager.Game.Scale, manager.Game.Scale, 1);
+			Gl.glTranslatef(x, y, 0);
+
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, TextureId);
+
+			RectangleF texCoords = TextureCoordinates;
+			Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
+			Gl.glBegin(Gl.GL_QUADS);
+			Gl.glTexCoord2f(texCoords.Left, texCoords.Top); Gl.glVertex3f(DrawArea.Left, DrawArea.Top, 0);
+			Gl.glTexCoord2f(texCoords.Right, texCoords.Top); Gl.glVertex3f(DrawArea.Right, DrawArea.Top, 0);
+			Gl.glTexCoord2f(texCoords.Right, texCoords.Bottom); Gl.glVertex3f(DrawArea.Right, DrawArea.Bottom, 0);
+			Gl.glTexCoord2f(texCoords.Left, texCoords.Bottom); Gl.glVertex3f(DrawArea.Left, DrawArea.Bottom, 0);
+			Gl.glEnd();
 		}
 
 		#region IDisposable Members
