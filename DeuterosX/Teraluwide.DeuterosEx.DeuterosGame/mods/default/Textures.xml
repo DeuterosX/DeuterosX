@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDRFile version="0.03" type="textures">
   <TextureList>
-    <Texture id="cursor" fileName="gfx/cursor.png" />
+    <Texture id="cursor" fileName="gfx/cursor.png" smoothScale="0">
+      <DrawArea x="0" y="0" width="13" height="13" />
+    </Texture>
     <Texture id="placeholder" fileName="gfx/placeholder.png" />
     <Texture id="menuBackground" fileName="gfx/menuBackground.png" />
     <Texture id="buttonMainMenu" fileName="gfx/buttonMainMenu.png" />
