@@ -109,6 +109,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Screens\IntroGameScreen.cs" />
+    <Compile Include="Screens\MainGameScreen.cs" />
     <Compile Include="Screens\StationGameScreen.cs" />
     <Compile Include="Stations\Station.cs" />
     <Compile Include="Stations\StationBase.cs" />

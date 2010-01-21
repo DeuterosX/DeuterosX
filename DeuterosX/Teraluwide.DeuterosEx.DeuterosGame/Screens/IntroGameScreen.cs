@@ -66,7 +66,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// Renders the IRenderable to the specified surface.
 		/// </summary>
 		/// <param name="surface">The target surface.</param>
-		public override void Render(Surface surface)
+		public override void Render()
 		{
 			Gl.glMatrixMode(Gl.GL_MODELVIEW);
 			Gl.glLoadIdentity();

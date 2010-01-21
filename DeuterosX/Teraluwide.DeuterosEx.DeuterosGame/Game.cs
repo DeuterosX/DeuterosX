@@ -97,9 +97,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			// render the FPS
 			// Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
 
-			// render the mouse cursor
-			// Video.Screen.Blit(cursor.Texture, new Rectangle(Mouse.MousePosition.X - 14, Mouse.MousePosition.Y - 13, 28, 26), new Rectangle(0, 0, 28, 26));
 
+			// render the mouse cursor
 			cursor.Draw(MouseX - cursor.RealSize.Width / 2, MouseY - cursor.RealSize.Height / 2);
 
 			Video.GLSwapBuffers();

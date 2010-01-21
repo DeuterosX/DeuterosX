@@ -10,7 +10,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 	/// <summary>
 	/// Represents a game screen for station view.
 	/// </summary>
-	public class StationGameScreen : GameScreen
+	public class StationGameScreen : MainGameScreen
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StationGameScreen"/> class.
@@ -58,9 +58,9 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// Renders the IRenderable to the specified surface.
 		/// </summary>
 		/// <param name="surface">The target surface.</param>
-		public override void Render(SdlDotNet.Graphics.Surface surface)
+		public override void Render()
 		{
-			throw new NotImplementedException();
+			base.Render();
 		}
 	}
 }
