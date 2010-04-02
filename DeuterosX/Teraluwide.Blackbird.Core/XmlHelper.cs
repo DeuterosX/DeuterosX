@@ -5,6 +5,8 @@ using System.Text;
 using System.Xml;
 using Teraluwide.Blackbird.Core.Properties;
 using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -13,6 +15,11 @@ namespace Teraluwide.Blackbird.Core
 	/// </summary>
 	public static class XmlHelper
 	{
+		private static class TypeConverterProvider<T>
+		{
+			public static TypeConverter Converter = TypeDescriptor.GetConverter(typeof(T));
+		}
+
 		/// <summary>
 		/// Parses a Xml boolean value.
 		/// </summary>
@@ -54,6 +61,28 @@ namespace Teraluwide.Blackbird.Core
 		}
 
 		/// <summary>
+		/// Gets the attribute or null.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="name">The name.</param>
+		/// <returns></returns>
+		public static string GetAttributeOrNull(this XmlElement parent, string name)
+		{
+			return GetAttribute(parent, name);
+		}
+
+		/// <summary>
+		/// Gets the attribute.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="name">The name.</param>
+		/// <returns></returns>
+		public static string GetAttribute(XmlElement parent, string name)
+		{
+			return GetAttribute(parent, name, null);
+		}
+
+		/// <summary>
 		/// Gets the specified attribute from a XmlElement.
 		/// </summary>
 		/// <param name="parent">The parent.</param>
@@ -62,13 +91,10 @@ namespace Teraluwide.Blackbird.Core
 		/// <returns></returns>
 		public static string GetAttribute(XmlElement parent, string name, string defaultValue)
 		{
-			if (parent == null)
+			if (parent == null || !parent.HasAttribute(name))
 				return defaultValue;
 
-			string ret = parent.GetAttribute(name);
-			if (string.IsNullOrEmpty(ret)) ret = defaultValue;
-
-			return ret;
+			return parent.GetAttribute(name);
 		}
 
 
@@ -78,15 +104,30 @@ namespace Teraluwide.Blackbird.Core
 		/// <typeparam name="T">The type of the enum being parsed.</typeparam>
 		/// <param name="text">The input text.</param>
 		/// <returns></returns>
-		public static int ParseEnum<T>(string text)
-			where T: struct
+		public static T ParseEnum<T>(string text)
 		{
 			int ret = 0;
-			
+
 			foreach (string part in text.Split('|'))
 				ret = ret | (int)Enum.Parse(typeof(T), part.Trim());
 			
-			return ret;
+			return (T)(object)ret;
+		}
+
+		/// <summary>
+		/// Parses the specified text.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="text">The text.</param>
+		/// <returns></returns>
+		public static T Parse<T>(string text)
+		{
+			Type type = typeof(T);
+			
+			if (type.IsEnum)
+				return (T)(object)ParseEnum<T>(text);
+			else
+				return (T)TypeConverterProvider<T>.Converter.ConvertFromString(null, CultureInfo.InvariantCulture, text);
 		}
 
 		/// <summary>
@@ -94,14 +135,14 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		/// <param name="typeName">Name of the type.</param>
 		/// <returns></returns>
-		public static object CreateType(string typeName)
+		public static object CreateType(BlackbirdGame game, string typeName, params object[] pars)
 		{
-			Type type = Type.GetType(typeName, false);
+			Type type = game.TypeManager.GetType(typeName);
 
 			if (type == null)
 				throw new BlackbirdException(string.Format(Resources.TypeNotFound, typeName));
 
-			object ret = Activator.CreateInstance(type);
+			object ret = Activator.CreateInstance(type, pars);
 
 			if (ret == null)
 				throw new BlackbirdException(string.Format(Resources.TypeNotInitialized, typeName));
