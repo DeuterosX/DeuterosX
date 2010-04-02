@@ -222,4 +222,12 @@ Value '{1}' is invalid for the option '{2}'.</value>
     <value>The type {0} could not be initialized.</value>
     <comment>Represents the error message shown when a type could not be initialized.</comment>
   </data>
+  <data name="FaceAlreadyRegistered" xml:space="preserve">
+    <value>The face '{0}' has already been registered.</value>
+    <comment>Represents the error message shown when a face has already been registered.</comment>
+  </data>
+  <data name="TypeAlreadyRegistered" xml:space="preserve">
+    <value>The type {0} has already been registered.</value>
+    <comment>Represents the error message shown when a type has already been registered.</comment>
+  </data>
 </root>
