@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="intro">
+    <background color="#ffff0000" image="deuterosLogo" repeat="NoRepeat" />
+    <size width="320" height="200" />
+    <control type="cface" faceId="systemName" x="200" />
+  </Face>
+</FDRFile>

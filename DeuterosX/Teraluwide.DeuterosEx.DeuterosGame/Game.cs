@@ -92,7 +92,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
 
 			// render the current game screen
-			GameScreenManager.CurrentGameScreen.Render(Video.Screen);
+			GameScreenManager.CurrentGameScreen.Render();
 
 			// render the FPS
 			// Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
@@ -100,6 +100,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 
 			// render the mouse cursor
 			cursor.Draw(MouseX - cursor.RealSize.Width / 2, MouseY - cursor.RealSize.Height / 2);
+
+			Gl.glFlush();
 
 			Video.GLSwapBuffers();
 		}

@@ -23,7 +23,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// Initializes a new instance of the <see cref="IntroGameScreen"/> class.
 		/// </summary>
 		/// <param name="game">The game.</param>
-		public IntroGameScreen(BlackbirdGame game) : base(game)
+		public IntroGameScreen(BlackbirdGame game, string faceId)
+			: base(game, faceId)
 		{
 
 		}
@@ -68,17 +69,19 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// <param name="surface">The target surface.</param>
 		public override void Render()
 		{
-			Gl.glMatrixMode(Gl.GL_MODELVIEW);
-			Gl.glLoadIdentity();
-			Gl.glBindTexture(Gl.GL_TEXTURE_2D, logo.TextureId);
+			base.Render();
 
-			Gl.glBegin(Gl.GL_QUADS);
-			Gl.glTexCoord2f(0, 0); Gl.glVertex3f(0, 0, 0);
-			Gl.glTexCoord2f(1, 0); Gl.glVertex3f(1088, 0, 0);
-			Gl.glTexCoord2f(1, 1); Gl.glVertex3f(1088, 672, 0);
-			Gl.glTexCoord2f(0, 1); Gl.glVertex3f(0, 672, 0);
-			Gl.glEnd();
-			//surface.Blit(logo.Texture, new Point(-100, -200));
+			//logo.Draw(0, 20);
+		}
+
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+		/// </summary>
+		public override void Dispose()
+		{
+			base.Dispose();
+
+			logo.RemoveUser();
 		}
 	}
 }

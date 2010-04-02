@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">  
+  <Include file="face/Screens.xml" />
+
+  <Face id="systemName">
+    <background color="#ffff0000" image="systemName" repeat="NoRepeat" />
+    <size width="80" height="16" />
+    <control type="label" id="" x="4" y="4" text="$currentSystem" color="#e0e000" font="fntGui" />
+  </Face>
+  
+</FDRFile>

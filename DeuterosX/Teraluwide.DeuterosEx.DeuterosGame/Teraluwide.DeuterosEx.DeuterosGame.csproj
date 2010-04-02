@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EDB192F6-9BC3-410F-A4B6-D82D58CE49D9}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -122,6 +122,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mods\default\face\Main.xml" />
+    <Content Include="mods\default\face\Screens.xml" />
     <Content Include="mods\default\GameScreens.xml" />
     <Content Include="mods\default\gfx\bottomGui.png" />
     <Content Include="mods\default\gfx\bottomLog.png" />
@@ -157,6 +159,7 @@
     <Content Include="mods\default\gfx\production.Derrick.png" />
     <Content Include="mods\default\gfx\systemName.png" />
     <Content Include="mods\default\Intro.xml" />
+    <Content Include="mods\default\Types.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mods\default\fonts\" />

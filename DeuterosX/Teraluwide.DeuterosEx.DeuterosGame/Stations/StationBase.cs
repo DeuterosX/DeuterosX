@@ -14,10 +14,17 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 	public class StationBase
 	{
 		/// <summary>
+		/// Gets or sets the game.
+		/// </summary>
+		/// <value>The game.</value>
+		protected BlackbirdGame Game { get; private set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="StationBase"/> class.
 		/// </summary>
-		public StationBase()
+		public StationBase(BlackbirdGame game)
 		{
+			this.Game = game;
 			modules = new List<StationModuleBase>();
 		}
 
@@ -79,7 +86,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			this.modules.Clear();
 			foreach (XmlNode xMod in node["Modules"].ChildNodes)
 			{
-				StationModuleBase mod = XmlHelper.CreateType(xMod.Name) as StationModuleBase;
+				StationModuleBase mod = XmlHelper.CreateType(Game, xMod.Name) as StationModuleBase;
 				if (mod == null)
 					throw new DeuterosException(string.Format(Resources.InvalidStationModule, xMod.Name));
 

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="types">
+  <TypeList>
+    <Type id="label" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiLabel, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Type id="cface" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiFaceControl, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  </TypeList>
+</FDRFile>
+    

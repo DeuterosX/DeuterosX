@@ -16,8 +16,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Screens
 		/// Initializes a new instance of the <see cref="StationGameScreen"/> class.
 		/// </summary>
 		/// <param name="game">The game.</param>
-		public StationGameScreen(BlackbirdGame game)
-			: base(game)
+		public StationGameScreen(BlackbirdGame game, string faceId)
+			: base(game, faceId)
 		{ }
 
 		/// <summary>
