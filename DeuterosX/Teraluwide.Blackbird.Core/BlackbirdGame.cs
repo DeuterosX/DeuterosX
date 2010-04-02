@@ -5,6 +5,7 @@ using System.Text;
 using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 using System.Drawing;
+using Teraluwide.Blackbird.Core.Gui;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -57,7 +58,13 @@ namespace Teraluwide.Blackbird.Core
 		/// Gets or sets the Gui menu manager.
 		/// </summary>
 		/// <value>The Gui menu manager.</value>
-		public GuiMenuManager GuiMenuManager { get; private set; }
+		public GuiManager GuiManager { get; private set; }
+
+		/// <summary>
+		/// Gets or sets the type manager.
+		/// </summary>
+		/// <value>The type manager.</value>
+		public TypeManager TypeManager { get; private set; }
 
 		/// <summary>
 		/// Gets the scale used on all graphics.
@@ -98,7 +105,8 @@ namespace Teraluwide.Blackbird.Core
 			TextureManager = new TextureManager(this);
 			FontManager = new FontManager(this);
 			GameScreenManager = new GameScreenManager(this);
-			GuiMenuManager = new GuiMenuManager(this);
+			GuiManager = new GuiManager(this);
+			TypeManager = new TypeManager(this);
 		}
 
 		/// <summary>
@@ -122,10 +130,12 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		protected virtual void LoadMod()
 		{
+			TypeManager.Load();
 			GameInfo.Load();
 			TextureManager.Load();
 			FontManager.Load();
 			GameScreenManager.Load();
+			GuiManager.Load();
 
 			// Load all the custom components.
 			foreach (var component in CustomComponents.Values)
