@@ -24,6 +24,8 @@
                   <xs:attribute name="onDemand" type="xs:boolean" use="optional" />
                   <xs:attribute name="trackUsers" type="xs:boolean" use="optional" />
                   <xs:attribute name="smoothScale" type="xs:boolean" use="optional" />
+                  <xs:attribute name="allowScaling" type="xs:boolean" use="optional" />
+                  <xs:attribute name="scalingModifier" type="xs:float" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>

@@ -70,14 +70,14 @@ namespace Teraluwide.Blackbird.Core
 
 			foreach (XmlElement el in root.SelectNodes("TextureList/*"))
 			{
-				string id = el.GetAttribute("id");
-				string fileName = el.GetAttribute("fileName");
+				string id = el.GetAttributeOrNull("id");
+				string fileName = el.GetAttributeOrNull("fileName");
 
 				if (id == null)
-					throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatSpecificException, FileName, "null", id));
+					throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatSpecificException, FileName, "null", "id"));
 
 				if (fileName == null)
-					throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatSpecificException, FileName, "null", fileName));
+					throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatSpecificException, FileName, "null", "fileName"));
 
 				if (innerData.ContainsKey(id))
 					throw new BlackbirdException(string.Format(Resources.TextureAlreadyRegistered, id));
@@ -93,7 +93,9 @@ namespace Teraluwide.Blackbird.Core
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "onDemand", "1")),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "trackUsers", "1")),
 								XmlHelper.ParseRectangle(el, "DrawArea", System.Drawing.Rectangle.Empty),
-								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "1"))
+								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "1")),
+								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "allowScaling", "1")),
+								XmlHelper.Parse<float>(XmlHelper.GetAttribute(el, "scalingModifier", "1"))								
 							)
 					);
 

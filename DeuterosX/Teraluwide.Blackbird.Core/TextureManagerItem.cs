@@ -45,6 +45,12 @@ namespace Teraluwide.Blackbird.Core
 		public bool OnDemand { get; private set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether to allow scaling.
+		/// </summary>
+		/// <value><c>true</c> if scaling is allowed; otherwise, <c>false</c>.</value>
+		public bool AllowScaling { get; private set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating whether to track users of this texture. If true and the texture loses all of its users, it is disposed. It may be reloaded
 		/// again (on trigger or on demand if applicable).
 		/// </summary>
@@ -62,6 +68,12 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		/// <value>The real size of the texture.</value>
 		public Size RealSize { get; private set; }
+
+		/// <summary>
+		/// Gets or sets the scaling modifier.
+		/// </summary>
+		/// <value>The scaling modifier.</value>
+		public float ScalingModifier { get; private set; }
 
 		RectangleF textureCoordinates;
 		/// <summary>
@@ -101,7 +113,7 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="onLoad">if set to <c>true</c> the texture will be loaded immediately.</param>
 		/// <param name="onDemand">if set to <c>true</c> the texture will be loaded on demand.</param>
 		/// <param name="trackUsers">if set to <c>true</c> the texture will have its users tracked.</param>
-		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers, Rectangle drawArea, bool smoothScale)
+		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers, Rectangle drawArea, bool smoothScale, bool allowScaling, float scalingModifier)
 		{
 			this.manager = manager;
 			this.Id = id;
@@ -111,6 +123,8 @@ namespace Teraluwide.Blackbird.Core
 			this.TrackUsers = trackUsers;
 			this.DrawArea = drawArea;
 			this.SmoothScale = smoothScale;
+			this.AllowScaling = allowScaling;
+			this.ScalingModifier = scalingModifier;
 		}
 
 		/// <summary>
@@ -219,10 +233,21 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="y">The y-coordinate.</param>
 		public void Draw(int x, int y)
 		{
+			Gl.glPushMatrix();
 			Gl.glMatrixMode(Gl.GL_MODELVIEW);
 			Gl.glLoadIdentity();
 
-			Gl.glScalef(manager.Game.Scale, manager.Game.Scale, 1);
+			if (AllowScaling)
+			{
+				if (ScalingModifier == 1)
+					Gl.glScalef(manager.Game.Scale, manager.Game.Scale, 1);
+				else
+				{
+					float scale = (float)manager.Game.Scale * ScalingModifier;
+					Gl.glScalef(scale, scale, 1);
+				}
+			}
+
 			Gl.glTranslatef(x, y, 0);
 
 			Gl.glBindTexture(Gl.GL_TEXTURE_2D, TextureId);
@@ -235,6 +260,9 @@ namespace Teraluwide.Blackbird.Core
 			Gl.glTexCoord2f(texCoords.Right, texCoords.Bottom); Gl.glVertex3f(DrawArea.Right, DrawArea.Bottom, 0);
 			Gl.glTexCoord2f(texCoords.Left, texCoords.Bottom); Gl.glVertex3f(DrawArea.Left, DrawArea.Bottom, 0);
 			Gl.glEnd();
+
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, 0);
+			Gl.glPopMatrix();
 		}
 
 		#region IDisposable Members
@@ -246,7 +274,7 @@ namespace Teraluwide.Blackbird.Core
 		{
 			if (this.textureId != 0)
 			{
-				// TODO: Dispose the OpenGL texture.
+				Gl.glDeleteTextures(1, new int[] { textureId });
 
 				this.textureId = 0;
 			}
