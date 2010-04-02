@@ -15,6 +15,6 @@ namespace Teraluwide.Blackbird.Core
 		/// Renders the IRenderable to the specified surface.
 		/// </summary>
 		/// <param name="surface">The target surface.</param>
-		void Render(Surface surface);
+		void Render();
 	}
 }
