@@ -93,7 +93,7 @@ namespace Teraluwide.Blackbird.Core
 				if (screenType == null)
 					throw new BlackbirdException(string.Format(Resources.GameScreenTypeNotFound, type));
 
-				GameScreen screen = Activator.CreateInstance(screenType, Game) as GameScreen;
+				GameScreen screen = Activator.CreateInstance(screenType, Game, el.GetAttribute("faceId")) as GameScreen;
 
 				if (screen == null)
 					throw new BlackbirdException(string.Format(Resources.GameScreenTypeNotInitialized, type));

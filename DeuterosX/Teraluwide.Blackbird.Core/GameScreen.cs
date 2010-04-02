@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Teraluwide.Blackbird.Core.Gui;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -13,17 +14,24 @@ namespace Teraluwide.Blackbird.Core
 		/// Initializes a new instance of the <see cref="GameScreen"/> class.
 		/// </summary>
 		/// <param name="game">The game.</param>
-		public GameScreen(BlackbirdGame game)
+		public GameScreen(BlackbirdGame game, string faceId)
 		{
 			this.Game = game;
+			this.FaceId = faceId;
 		}
+
+		/// <summary>
+		/// Gets or sets the face id.
+		/// </summary>
+		/// <value>The face id.</value>
+		public string FaceId { get; private set; }
 
 		#region IDisposable Members
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 		/// </summary>
-		public void Dispose()
+		public virtual void Dispose()
 		{
 			
 		}
@@ -67,7 +75,13 @@ namespace Teraluwide.Blackbird.Core
 		/// Renders the IRenderable to the specified surface.
 		/// </summary>
 		/// <param name="surface">The target surface.</param>
-		public abstract void Render(SdlDotNet.Graphics.Surface surface);
+		public virtual void Render()
+		{
+			GuiFace face = Game.GuiManager.GetFace(FaceId);
+
+			if (face != null)
+				face.Render(0, 0);
+		}
 
 		#endregion
 	}
