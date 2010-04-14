@@ -1,0 +1,7 @@
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\bin\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.exe
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\bin\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.pdb
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\obj\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.Properties.Resources.resources
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\obj\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.csproj.GenerateResource.Cache
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\obj\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.exe
+C:\Documents and Settings\asg\My Documents\Projects\Deuteros\SVN\project\DeuterosX\Teraluwide.Blackbird.Tools.XMLGenerator\obj\Debug\Teraluwide.Blackbird.Tools.XMLGenerator.pdb
