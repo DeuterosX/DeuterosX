@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DeuterosX game")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Teraluwide & co.")]
+[assembly: AssemblyCompany("DeuterosX Team")]
 [assembly: AssemblyProduct("Teraluwide.DeuterosEx.DeuterosGame")]
-[assembly: AssemblyCopyright("Copyright © Teraluwide & co. 2009")]
+[assembly: AssemblyCopyright("Copyright © DeuterosX Team 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
