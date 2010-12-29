@@ -39,7 +39,7 @@ namespace Teraluwide.Blackbird.Core
 			{
 				if (this.ContainsKey(component.Name))
 				{
-					IBlackbirdSimulationComponent sim = this[component.Name] as IBlackbirdSimulationComponent;
+					IBlackbirdSavegameComponent sim = this[component.Name] as IBlackbirdSavegameComponent;
 
 					if (sim != null)
 						sim.LoadGame(component);
@@ -55,7 +55,7 @@ namespace Teraluwide.Blackbird.Core
 		{
 			foreach (ICustomBlackbirdComponent component in this.Values)
 			{
-				IBlackbirdSimulationComponent sim = component as IBlackbirdSimulationComponent;
+				IBlackbirdSavegameComponent sim = component as IBlackbirdSavegameComponent;
 
 				if (sim != null)
 				{

@@ -178,6 +178,15 @@ namespace Teraluwide.Blackbird.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The game screen {0} was not found..
+        /// </summary>
+        internal static string GameScreenNotFound {
+            get {
+                return ResourceManager.GetString("GameScreenNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The game screen type {0} could not be found..
         /// </summary>
         internal static string GameScreenTypeNotFound {

@@ -92,7 +92,6 @@
     <None Include="app.config" />
     <Content Include="mods\default\Fonts.xml" />
     <Content Include="mods\default\GameInfo.xml" />
-    <None Include="mods\default\gfx\leftGuiBottom-improved.xcf" />
     <Content Include="mods\default\Textures.xml" />
     <Content Include="mods\default\Items.xml" />
     <Content Include="mods\default\ModGui.xml" />
@@ -108,9 +107,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Screens\IntroGameScreen.cs" />
-    <Compile Include="Screens\MainGameScreen.cs" />
-    <Compile Include="Screens\StationGameScreen.cs" />
     <Compile Include="Stations\Station.cs" />
     <Compile Include="Stations\StationBase.cs" />
     <Compile Include="Stations\StationModuleBase.cs" />
@@ -122,47 +118,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mods\default\face\Production.xml" />
+    <Content Include="mods\default\face\EarthCity.xml" />
     <Content Include="mods\default\face\Main.xml" />
     <Content Include="mods\default\face\Screens.xml" />
     <Content Include="mods\default\GameScreens.xml" />
-    <Content Include="mods\default\gfx\bottomGui.png" />
-    <Content Include="mods\default\gfx\bottomLog.png" />
-    <Content Include="mods\default\gfx\buttonMainMenu.png" />
-    <Content Include="mods\default\gfx\buttonMainMenuActive.png" />
     <Content Include="mods\default\gfx\cursor.png" />
-    <Content Include="mods\default\gfx\factoryItemDescription.bmp" />
-    <Content Include="mods\default\gfx\gameScreen.Production.AOC.bmp" />
-    <Content Include="mods\default\gfx\gameScreen.Production.AOC.png" />
-    <Content Include="mods\default\gfx\gameScreen.Production.old.png" />
-    <Content Include="mods\default\gfx\gameScreen.Production.oldImpr.png" />
-    <Content Include="mods\default\gfx\gameScreen.Production.png" />
-    <Content Include="mods\default\gfx\gameScreen.Research.png" />
-    <Content Include="mods\default\gfx\gameScreen.Storage.ItemBlink.png" />
-    <Content Include="mods\default\gfx\gameScreen.Storage.ItemDescription.png" />
-    <Content Include="mods\default\gfx\gameScreen.Storage.png" />
-    <Content Include="mods\default\gfx\leftGui.EarthCity.png" />
-    <Content Include="mods\default\gfx\leftGui.MiningStores.png" />
-    <Content Include="mods\default\gfx\leftGui.old.png" />
-    <Content Include="mods\default\gfx\leftGui.png" />
-    <Content Include="mods\default\gfx\leftGui.Production.png" />
-    <Content Include="mods\default\gfx\leftGui.Research.png" />
-    <Content Include="mods\default\gfx\leftGui.Resources.png" />
-    <Content Include="mods\default\gfx\leftGui.Shuttle.png" />
-    <Content Include="mods\default\gfx\leftGui.ShuttleBay.png" />
-    <Content Include="mods\default\gfx\leftGui.Training.png" />
-    <Content Include="mods\default\gfx\leftGuiBottom.png" />
-    <Content Include="mods\default\gfx\leftGuiTop.png" />
-    <Content Include="mods\default\gfx\menuAlpha.png" />
-    <Content Include="mods\default\gfx\messageBoxAlpha.png" />
-    <Content Include="mods\default\gfx\placeholder.png" />
-    <Content Include="mods\default\gfx\production.Derrick.base.png" />
-    <Content Include="mods\default\gfx\production.Derrick.png" />
     <Content Include="mods\default\gfx\systemName.png" />
     <Content Include="mods\default\Intro.xml" />
     <Content Include="mods\default\Types.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mods\default\fonts\" />
+    <Folder Include="mods\default\scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

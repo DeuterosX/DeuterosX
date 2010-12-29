@@ -11,18 +11,6 @@ namespace Teraluwide.Blackbird.Core
 	public interface IBlackbirdSimulationComponent : ICustomBlackbirdComponent
 	{
 		/// <summary>
-		/// Loads the component specific data from the specified save game node.
-		/// </summary>
-		/// <param name="node">The node.</param>
-		void LoadGame(XmlNode node);
-
-		/// <summary>
-		/// Saves the component specific data to the specified save game node.
-		/// </summary>
-		/// <param name="node">The node.</param>
-		void SaveGame(XmlNode node);
-
-		/// <summary>
 		/// Performs all necessary changes when advancing the simulation (ie. "Next turn").
 		/// </summary>
 		void Advance();

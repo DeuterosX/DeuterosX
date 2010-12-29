@@ -29,7 +29,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <value><c>true</c> if this instance has value; otherwise, <c>false</c>.</value>
 		public override bool HasValue
 		{
-			get { throw new NotImplementedException(); }
+			get { return Game.VariableManager.HasVariable(this.variableName); }
 		}
 
 		/// <summary>
@@ -40,11 +40,11 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		{
 			get
 			{
-				throw new NotImplementedException();
+				return Game.VariableManager.GetVariable<T>(this.variableName);
 			}
 			set
 			{
-				throw new NotImplementedException();
+				Game.VariableManager.SetVariable(this.variableName, value);
 			}
 		}
 	}

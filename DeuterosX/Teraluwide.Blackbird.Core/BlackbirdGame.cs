@@ -6,6 +6,11 @@ using SdlDotNet.Graphics;
 using SdlDotNet.Core;
 using System.Drawing;
 using Teraluwide.Blackbird.Core.Gui;
+using Teraluwide.Blackbird.Core.ScriptingSupport;
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.IO;
+using System.Reflection;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -67,6 +72,24 @@ namespace Teraluwide.Blackbird.Core
 		public TypeManager TypeManager { get; private set; }
 
 		/// <summary>
+		/// Gets or sets the variable manager.
+		/// </summary>
+		/// <value>The variable manager.</value>
+		public GameVariableManager VariableManager { get; private set; }
+
+		/// <summary>
+		/// Gets or sets the script manager.
+		/// </summary>
+		/// <value>The script manager.</value>
+		public ScriptManager ScriptManager { get; private set; }
+
+		/// <summary>
+		/// Gets or sets the mouse manager.
+		/// </summary>
+		/// <value>The mouse manager.</value>
+		public MouseManager MouseManager { get; private set; }
+
+		/// <summary>
 		/// Gets the scale used on all graphics.
 		/// </summary>
 		/// <value>The scale.</value>
@@ -107,6 +130,9 @@ namespace Teraluwide.Blackbird.Core
 			GameScreenManager = new GameScreenManager(this);
 			GuiManager = new GuiManager(this);
 			TypeManager = new TypeManager(this);
+			VariableManager = new GameVariableManager(this);
+			ScriptManager = new ScriptManager(this);
+			MouseManager = new MouseManager(this);
 		}
 
 		/// <summary>
@@ -120,7 +146,7 @@ namespace Teraluwide.Blackbird.Core
 				ModName = CommandLineArguments["game"] ?? "default";
 
 			LoadMod();
-			
+
 			Video.SetVideoMode(800, 600);
 			Video.WindowCaption = GameInfo.Title;
 		}
@@ -136,6 +162,8 @@ namespace Teraluwide.Blackbird.Core
 			FontManager.Load();
 			GameScreenManager.Load();
 			GuiManager.Load();
+			VariableManager.Load();
+			ScriptManager.Load();
 
 			// Load all the custom components.
 			foreach (var component in CustomComponents.Values)
@@ -176,8 +204,11 @@ namespace Teraluwide.Blackbird.Core
 		/// </summary>
 		public virtual void Run()
 		{
+			MouseManager.Init();
+
 			Events.Quit += new EventHandler<QuitEventArgs>(Events_Quit);
 			Events.Tick += new EventHandler<TickEventArgs>(Tick);
+			
 			Events.Run();
 		}
 
@@ -190,6 +221,7 @@ namespace Teraluwide.Blackbird.Core
 		{
 			OnBeforeQuit(sender, e);
 
+			MouseManager.Exit();
 			Events.QuitApplication();
 			Events.Close();
 

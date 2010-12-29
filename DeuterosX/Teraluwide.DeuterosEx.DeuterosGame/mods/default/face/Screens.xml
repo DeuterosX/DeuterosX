@@ -1,8 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.10" type="face">
+  <Include file="face/EarthCity.xml" />
+  <Include file="face/Production.xml" />
+  
   <Face id="intro">
-    <background color="#ffff0000" image="deuterosLogo" repeat="NoRepeat" />
+    <background color="$=Animate(Color.Black, Color.FromArgb(0xA0, 0x00, 0x00, 0x40), 5000, true)" image="deuterosLogo" repeat="NoRepeat" />
     <size width="320" height="200" />
-    <control type="cface" faceId="systemName" x="200" />
+  </Face>
+  
+  <Face id="earthCity">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" x="$=20 * 0" y="${ return 0; if (true) { return 200 * Game.Scale - Game.BackbufferHeight; } }" w="320" h="200" />
+    
+    <control type="cface" faceId="earthCityContent" x="48" y="16" w="272" h="168" />
+  </Face>
+
+  <Face id="production">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="productionContent" x="48" y="16" w="272" h="168" />
   </Face>
 </FDRFile>

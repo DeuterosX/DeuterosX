@@ -79,6 +79,47 @@ namespace Teraluwide.Blackbird.Core
 				default: throw new ArgumentException(string.Format(Resources.InvalidVirtualPathException, path));
 			}
 		}
+
+		/// <summary>
+		/// Finds all the files in the specified directory based on the specified filter.
+		/// </summary>
+		/// <param name="path">The path.</param>
+		/// <param name="filter">The filter.</param>
+		/// <returns></returns>
+		public static string[] FindFiles(string path, string filter)
+		{
+			// TODO: Implement finding files in packed mods, implement everything in a bit more clean way
+			switch (GetPathKind(path))
+			{
+				case VirtualPathKind.ModFile:
+					{
+						string[] fragments = path.Split('/');
+
+						string modName = fragments[1];
+
+						string modPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, BaseModPath), modName);
+						string directoryPath = Path.Combine(modPath, string.Join(Path.DirectorySeparatorChar.ToString(), fragments, 2, fragments.Length - 2));
+
+						// Unpacked mod.
+						if (Directory.Exists(directoryPath))
+						{
+							return Directory.GetFiles(directoryPath, filter, SearchOption.AllDirectories).Select(i => VirtualPathProvider.EnsureModVirtualPath(i, modName)).ToArray();
+						}
+						// Packed mod.
+						else if (File.Exists(Path.ChangeExtension(modPath, ModArchiveExtension)))
+						{
+							throw new NotImplementedException("Packed mods not implemented yet.");
+						}
+						// Mod not found.
+						else
+						{
+							throw new BlackbirdException(string.Format(Resources.ModNotFoundException, modName));
+						}
+					}
+
+				default: throw new ArgumentException(string.Format(Resources.InvalidVirtualPathException, path));
+			}
+		}
 	}
 
 	/// <summary>

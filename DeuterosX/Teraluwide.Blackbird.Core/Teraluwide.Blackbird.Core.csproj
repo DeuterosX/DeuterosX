@@ -82,13 +82,24 @@
     <Compile Include="Gui\Controls\GuiFaceControl.cs" />
     <Compile Include="Gui\Controls\GuiLabel.cs" />
     <Compile Include="Gui\GuiBackground.cs" />
+    <Compile Include="IBlackbirdSavegameComponent.cs" />
+    <Compile Include="MouseManager.cs" />
+    <Compile Include="ScriptingSupport\EventArguments\BlackbirdEventArgument.cs" />
+    <Compile Include="ScriptingSupport\EventArguments\MouseClickEventArgument.cs" />
+    <Compile Include="ScriptingSupport\GameVariable.cs" />
+    <Compile Include="ScriptingSupport\GameVariableManager.cs" />
     <Compile Include="ScriptingSupport\GuiConstantValue.cs" />
+    <Compile Include="ScriptingSupport\GuiEventDelegate.cs" />
+    <Compile Include="ScriptingSupport\GuiEventLambdaBinderDelegate.cs" />
+    <Compile Include="ScriptingSupport\GuiEventReference.cs" />
     <Compile Include="ScriptingSupport\GuiNullValue.cs" />
     <Compile Include="Gui\GuiRepeatStyle.cs" />
     <Compile Include="Gui\GuiButtonInfo.cs" />
     <Compile Include="Gui\GuiFace.cs" />
     <Compile Include="Gui\GuiManager.cs" />
     <Compile Include="Gui\GuiSize.cs" />
+    <Compile Include="ScriptingSupport\GuiScriptedValue.cs" />
+    <Compile Include="ScriptingSupport\GuiScriptedValueDelegate.cs" />
     <Compile Include="ScriptingSupport\GuiValue.cs" />
     <Compile Include="ScriptingSupport\GuiVariableValue.cs" />
     <Compile Include="IBlackbirdSimulationComponent.cs" />
@@ -103,6 +114,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScriptingSupport\IGameVariable.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ScriptingSupport\ILateMethodBinder.cs" />
+    <Compile Include="ScriptingSupport\ScriptManager.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="TextureManagerItem.cs" />
     <Compile Include="TypeManager.cs" />

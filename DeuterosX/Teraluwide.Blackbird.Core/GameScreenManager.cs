@@ -31,6 +31,21 @@ namespace Teraluwide.Blackbird.Core
 		/// <value>The current game screen.</value>
 		public GameScreen CurrentGameScreen { get; set; }
 
+		/// <summary>
+		/// Gets the <see cref="Teraluwide.Blackbird.Core.GameScreen"/> with the specified id.
+		/// </summary>
+		/// <value></value>
+		public GameScreen this[string id]
+		{
+			get
+			{
+				if (innerData.ContainsKey(id))
+					return innerData[id];
+				else
+					throw new BlackbirdException(string.Format(Resources.GameScreenNotFound, id));
+			}
+		}
+
 		#region IBlackbirdComponent Members
 
 		/// <summary>
@@ -88,7 +103,7 @@ namespace Teraluwide.Blackbird.Core
 				if (innerData.ContainsKey(id))
 					throw new BlackbirdException(string.Format(Resources.GameScreenAlreadyRegistered, id));
 
-				Type screenType = Type.GetType(type, false);
+				Type screenType = Game.TypeManager.GetType(type);
 
 				if (screenType == null)
 					throw new BlackbirdException(string.Format(Resources.GameScreenTypeNotFound, type));
@@ -102,7 +117,6 @@ namespace Teraluwide.Blackbird.Core
 					CurrentGameScreen = screen;
 
 				innerData.Add(id, screen);
-				screen.Load();
 			}
 		}
 

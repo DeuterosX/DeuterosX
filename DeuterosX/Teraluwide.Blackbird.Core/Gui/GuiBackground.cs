@@ -65,9 +65,9 @@ namespace Teraluwide.Blackbird.Core.Gui
 		/// <param name="currentFileName">Name of the current file.</param>
 		public void Load(XmlElement el, string currentFileName)
 		{
-			string color = el.GetAttribute("color");
-			string image = el.GetAttribute("image");
-			string repeat = el.GetAttribute("repeat");
+			string color = el.GetAttributeOrNull("color");
+			string image = el.GetAttributeOrNull("image");
+			string repeat = el.GetAttributeOrNull("repeat");
 
 			Color = GuiValue<Color>.Parse(Game, color);
 			Image = GuiValue<string>.Parse(Game, image);

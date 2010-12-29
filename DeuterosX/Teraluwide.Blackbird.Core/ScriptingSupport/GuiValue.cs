@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Teraluwide.Blackbird.Core.Gui.Controls;
 
 namespace Teraluwide.Blackbird.Core.ScriptingSupport
 {
@@ -54,17 +55,42 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <summary>
 		/// Parses the specified input string.
 		/// </summary>
+		/// <param name="game">The game instance.</param>
 		/// <param name="inputString">The input string.</param>
 		/// <returns></returns>
 		public static GuiValue<T> Parse(BlackbirdGame game, string inputString)
 		{
+			return Parse(game, inputString, null);
+		}
+
+		/// <summary>
+		/// Parses the specified input string.
+		/// </summary>
+		/// <param name="game">The game instance.</param>
+		/// <param name="inputString">The input string.</param>
+		/// <param name="sender">The <see cref="GuiControl" /> instance to use as sender in a <see cref="GuiScriptedValue`1" />.</param>
+		/// <returns></returns>
+		public static GuiValue<T> Parse(BlackbirdGame game, string inputString, GuiControl sender)
+		{
 			if (inputString == null || inputString == "$null")
 				return new GuiNullValue<T>(game);
 
+			if (inputString.StartsWith("$=") || inputString.StartsWith("${"))
+				return new GuiScriptedValue<T>(game, inputString.Substring(1), sender);
 			if (inputString.StartsWith("$"))
 				return new GuiVariableValue<T>(game, inputString.Substring(1));
 			else
 				return new GuiConstantValue<T>(game, XmlHelper.Parse<T>(inputString));
+		}
+
+		/// <summary>
+		/// Performs an implicit conversion from <see cref="Teraluwide.Blackbird.Core.ScriptingSupport.GuiValue`1"/> to <see cref="T"/>.
+		/// </summary>
+		/// <param name="val">The gui value.</param>
+		/// <returns>The result of the conversion.</returns>
+		public static implicit operator T (GuiValue<T> val)
+		{
+			return val.GetValueOrDefault(default(T));
 		}
 	}
 }

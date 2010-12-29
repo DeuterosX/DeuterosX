@@ -21,7 +21,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		/// Gets the width of the backbuffer.
 		/// </summary>
 		/// <value>The width of the backbuffer.</value>
-		public override int BackbufferWidth { get { return 1200; } }
+		public override int BackbufferWidth { get { return 1280; } }
 		/// <summary>
 		/// Gets the height of the backbuffer.
 		/// </summary>
@@ -63,7 +63,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Video.SetVideoMode(BackbufferWidth, BackbufferHeight, false, true, false, true);
 			Video.GLDoubleBufferEnabled = true;
 
-			Gl.glEnable(Gl.GL_TEXTURE_2D);                                      // Enable Texture Mapping ( NEW )
+			Gl.glEnable(Gl.GL_TEXTURE_2D);                                      // Enable Texture Mapping
 			Gl.glEnable(Gl.GL_ALPHA);
 			Gl.glEnable(Gl.GL_BLEND);
 			Gl.glShadeModel(Gl.GL_SMOOTH);                                      // Enable Smooth Shading
@@ -84,6 +84,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		/// <param name="e">The <see cref="SdlDotNet.Core.TickEventArgs"/> instance containing the event data.</param>
 		public override void Tick(object sender, SdlDotNet.Core.TickEventArgs e)
 		{
+			base.Tick(sender, e);
+
 			Gl.glViewport(0, 0, BackbufferWidth, BackbufferHeight);
 			Gl.glMatrixMode(Gl.GL_PROJECTION);
 			Gl.glLoadIdentity();

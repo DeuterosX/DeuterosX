@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Linq.Expressions;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame
 {
@@ -15,6 +16,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		{
 			Game game = new Game();
 
+			game.VariableManager.SetVariable("currentSystem", "Sol");
+
 #if !DEBUG
 			try
 			{
@@ -23,7 +26,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 				game.Run();
 #if !DEBUG
 			}
-			catch (Exception ex) // The general Exception shouldn't usually be catched - this is just for the purposes of global error handling.
+			catch (Exception ex) // The general Exception shouldn't usually be caught - this is just for the purposes of global error handling.
 			{
 				// TODO: Implement global error handling (ie. message to user, error to log)
 				throw;

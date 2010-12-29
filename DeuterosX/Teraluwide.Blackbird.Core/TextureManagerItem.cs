@@ -8,6 +8,7 @@ using System.IO;
 using Tao.OpenGl;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Teraluwide.Blackbird.Core.Gui;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -227,14 +228,27 @@ namespace Teraluwide.Blackbird.Core
 		}
 
 		/// <summary>
+		/// Draws this texture to the specified area using the specified repeat style.
+		/// </summary>
+		/// <param name="x">The x-coordinate.</param>
+		/// <param name="y">The y-coordinate.</param>
+		/// <param name="w">The width of the area.</param>
+		/// <param name="h">The height of the area.</param>
+		/// <param name="repeat">The repeat style.</param>
+		public void Draw(int x, int y, int w, int h, GuiRepeatStyle repeat)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// <summary>
 		/// Draws this texture to the specified coordinates.
 		/// </summary>
 		/// <param name="x">The x-coordinate.</param>
 		/// <param name="y">The y-coordinate.</param>
 		public void Draw(int x, int y)
 		{
-			Gl.glPushMatrix();
 			Gl.glMatrixMode(Gl.GL_MODELVIEW);
+			Gl.glPushMatrix();
 			Gl.glLoadIdentity();
 
 			if (AllowScaling)

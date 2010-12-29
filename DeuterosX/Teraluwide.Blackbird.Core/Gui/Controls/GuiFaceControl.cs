@@ -31,7 +31,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// </summary>
 		/// <param name="offsetX">The X offset.</param>
 		/// <param name="offsetY">The Y offset.</param>
-		public override void Render(int offsetX, int offsetY)
+		public override void RenderControl(int offsetX, int offsetY)
 		{
 			if (this.FaceId.HasValue)
 			{
@@ -49,7 +49,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		{
 			base.Load(element, currentFileName);
 
-			this.FaceId = GuiValue<string>.Parse(Game, element.GetAttribute("faceId"));
+			this.FaceId = GuiValue<string>.Parse(Game, element.GetAttribute("faceId"), this);
 		}
 	}
 }

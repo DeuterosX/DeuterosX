@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.Blackbird.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.Blackbird.Tools.XMLGenerator", "Teraluwide.Blackbird.Tools.XMLGenerator\Teraluwide.Blackbird.Tools.XMLGenerator.csproj", "{95F5A6A1-2FBA-4E70-B9C5-CD4D8FA78425}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuterosMod", "Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\DeuterosMod.csproj", "{A9BE7F33-73AA-4D64-A77D-6FB47DBF2DD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{95F5A6A1-2FBA-4E70-B9C5-CD4D8FA78425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95F5A6A1-2FBA-4E70-B9C5-CD4D8FA78425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95F5A6A1-2FBA-4E70-B9C5-CD4D8FA78425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9BE7F33-73AA-4D64-A77D-6FB47DBF2DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BE7F33-73AA-4D64-A77D-6FB47DBF2DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BE7F33-73AA-4D64-A77D-6FB47DBF2DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BE7F33-73AA-4D64-A77D-6FB47DBF2DD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -45,7 +45,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// </summary>
 		/// <param name="offsetX">The X offset.</param>
 		/// <param name="offsetY">The Y offset.</param>
-		public override void Render(int offsetX, int offsetY)
+		public override void RenderControl(int offsetX, int offsetY)
 		{
 			// TODO: Render a text label
 		}
@@ -59,9 +59,9 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		{
 			base.Load(element, currentFileName);
 
-			this.Text = GuiValue<string>.Parse(Game, element.GetAttribute("text"));
-			this.Color = GuiValue<Color>.Parse(Game, element.GetAttribute("color"));
-			this.Font = GuiValue<string>.Parse(Game, element.GetAttribute("font"));
+			this.Text = GuiValue<string>.Parse(Game, element.GetAttribute("text"), this);
+			this.Color = GuiValue<Color>.Parse(Game, element.GetAttribute("color"), this);
+			this.Font = GuiValue<string>.Parse(Game, element.GetAttribute("font"), this);
 		}
 	}
 }

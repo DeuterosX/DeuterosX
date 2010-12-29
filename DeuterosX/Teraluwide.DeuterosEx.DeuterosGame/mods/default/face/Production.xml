@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="productionContent">
+    <background color="#ff000000" image="productionBackground" repeat="NoRepeat" />
+    <size width="272" height="168" />
+    
+  </Face>
+</FDRFile>

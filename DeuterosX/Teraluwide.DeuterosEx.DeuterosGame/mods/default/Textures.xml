@@ -1,34 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDRFile version="0.03" type="textures">
   <TextureList>
+    <!-- Common textures -->
     <Texture id="cursor" fileName="gfx/cursor.png" smoothScale="0">
       <DrawArea x="0" y="0" width="13" height="13" />
     </Texture>
-    <Texture id="placeholder" fileName="gfx/placeholder.png" />
-    <Texture id="menuBackground" fileName="gfx/menuBackground.png" />
-    <Texture id="buttonMainMenu" fileName="gfx/buttonMainMenu.png" />
-    <Texture id="buttonMainMenuActive" fileName="gfx/buttonMainMenuActive.png" />
-    <Texture id="messageBox" fileName="gfx/messageBox.png" />
-    <Texture id="bottomGui" fileName="gfx/bottomGui.png" />
-    <Texture id="leftGuiTop" fileName="gfx/leftGuiTop.png" />
-    <Texture id="leftGuiBottom" fileName="gfx/leftGuiBottom.png" />
-    <Texture id="bottomLog" fileName="gfx/bottomLog.png" />
+    <Texture id="controlPanel" fileName="gfx/controlPanel.png" />
     <Texture id="systemName" fileName="gfx/systemName.png" />
-    <Texture id="leftGui.EarthCity" fileName="gfx/leftGui.EarthCity.png" />
-    <Texture id="leftGui.MiningStores" fileName="gfx/leftGui.MiningStores.png" />
-    <Texture id="leftGui.Production" fileName="gfx/leftGui.Production.png" />
-    <Texture id="leftGui.Research" fileName="gfx/leftGui.Research.png" />
-    <Texture id="leftGui.Resources" fileName="gfx/leftGui.Resources.png" />
-    <Texture id="leftGui.Shuttle" fileName="gfx/leftGui.Shuttle.png" />
-    <Texture id="leftGui.ShuttleBay" fileName="gfx/leftGui.ShuttleBay.png" />
-    <Texture id="leftGui.Training" fileName="gfx/leftGui.Training.png" />
-    <Texture id="gameScreen.Production" fileName="gfx/gameScreen.Production.png" />
-    <Texture id="gameScreen.Production.AOC" fileName="gfx/gameScreen.Production.AOC.png" />
-    <Texture id="gameScreen.Storage" fileName="gfx/gameScreen.Storage.png" />
-    <Texture id="gameScreen.Storage.ItemBlink" fileName="gfx/gameScreen.Storage.ItemBlink.png" />
-    <Texture id="gameScreen.Storage.ItemDescription" fileName="gfx/gameScreen.Storage.ItemDescription.png" />
-    <Texture id="gameScreen.Research" fileName="gfx/gameScreen.Research.png" />
-    <Texture id="production.Derrick" fileName="gfx/production.Derrick.png" />
+    <Texture id="stationModules" fileName="gfx/stationModules.png" />
+    <Texture id="stationModule.Production" fileName="gfx/stationModule.Production.png" />
+    
+    <!-- Intro screen -->
     <Texture id="deuterosLogo" fileName="gfx/deuterosLogo.png" scalingModifier="0.25" />
+    
+    <!-- Earth City screen -->
+    <Texture id="earthCityBackground" fileName="gfx/earthCity/background.png" />
+    
+    <!-- Production screen -->
+    <Texture id="productionBackground" fileName="gfx/production/background.png" />
   </TextureList>
 </FDRFile>

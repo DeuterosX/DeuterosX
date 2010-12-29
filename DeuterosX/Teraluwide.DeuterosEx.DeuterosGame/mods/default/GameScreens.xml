@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.01" type="screens">
   <GameScreenList>
-    <GameScreen id="intro" faceId="intro" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.IntroGameScreen, DeuterosGame" />
-    <GameScreen id="station" type="Teraluwide.DeuterosEx.DeuterosGame.Screens.StationGameScreen, DeuterosGame" />
+    <GameScreen id="intro" faceId="intro" type="gameScreen" />
+    <GameScreen id="earthCity" faceId="earthCity" type="gameScreen" />
+    <GameScreen id="production" faceId="production" type="gameScreen" />
   </GameScreenList>
 </FDRFile>
