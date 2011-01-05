@@ -91,6 +91,8 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 
 			if (res.Errors.Count > 0)
 			{
+				System.IO.File.WriteAllLines("error.log", res.Errors.OfType<CompilerError>().Select(i => i.ToString()).ToArray());
+
 				// TODO: Handle compiler errors.
 				if (!Debugger.IsAttached)
 					Debugger.Launch();
