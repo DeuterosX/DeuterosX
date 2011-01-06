@@ -89,7 +89,8 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			// NOTE: If we expect to have huge scripts, it may be necessary to use an alternate way to compile them; At present time, this implementation is sufficient.
 			CompilerResults res = codeProvider.CompileAssemblyFromSource(pars, VirtualPathProvider.FindFiles(VirtualPathProvider.EnsureModVirtualPath("scripts", Game.ModName), "*.cs").Select(i => VirtualPathProvider.GetFile(i).ReadToEnd()).Concat(new string[] { "using System; using System.Drawing; using System.Text; using Teraluwide.Blackbird.Core.Gui; using Teraluwide.Blackbird.Core.Gui.Controls; public partial class Core { " + inlineMethods.ToString() + " }" }).ToArray());
 
-			if (res.Errors.Count > 0)
+			// NOTE: Maybe there should be a better way to filter out warnings.
+			if (res.Errors.Count > 0 && !res.Errors.OfType<CompilerError>().All(i => i.IsWarning))
 			{
 				System.IO.File.WriteAllLines("error.log", res.Errors.OfType<CompilerError>().Select(i => i.ToString()).ToArray());
 
