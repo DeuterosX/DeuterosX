@@ -72,7 +72,7 @@ namespace Teraluwide.Blackbird.Core
 						// Mod not found.
 						else
 						{
-							throw new BlackbirdException(string.Format(Resources.ModNotFoundException, modName));
+							throw new BlackbirdException(string.Format(Resources.ModFileNotFoundException, filePath, path));
 						}
 					}
 
