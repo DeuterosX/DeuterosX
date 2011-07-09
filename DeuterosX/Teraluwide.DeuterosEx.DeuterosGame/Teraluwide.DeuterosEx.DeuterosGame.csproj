@@ -118,6 +118,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mods\default\face\ExamplesAndTests.xml" />
     <Content Include="mods\default\face\Production.xml" />
     <Content Include="mods\default\face\EarthCity.xml" />
     <Content Include="mods\default\face\Main.xml" />

@@ -17,7 +17,6 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 
 		private GuiControl sender;
 		private string methodName;
-		private static int uniqueIndex;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GuiEventReference&lt;T&gt;"/> class.
@@ -77,12 +76,14 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			if (inputString.StartsWith("("))
 			{
 				GuiEventReference<T> reference = new GuiEventReference<T>(game, sender);
-				reference.methodName = "__L" + Interlocked.Increment(ref uniqueIndex).ToString("X4");
+				reference.methodName = "__L" + GuiEventReferenceUniqueIndex.GetNewIndex().ToString("X4");
 				string code = inputString;
 				string typeName = "global::" + typeof(GuiControlEventDelegate<>).Namespace + ".GuiControlEventDelegate<global::" + typeof(T).FullName + ">";
 				string senderId = "EmptySenderId";
 				if (sender != null && sender.Id.HasValue)
 					senderId = sender.Id.Value;
+
+				reference.IsInline = true;
 
 				game.ScriptManager.RegisterInlineMethod(string.Format("\r\n#line 1 \"gc:{3}\" \r\nprivate {0} {1}(global::Teraluwide.Blackbird.Core.Gui.Controls.GuiControl sender) {{ return {2}; }}", typeName, reference.methodName, code, senderId), reference);
 
@@ -93,10 +94,21 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			{
 				GuiEventReference<T> reference = new GuiEventReference<T>(game, sender);
 				reference.methodName = inputString;
+				reference.IsInline = false;
 				game.ScriptManager.RegisterLateBinder(reference);
 
 				return reference;
 			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the event handler is an inline event reference.
+		/// </summary>
+		/// <value><c>true</c> if this instance is inline; otherwise, <c>false</c>.</value>
+		protected bool IsInline
+		{
+			get;
+			private set;
 		}
 
 		#region ILateMethodBinder Members
@@ -116,7 +128,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <value>The type of the delegate.</value>
 		public Type DelegateType
 		{
-			get { return typeof(GuiEventLambdaBinderDelegate<T>); }
+			get { return IsInline ? typeof(GuiEventLambdaBinderDelegate<T>) : typeof(GuiControlEventDelegate<T>); }
 		}
 
 		/// <summary>
@@ -125,9 +137,29 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <param name="method">The method delegate.</param>
 		public void BindMethod(Delegate method)
 		{
-			this.BindMethod((method as GuiEventLambdaBinderDelegate<T>)(sender));
+			if (IsInline)
+				this.BindMethod((method as GuiEventLambdaBinderDelegate<T>)(sender));
+			else
+				this.BindMethod(method as GuiControlEventDelegate<T>);
 		}
 
 		#endregion
+	}
+
+	/// <summary>
+	/// A helper class to maintain unique indices over the various generic variations of the GuiEventReference`1 class.
+	/// </summary>
+	internal class GuiEventReferenceUniqueIndex
+	{
+		static int uniqueIndex;
+
+		/// <summary>
+		/// Gets a new unique index.
+		/// </summary>
+		/// <returns></returns>
+		public static int GetNewIndex()
+		{
+			return Interlocked.Increment(ref uniqueIndex);
+		}
 	}
 }

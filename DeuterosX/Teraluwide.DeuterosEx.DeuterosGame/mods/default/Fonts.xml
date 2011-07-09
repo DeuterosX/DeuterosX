@@ -19,7 +19,7 @@
       <Id>fntGui</Id>
       <SystemFont>0</SystemFont>
       <FontName>fonts/consola.ttf</FontName>
-      <FontSize>14</FontSize>
+      <FontSize>9</FontSize>
       <FontStyles>None</FontStyles>
     </Font>
   </FontList>

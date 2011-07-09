@@ -98,10 +98,15 @@ namespace Teraluwide.Blackbird.Core.Gui
 			if (root == null || root.Attributes["type"].Value != "face")
 				throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatException, currentFileName));
 
-			Log.WriteMessage(string.Format(Resources.GameScreenDefinitionVersion, root.Attributes["version"].Value));
+			Log.WriteMessage(currentFileName + ": " + string.Format(Resources.GameScreenDefinitionVersion, root.Attributes["version"].Value));
 
-			foreach (XmlElement el in root.ChildNodes)
+			foreach (XmlNode node in root.ChildNodes)
 			{
+				XmlElement el = node as XmlElement;
+
+				if (el == null)
+					continue;
+
 				switch (el.Name)
 				{
 					case "Include":

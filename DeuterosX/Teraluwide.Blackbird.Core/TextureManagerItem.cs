@@ -200,31 +200,52 @@ namespace Teraluwide.Blackbird.Core
 					buf.Dispose();
 				}
 
-				// Update meta information about the texture
-				RealSize = bmp.Size;
-				if (DrawArea == Rectangle.Empty)
-					DrawArea = new Rectangle(new Point(0, 0), bmp.Size);
-
-				// Create a new unique OpenGL texture id.
-				int[] texids = new int[1];
-				Gl.glGenTextures(1, texids);
-				this.textureId = texids[0];
-
 				// Lock the bitmap data of the texture.
 				BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
-				// Load the texture.
-				Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
-				Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, bmp.Width, bmp.Height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
 
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP);
-				Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_CLAMP);
+				LoadTexture(data);
 
 				bmp.UnlockBits(data);
 				bmp.Dispose();
 			}
+		}
+
+		/// <summary>
+		/// Loads the texture using the specified BitmapData (in 32bit ARGB format).
+		/// </summary>
+		/// <param name="data">The data.</param>
+		public void LoadTexture(BitmapData data)
+		{
+			LoadTexture(data.Width, data.Height, data.Scan0);
+		}
+
+		/// <summary>
+		/// Loads the texture using the specified pointer to bitmap data.
+		/// </summary>
+		/// <param name="width">The width.</param>
+		/// <param name="height">The height.</param>
+		/// <param name="data">The data.</param>
+		public void LoadTexture(int width, int height, IntPtr data)
+		{
+			// Update meta information about the texture
+			RealSize = new Size(width, height);
+			if (DrawArea == Rectangle.Empty)
+				DrawArea = new Rectangle(new Point(0, 0), RealSize);
+
+			// Create a new unique OpenGL texture id.
+			int[] texids = new int[1];
+			Gl.glGenTextures(1, texids);
+			this.textureId = texids[0];
+
+			// Load the texture.
+			Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
+			Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, width, height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data);
+
+			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
+			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
+			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP);
+			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_CLAMP);
 		}
 
 		/// <summary>

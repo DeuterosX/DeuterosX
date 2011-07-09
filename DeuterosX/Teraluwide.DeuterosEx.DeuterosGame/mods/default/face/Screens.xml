@@ -6,6 +6,8 @@
   <Face id="intro">
     <background color="$=Animate(Color.Black, Color.FromArgb(0xA0, 0x00, 0x00, 0x40), 5000, true)" image="deuterosLogo" repeat="NoRepeat" />
     <size width="320" height="200" />
+
+    <control type="label" text="$=&quot;FPS: &quot; + FPS.ToString(&quot;d2&quot;);" font="fntMain" color="$=Color.Firebrick" x="0" y="0" />
   </Face>
   
   <Face id="earthCity">

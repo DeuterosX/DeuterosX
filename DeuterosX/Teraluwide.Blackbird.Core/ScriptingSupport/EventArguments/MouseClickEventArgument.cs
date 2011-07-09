@@ -9,7 +9,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport.EventArguments
 	/// <summary>
 	/// Represents the event argument of a mouse click event.
 	/// </summary>
-	public class MouseClickEventArgument : BlackbirdEventArgument
+	public class MouseEventArgument : BlackbirdEventArgument
 	{
 		/// <summary>
 		/// Gets or sets a value indicating whether the receiving control is a last control in the event chain.
@@ -34,5 +34,21 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport.EventArguments
 		/// </summary>
 		/// <value>The mouse button.</value>
 		public MouseButton MouseButton { get; set; }
+	}
+
+	/// <summary>
+	/// Represents the event argument of a mouse move event.
+	/// </summary>
+	public class MouseClickEventArgument : MouseEventArgument
+	{
+
+	}
+
+	/// <summary>
+	/// Represents the event argument of a mouse move event.
+	/// </summary>
+	public class MouseMoveEventArgument : MouseEventArgument
+	{
+
 	}
 }

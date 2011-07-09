@@ -87,7 +87,7 @@ namespace Teraluwide.Blackbird.Core
 			if (root == null || root.Attributes["type"].Value != "screens")
 				throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatException, FileName));
 
-            Log.WriteMessage(string.Format(Resources.GameScreenDefinitionVersion, root.Attributes["version"].Value));
+			Log.WriteMessage(string.Format(Resources.GameScreenDefinitionVersion, root.Attributes["version"].Value));
 
 			foreach (XmlElement el in root.SelectNodes("GameScreenList/*"))
 			{

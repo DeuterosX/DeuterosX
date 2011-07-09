@@ -48,6 +48,27 @@ namespace Teraluwide.Blackbird.Core
 		public void Init()
 		{
 			Events.MouseButtonUp += Events_MouseButtonUp;
+			Events.MouseMotion += Events_MouseMotion;
+		}
+
+		/// <summary>
+		/// Handles the MouseMotion event of the Events control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="SdlDotNet.Input.MouseMotionEventArgs"/> instance containing the event data.</param>
+		void Events_MouseMotion(object sender, SdlDotNet.Input.MouseMotionEventArgs e)
+		{
+			int realX = e.X / Game.Scale - 2;
+			int realY = e.Y / Game.Scale - 2;
+
+			MouseMoveEventArgument eventArgument = new MouseMoveEventArgument();
+			eventArgument.X = realX;
+			eventArgument.Y = realY;
+			eventArgument.Bubble = true;
+			eventArgument.MouseButton = e.Button;
+
+			// Find a suitable control to accept the event
+			Game.GuiManager.GetFace(Game.GameScreenManager.CurrentGameScreen.FaceId).Bubble(BubbleFace, eventArgument);
 		}
 
 		/// <summary>
@@ -67,20 +88,18 @@ namespace Teraluwide.Blackbird.Core
 			eventArgument.MouseButton = e.Button;
 
 			// Find a suitable control to accept the event
-			Stack<GuiControl> stack = new Stack<GuiControl>();
-
 			Game.GuiManager.GetFace(Game.GameScreenManager.CurrentGameScreen.FaceId).Bubble(BubbleFace, eventArgument);
 		}
 
-		void BubbleFace(GuiFace face, MouseClickEventArgument e)
+		void BubbleFace(GuiFace face, MouseEventArgument e)
 		{
-			foreach (var control in face.Controls)
+			foreach (var control in Enumerable.Reverse(face.Controls))
 			{
 				control.Bubble(BubbleControl, e);
 			}
 		}
 
-		void BubbleControl(GuiControl control, MouseClickEventArgument e)
+		void BubbleControl(GuiControl control, MouseEventArgument e)
 		{
 			int x = control.X;
 			int y = control.Y;
@@ -88,7 +107,10 @@ namespace Teraluwide.Blackbird.Core
 			if (e.X >= x && e.X <= x + control.Width
 				 && e.Y >= y && e.Y <= y + control.Height)
 			{
-				control.MouseClick.Invoke(e);
+				if (e is MouseClickEventArgument)
+					control.MouseClick.Invoke(e as MouseClickEventArgument);
+				else if (e is MouseMoveEventArgument)
+					control.MouseMove.Invoke(e as MouseMoveEventArgument);
 
 				if (!e.Bubble)
 					return;

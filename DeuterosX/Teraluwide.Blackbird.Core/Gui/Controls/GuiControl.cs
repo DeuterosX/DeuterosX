@@ -100,6 +100,12 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		public GuiEventReference<MouseClickEventArgument> MouseClick { get; private set; }
 
 		/// <summary>
+		/// Gets or sets the mouse move event reference.
+		/// </summary>
+		/// <value>The mouse move event reference.</value>
+		public GuiEventReference<MouseMoveEventArgument> MouseMove { get; private set; }
+
+		/// <summary>
 		/// Renders this control.
 		/// </summary>
 		/// <param name="offsetX">The X offset.</param>
@@ -164,8 +170,9 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			this.Width = GuiValue<int>.Parse(Game, element.GetAttributeOrNull("w"), this);
 			this.Height = GuiValue<int>.Parse(Game, element.GetAttributeOrNull("h"), this);
 			this.Hide = GuiValue<bool>.Parse(Game, element.GetAttributeOrNull("hide"), this);
-
+			
 			this.MouseClick = GuiEventReference<MouseClickEventArgument>.Parse(Game, element.GetAttributeOrNull("onclick"), this);
+			this.MouseMove = GuiEventReference<MouseMoveEventArgument>.Parse(Game, element.GetAttributeOrNull("onmousemove"), this);
 		}
 
 		/// <summary>

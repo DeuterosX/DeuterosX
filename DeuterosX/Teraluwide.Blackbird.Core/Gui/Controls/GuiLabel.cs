@@ -6,6 +6,8 @@ using System.Xml;
 using Teraluwide.Blackbird.Core.ScriptingSupport;
 using System.Drawing;
 using SdlDotNet.Graphics;
+using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Teraluwide.Blackbird.Core.Gui.Controls
 {
@@ -14,13 +16,15 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 	/// </summary>
 	public class GuiLabel : GuiControl
 	{
+		static int uniqueId = 0;
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GuiLabel"/> class.
 		/// </summary>
 		/// <param name="game">The game.</param>
 		public GuiLabel(BlackbirdGame game)
 			: base(game)
-		{	}
+		{ }
 
 		/// <summary>
 		/// Gets or sets the text.
@@ -40,6 +44,12 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <value>The font.</value>
 		public GuiValue<string> Font { get; private set; }
 
+		TextureManagerItem cachedTexture;
+
+		Color oldColor;
+		string oldFont;
+		string oldText;
+
 		/// <summary>
 		/// Renders this control.
 		/// </summary>
@@ -47,7 +57,39 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <param name="offsetY">The Y offset.</param>
 		public override void RenderControl(int offsetX, int offsetY)
 		{
-			// TODO: Render a text label
+			// TODO: Maybe most of this should be in a helper class/manager instead? Also, this is quite a slow way to do the job for constantly changing text.
+			// If it becomes necessary to display lots of changing text at the same time, this should be rewritten to render the text manually using
+			// polygons mapping to a bitmap font texture (which has to be made in FontManager - either from a bitmap font definiton (texture + char map) or
+			// from a system/vector font where we have to create both the texture and the char map at load time).
+			if (cachedTexture == null || oldColor != Color.Value || oldFont != Font.Value || oldText != Text.Value)
+			{
+				if (cachedTexture != null)
+				{
+					cachedTexture.Dispose();
+					cachedTexture = null;
+				}
+
+				Surface surface = Game.FontManager.DrawText(Font.Value, Text.Value, Color.Value);
+
+				try
+				{
+					cachedTexture = new TextureManagerItem(Game.TextureManager, "labelText-" + Interlocked.Increment(ref uniqueId).ToString("X4"), string.Empty, false, false, false, Rectangle.Empty, true, true, 1);
+					cachedTexture.LoadTexture(surface.Width, surface.Height, surface.Pixels);
+				}
+				finally
+				{
+					surface.Dispose();
+				}
+
+				oldColor = Color.Value;
+				oldFont = Font.Value;
+				oldText = Text.Value;
+			}
+
+			if (cachedTexture != null)
+			{
+				cachedTexture.Draw(X + offsetX, Y + offsetY);
+			}
 		}
 
 		/// <summary>

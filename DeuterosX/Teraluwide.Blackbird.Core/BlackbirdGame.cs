@@ -20,6 +20,15 @@ namespace Teraluwide.Blackbird.Core
 	public abstract class BlackbirdGame
 	{
 		/// <summary>
+		/// Gets a value indicating whether this <see cref="BlackbirdGame"/> is run in debugm ode.
+		/// </summary>
+		/// <value><c>true</c> if in debug mode; otherwise, <c>false</c>.</value>
+		public bool Debug
+		{
+			get { return true; }
+		}
+
+		/// <summary>
 		/// Occurs when the application is about to exit.
 		/// </summary>
 		public event EventHandler<QuitEventArgs> BeforeQuit;

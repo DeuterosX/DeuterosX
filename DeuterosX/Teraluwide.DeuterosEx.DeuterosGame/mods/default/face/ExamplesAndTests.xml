@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+
+  <!-- This face serves as a portal to all the different test screens. Apart from that, it is a nice example of how to make buttons and redirections. -->
+  <Face id="mainTestScreen">
+    <background color="#ff000000" repeat="NoRepeat" />
+    <size width="320" height="200" />
+
+    <!-- 
+      This is a simple control. It has position (x, y) and size (w, h) - these are used to position the control 
+      in it's parent and to determine whether a mouse event is valid for this control.
+      
+      Since it also acts as a button, it has an event - onclick. This event is called whenever a mouse up event occurs in the specified area.
+      Another event, onmousemove, allows the developer to do something when a mouse is moved over the control. In this case, it's used to show a tooltip.
+    -->
+    <control type="cface" faceId="testButtons.BasicsButton" x="1" y="1" w="80" h="16" onclick="(s, e) => { ChangeGamescreen(&quot;testScreen.Basics&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;All the basics&quot;); }" />
+
+    <control type="label" x="0" y="$=GuiFace.All[0].Size.Height - sender.Height" h="16" w="320" text="$toolTip" font="fntGui" color="#dddddd" />
+  </Face>
+
+  <!-- This is a simple button face -->
+  <Face id="testButtons.BasicsButton">
+    <background color="#ff000000" image="systemName" repeat="NoRepeat" />
+    <size width="80" height="16" />
+
+    <control type="label" id="" x="4" y="4" text="Basics" color="#dddddd" font="fntGui" />
+  </Face>
+
+  <!-- This face (actually also a game screen) is used to show basic face building -->
+  <Face id="testScreen.Basics">
+    <!--
+      The "background" property can be used to set how the background for this face should be drawn.
+      At the time of this writing, a color, a background image and repeat mode can be specified.
+      
+      1) If any, background color is drawn first over the area specified using the "size" property.
+      2) If any, background image is draw next. The texture is stretched to fit the "size" property.
+      
+      The repeat mode (unsupported at the moment) allows the developer to specify how the texture
+      should be repeated if it doesn't fill the whole area.
+    -->    
+    <background color="#00000000" />
+    <size width="320" height="200" />
+    
+    <!-- 
+      Apart from background, faces are built using individual controls. At this moment, there are two basic controls:
+      
+      1) Label - handles text rendering
+      2) Face control - handles face rendering
+      
+      Using these, it is possible to build much.
+      
+      All controls have some properties in common:
+      * Position (x, y) - This is used to offset the control's content by a specified amount.
+      * Size (w, h) - This is used along with position (x, y) when handling mouse events to eliminate
+                      controls which shouldn't receive the event in question.
+      * Identifier (id) - This is useful in identifying controls, especially for debugging and 
+                          for operation in which many controls are involved.
+      * Hide (hide) - If a control is hidden, it doesn't render it's content and it doesn't respond to 
+                      event propagation.
+                      
+      Apart from properties, you can set events; the code you set will be executed when the event launches:
+      * onclick - Occurs when the user clicks the area of the control.
+      * onmousemove - Occurs whenever the user moves the mouse over the area of the control.
+      
+      Note that all controls are rendered in the order in which they are specified here - this can
+      cause some controls to be partially or completely obscured by later controls.
+      
+      Now for some examples:
+    -->
+
+    <!--
+      Simple, constant valued label. Constant references always return the same value
+      (in this case, "text" will always be "Hello world", color will always be "#eeeeee"
+       and the font will always be "fntGui").
+      
+      Note that properties (and events) which are not specified will have their default value.
+      For example, the position is not specified here and will have a default value (0, 0).
+    -->
+    <control type="label" text="Hello world" color="#eeeeee" font="fntGui" />
+    
+    <!--
+      The "text" property uses a variable, "currentSystem". Variable reference reads the specified
+      variable each time the property is evaluated. They are specified "$" + variable name.
+      
+      Note that variable names are case sensitive.
+    -->
+    <control type="label" x="4" y="20" text="$currentSystem" color="#ffffff" font="fntGui" />
+
+    <!--
+      This is an example of events.
+      
+      The "onclick" event is specified in the following control. As you can see, the "hide" property
+      has been set to a variable, "testHide". In the onclick event handler we set the "hide" property
+      to true, which in turn sets the "testHide" variable to true, which has the effect of hiding this
+      control (since it's "hide" property is now true).
+      
+      It's important to understand that constant values simply cannot be changed - if we didn't set 
+      the "hide" property to a variable, it would either be a constant reference (if we specified a value)
+      or a null reference (if we didn't specify any value). Since neither null reference nor constant reference
+      can be changed, this would cause an error.
+      
+      An alternative way to change the property would be to change the variable "testHide" directly.
+      This can be done through the variable manager, either by directly calling Game.VariableManager.SetVariable
+      or (preferrably, to keep the variables easier to manage) using helper properties in the mod core scripts.
+      For an example, see Core.Variables.cs along with the next control.
+    -->
+    <control type="cface" faceId="systemName" y="40" w="80" h="16" hide="$testHide" onclick="(s,e) => { s.Hide.Value = true; /* Alternatively, we could write TestHide = true; */ }" />
+
+    <!--
+      This is another example of an event - this time instead of using an anonymous function an actual method
+      of the Core class is used.
+    -->
+    <control type="cface" faceId="systemName" x="100" y="40" w="80" h="16" hide="$hideTest" onclick="HideTest_OnClick" />
+    
+    <!--
+      Example of a control affecting other control through use of variables. The two buttons move the third control
+      left and right, respectively.
+    -->
+    <control type="label" id="btnLeft" y="60" w="16" h="16" font="fntGui" color="#dddddd" text="&lt;-" onclick="(s, e) => { TestX -= 10; }" />
+    <control type="label" id="btnRight" x="20" y="60" w="16" h="16" font="fntGui" color="#dddddd" text="-&gt;" onclick="(s, e) => { TestX += 10; }" />
+    
+    <control type="cface" id="eventTest" faceId="systemName" x="$testX" y="80" w="80" h="16" />
+    
+    <!--
+      Another way of specifying properties is using script. There are two simple ways of doing this:
+      1) Return - Written using the syntax "$=code", the expression is compiled as "return code;".
+      2) Body - Written using the syntax "${ code }", the expression is compiled as "{ code }".
+                Make sure there is a return statement in code, or face the wrath of the compiler.
+                
+      The two examples below are functionally equivalent - each just choses a different way
+      to accomplish the same task.
+    -->
+    <control type="cface" faceId="systemName" x="20" y="$= 20 * 1" w="80" h="16" />
+    <control type="cface" faceId="systemName" x="100" y="${ return 20 * 1; }" w="80" h="16" />
+    
+    <!--
+      Scripted values can be used for pretty much anything. You can read and write variables,
+      do both simple and complex animations, anything you can do in C# code.
+      
+      In this example, the label moves back and forth across the screen.
+    -->
+    <control type="label" font="fntGui" color="#dddddd" text="Moving text!" x="$=(int)(Math.Sin((float)Environment.TickCount / 1000f) * 100 + 100)" y="120" />
+    
+    <!-- 
+      Often you will need to interact with other controls and faces. This is where things
+      get a bit complicated.
+      
+      When you use scripted reference for a property value, you get a "sender" parameter.
+      "sender" is kind of a tricky reference:
+      When used in a GuiValue with a GuiControl reference, it contains that reference.
+      Otherwise, it is the last control on the rendering stack (ie. it should contain the
+      nearest GuiControl above itself).
+      
+      In this example, directly accessing the control/face hierarchy is used to position
+      the control to the lower right corner of the root face.
+      
+      To understand this behaviour, more knowledge about the rendering process is required.
+      Basically, both faces and controls have a Render method. In this method, all the
+      draw logic is handled - faces render their controls, controls render themselves.
+      
+      GuiControl and GuiFace have a render stack. At the start of a frame, this stack is empty.
+      Each time the Render method is called, the instance is added to the render stack.
+      When the call returns, the last instance is popped off it.
+      
+      In essence, this means that while doing the rendering of any individual face/control,
+      the developer has access to all the parents of the current face/control.
+      
+      This is very important, since unlike the typical gui designers, the hieararchy isn't
+      fixed. The same face can be used any number of times during the rendering, each time
+      in a different place in the hierarchy. In effect, this means that any instance field
+      is shared between different appearances of the same face id. This is also the reason
+      you can never change the reference of any property at runtime - changing this in one
+      face would change it everywhere the face is rendered (since all the "appearances" of
+      the facename would have the same GuiFace instance). Since you always have to be very
+      mindful of where values for properties are coming from, it's much easier to actually
+      keep track of it.
+      
+      All in all, this also means there are few limits to how many times and in what places
+      faces can be repeated. Also, much less importantly, it saves some memory. However,
+      on modern computers, this is quite negligible. More importantly, the design means
+      the developers are pretty much forced into strutures well suited for tasks such as
+      finding a control under the mouse (thanks to the inherent structure, in part imposed
+      by the fact that only faces have backgrounds and only controls are allowed in a face).
+      Another side effect is this architecture could be relatively easy to subdivide into
+      tasks and spread accross different threads thanks to the fact that the GuiFace and
+      GuiControl instances are effectively immutable - not that this would be necessary.
+      Another useful feature of this design is that it's very easy to do a very accurate
+      game save/load mechanism. Since the whole gui and most of the logic is built around
+      game variables, preserving the state is only a matter of saving all the variables.
+      
+      The same approach is also used in the events. The sender parameter of the event
+      callback method will contain the control and GuiFace.All and GuiControl.All can
+      be used to retrieve parent faces and controls respectively.
+      
+      Knowing that, the mechanics of the example should be quite clear. We find the immediate
+      parent face of the control, read it's width and substract the controls own width from
+      it. Note that GuiFace.All (and GuiControl.All) being a stack means GuiFace.All[0] will
+      always be the immediate parent (or itself), GuiFace.All[1] the parent of the parent
+      etc. The root of the hierarchy would be GuiFace.All[GuiFace.All.Count - 1].
+      
+      As a whole, a bottom-top approach is used. Children ask their parents and in turn
+      have little direct control over their own children (just like real life!).
+    -->
+    <control type="cface" faceId="systemName" x="$=GuiFace.All[0].Size.Width - sender.Width" y="$=GuiFace.All[0].Size.Height - sender.Height" h="16" w="80" />
+  </Face>
+</FDRFile>

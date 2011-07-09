@@ -82,7 +82,7 @@ namespace Teraluwide.Blackbird.Core
 			if (root == null || root.Attributes["type"].Value != "types")
 				throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatException, FileName));
 
-			Log.WriteMessage(string.Format(Resources.TextureDefinitionVersion, root.Attributes["version"].Value));
+			Log.WriteMessage(string.Format(Resources.TypeDefinitionVersion, root.Attributes["version"].Value));
 
 			foreach (XmlElement el in root.SelectNodes("TypeList/*"))
 			{

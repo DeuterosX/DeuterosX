@@ -168,7 +168,8 @@ namespace Teraluwide.Blackbird.Core
 		/// <returns></returns>
 		public Surface DrawText(string fontId, string text, System.Drawing.Color color)
 		{
-			return GetFont(fontId).Render(text, color, true);
+			var surface = GetFont(fontId).Render(text ?? string.Empty, color);
+			return surface;
 		}
 
 		#region IDisposable Members

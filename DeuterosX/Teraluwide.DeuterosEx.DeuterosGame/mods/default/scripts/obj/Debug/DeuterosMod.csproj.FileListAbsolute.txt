@@ -7,3 +7,12 @@ P:\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\d
 P:\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\ResolveAssemblyReference.cache
 P:\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\DeuterosMod.dll
 P:\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\DeuterosMod.pdb
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\DeuterosMod.dll
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\DeuterosMod.pdb
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\DeuterosGame.exe
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\Teraluwide.Blackbird.Core.dll
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\DeuterosGame.pdb
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\bin\Debug\Teraluwide.Blackbird.Core.pdb
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\ResolveAssemblyReference.cache
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\DeuterosMod.dll
+P:\Software\DeuterosX\Project\project\DeuterosX\Teraluwide.DeuterosEx.DeuterosGame\mods\default\scripts\obj\Debug\DeuterosMod.pdb

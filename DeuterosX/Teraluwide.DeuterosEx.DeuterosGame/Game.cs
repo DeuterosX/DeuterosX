@@ -97,6 +97,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			GameScreenManager.CurrentGameScreen.Render();
 
 			// render the FPS
+			VariableManager.SetVariable("FPS", e.Fps);
 			// Video.Screen.Blit(FontManager.DrawText("fntMain", e.Fps.ToString(), Color.Yellow), new Point(100, 20));
 
 

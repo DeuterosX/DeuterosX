@@ -45,6 +45,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <param name="currentFileName">Name of the current file.</param>
 		public void LoadXml(System.Xml.XmlElement el)
 		{
+			
 			throw new NotImplementedException();
 		}
 

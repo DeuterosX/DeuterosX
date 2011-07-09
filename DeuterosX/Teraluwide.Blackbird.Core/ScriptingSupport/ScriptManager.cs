@@ -79,13 +79,18 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			// pars.Evidence = new Evidence(new object[] { new Zone(SecurityZone.Internet) }, null);
 			pars.GenerateExecutable = false;
 			pars.GenerateInMemory = true;
+			pars.IncludeDebugInformation = true;
 
 			// NOTE: Maybe the referenced assemblies and usings for inline methods should be defined in a xml?
 			pars.ReferencedAssemblies.Add("System.dll");
+			pars.ReferencedAssemblies.Add("System.Core.dll");
 			pars.ReferencedAssemblies.Add("System.Drawing.dll");
 			pars.ReferencedAssemblies.Add("SdlDotNet.dll");
 			pars.ReferencedAssemblies.Add("Teraluwide.Blackbird.Core.dll");
-			
+
+			if (Game.Debug)
+				System.IO.File.WriteAllText("inlineSources.cs", inlineMethods.ToString());
+
 			// NOTE: If we expect to have huge scripts, it may be necessary to use an alternate way to compile them; At present time, this implementation is sufficient.
 			CompilerResults res = codeProvider.CompileAssemblyFromSource(pars, VirtualPathProvider.FindFiles(VirtualPathProvider.EnsureModVirtualPath("scripts", Game.ModName), "*.cs").Select(i => VirtualPathProvider.GetFile(i).ReadToEnd()).Concat(new string[] { "using System; using System.Drawing; using System.Text; using Teraluwide.Blackbird.Core.Gui; using Teraluwide.Blackbird.Core.Gui.Controls; public partial class Core { " + inlineMethods.ToString() + " }" }).ToArray());
 
@@ -111,7 +116,8 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 				foreach (var binder in methodBinders)
 				{
 					// TODO: Add some error handling - missing methods, wrong definitions etc.
-					MethodInfo mi = coreType.GetMethod(binder.MethodName, BindingFlags.Instance | BindingFlags.NonPublic);
+					MethodInfo mi = coreType.GetMethod(binder.MethodName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
 					binder.BindMethod(Delegate.CreateDelegate(binder.DelegateType, core, mi, true));
 				}
 			}

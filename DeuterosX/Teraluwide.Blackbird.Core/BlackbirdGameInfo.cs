@@ -137,6 +137,7 @@ namespace Teraluwide.Blackbird.Core
 				}
 			}
 
+			Game.CustomComponents.Clear();
 			// Load the component definitions and instantize them.
 			foreach (XmlElement el in root.SelectNodes("Components/*"))
 			{

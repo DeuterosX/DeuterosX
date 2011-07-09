@@ -238,4 +238,8 @@ Value '{1}' is invalid for the option '{2}'.</value>
     <value>The specified mod file wasn't found: {0}, original path: {1}</value>
     <comment>Represents the error message shown when a non-existent file is requested.</comment>
   </data>
+  <data name="TypeDefinitionVersion" xml:space="preserve">
+    <value>Type definition file version: {0}</value>
+    <comment>Represents the format in which type definition version is logged.</comment>
+  </data>
 </root>

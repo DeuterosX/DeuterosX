@@ -83,6 +83,17 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			}
 		}
 
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents this instance.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents this instance.
+		/// </returns>
+		public override string ToString()
+		{
+			return string.Format("Scripted: {0}", HasValue ? string.Format("{0}", Value) : "NULL");
+		}
+
 		#region ILateMethodBinder Members
 		/// <summary>
 		/// Binds the specified method delegate.
