@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="training.RemoveToPullResearch">
+    <background color="#ff000000" image="training.RemoveToPull" repeat="NoRepeat" />
+  </Face>
+  <Face id="training.RecruitResearch">
+    <background color="#ff000000" image="training.Recruit" repeat="NoRepeat" />
+  </Face>
+  <Face id="training.RemoveToPullProduct">
+    <background color="#ff000000" image="training.RemoveToPull" repeat="NoRepeat" />
+  </Face>
+  <Face id="training.RecruitProduct">
+    <background color="#ff000000" image="training.Recruit" repeat="NoRepeat" />
+  </Face>
+  <Face id="training.RemoveToPullMarines">
+    <background color="#ff000000" image="training.RemoveToPull" repeat="NoRepeat" />
+  </Face>
+  <Face id="training.RecruitMarines">
+    <background color="#ff000000" image="training.Recruit" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="training.Content">
+    <background color="#ff000000" image="training.Background" repeat="NoRepeat" />
+    <size width="272" height="168" />
+
+    <control type="cface" faceId="training.RemoveToPullResearch" x="90" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Return To Pull&quot;); }" />
+    <control type="cface" faceId="training.RecruitResearch" x="106" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Recruit&quot;); }" />
+    <control type="cface" faceId="training.RemoveToPullProduct" x="154" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Return To Pull&quot;); }" />
+    <control type="cface" faceId="training.RecruitProduct" x="170" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Recruit&quot;); }" />
+    <control type="cface" faceId="training.RemoveToPullMarines" x="218" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Return To Pull&quot;); }" />
+    <control type="cface" faceId="training.RecruitMarines" x="234" y="106" w="11" h="12" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Recruit&quot;); }" />
+  </Face>
+</FDRFile>

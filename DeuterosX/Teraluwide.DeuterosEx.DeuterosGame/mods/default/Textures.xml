@@ -9,14 +9,50 @@
     <Texture id="systemName" fileName="gfx/systemName.png" />
     <Texture id="stationModules" fileName="gfx/stationModules.png" />
     <Texture id="stationModule.Production" fileName="gfx/stationModule.Production.png" />
+    <Texture id="stationModule.Training" fileName="gfx/stationModule.Training.png" />
+    <Texture id="stationModule.Research" fileName="gfx/stationModule.Research.png" />
+    <Texture id="stationModule.ShuttleBay" fileName="gfx/stationModule.ShuttleBay.png" />
+    <Texture id="stationModule.Resource" fileName="gfx/stationModule.Resource.png" />
+    <Texture id="stationModule.MiningStore" fileName="gfx/stationModule.MiningStore.png" />
+
+    <Texture id="resource.AddMiningRig" fileName="gfx/resource/addMiningRig.png" />
     
     <!-- Intro screen -->
     <Texture id="deuterosLogo" fileName="gfx/deuterosLogo.png" scalingModifier="0.25" />
+
+    <!-- Disk Operations screen -->
+    <Texture id="diskOperations.Background" fileName="gfx/diskOperations/background.png" />
+
+    <!-- News Bulletins screen -->
+    <Texture id="newsBulletins.Background" fileName="gfx/newsBulletins/background.png" />
+    <Texture id="newsBulletins.RepeatLast" fileName="gfx/newsBulletins/repeatLast.png" />
     
     <!-- Earth City screen -->
-    <Texture id="earthCityBackground" fileName="gfx/earthCity/background.png" />
-    
+    <Texture id="earthCity.Background" fileName="gfx/earthCity/background.png" />
+
+
+    <!-- Mining screen -->
+    <Texture id="miningStore.Background" fileName="gfx/miningStore/background.png" />
+    <Texture id="miningStore.SwitchStoreRoom" fileName="gfx/miningStore/switchStoreRoom.png" />
+
     <!-- Production screen -->
-    <Texture id="productionBackground" fileName="gfx/production/background.png" />
+    <Texture id="production.Background" fileName="gfx/production/background.png" />
+    <Texture id="production.SendTeamToBay" fileName="gfx/production/sendTeamToBay.png" />
+    
+    <!-- Training screen -->
+    <Texture id="training.Background" fileName="gfx/training/backgroundLight.png" />
+    <Texture id="training.RemoveToPull" fileName="gfx/training/removeToPull.png" />
+    <Texture id="training.Recruit" fileName="gfx/training/recruit.png" />
+    
+    <!-- Research screen -->
+    <Texture id="research.Background" fileName="gfx/research/background.png" />
+    
+    <!-- Resource screen -->
+    <Texture id="resource.Background" fileName="gfx/resource/background.png" />
+
+
+    <!-- Mining screen -->
+    <Texture id="shuttleBay.Background" fileName="gfx/shuttleBay/background.png" />
+    <Texture id="shuttleBay.NewShuttle" fileName="gfx/shuttleBay/newShuttle.png" />
   </TextureList>
 </FDRFile>

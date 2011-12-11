@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="newsBulletins.RepeatLastButton">
+    <background color="#ff000000" image="newsBulletins.RepeatLast" repeat="NoRepeat" />
+  </Face>
+  <Face id="newsBulletins.Content">
+    <background color="#ff000000" image="newsBulletins.Background" repeat="NoRepeat" />
+    <size width="272" height="168" />
+    
+    <control type="cface" faceId="newsBulletins.RepeatLastButton" x="126" y="143" w="19" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;newsBulletins&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Repeat Last Bulletin&quot;); }" />
+  </Face>
+</FDRFile>

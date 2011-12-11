@@ -118,6 +118,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mods\default\face\NewsBulletins.xml" />
+    <Content Include="mods\default\face\DiskOperations.xml" />
+    <Content Include="mods\default\face\ShuttleBay.xml" />
+    <Content Include="mods\default\face\MiningStore.xml" />
+    <Content Include="mods\default\face\Resource.xml" />
+    <Content Include="mods\default\face\Research.xml" />
+    <Content Include="mods\default\face\Training.xml" />
     <Content Include="mods\default\face\ExamplesAndTests.xml" />
     <Content Include="mods\default\face\Production.xml" />
     <Content Include="mods\default\face\EarthCity.xml" />

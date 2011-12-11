@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="shuttleBay.NewShuttleButton">
+    <background color="#ff000000" image="shuttleBay.NewShuttle" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="shuttleBay.Content">
+    <background color="#ff000000" image="shuttleBay.Background" repeat="NoRepeat" />
+    <size width="272" height="168" />
+
+    <control type="cface" faceId="shuttleBay.NewShuttleButton" x="35" y="0" w="19" h="16" onclick="(s, e) => { ChangeGamescreen(&quot;shuttleBay&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;New Shuttle&quot;); }" />
+  </Face>
+</FDRFile>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="resource.AddMiningRigButton">
+    <background color="#ff000000" image="resource.AddMiningRig" repeat="NoRepeat" />
+  </Face>
+  <Face id="resource.Content">
+    <background color="#ff000000" image="resource.Background" repeat="NoRepeat" />
+    <size width="272" height="168" />
+
+    <control type="cface" faceId="resource.AddMiningRigButton" x="235" y="125" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;resource&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Add Mining Rig&quot;); }" />
+  </Face>
+</FDRFile>

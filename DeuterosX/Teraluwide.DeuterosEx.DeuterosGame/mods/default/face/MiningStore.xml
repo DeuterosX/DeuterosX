@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FDRFile version="0.10" type="face">
+  <Face id="miningStore.SwitchStoreRoomButton">
+    <background color="#ff000000" image="miningStore.SwitchStoreRoom" repeat="NoRepeat" />
+  </Face>
+  <Face id="miningStore.Content">
+    <background color="#ff000000" image="miningStore.Background" repeat="NoRepeat" />
+    <size width="272" height="168" />
+    
+    <control type="cface" faceId="miningStore.SwitchStoreRoomButton" x="30" y="152" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;resource&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Switch Storeroom&quot;); }" />
+  </Face>
+</FDRFile>

@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.10" type="face">
-  <Face id="earthCity.Content">
-    <background color="#ff000000" image="earthCity.Background" repeat="NoRepeat" />
+  <Face id="research.Content">
+    <background color="#ff000000" image="research.Background" repeat="NoRepeat" />
     <size width="272" height="168" />
-    
     
   </Face>
 </FDRFile>

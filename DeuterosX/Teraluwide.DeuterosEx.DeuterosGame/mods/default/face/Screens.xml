@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.10" type="face">
+  <Include file="face/DiskOperations.xml" />
+  <Include file="face/NewsBulletins.xml" />
   <Include file="face/EarthCity.xml" />
+  <Include file="face/MiningStore.xml" />
+  <Include file="face/Training.xml" />
   <Include file="face/Production.xml" />
+  <Include file="face/Research.xml" />
+  <Include file="face/Resource.xml" />
+  <Include file="face/ShuttleBay.xml" />
   
   <Face id="intro">
     <background color="$=Animate(Color.Black, Color.FromArgb(0xA0, 0x00, 0x00, 0x40), 5000, true)" image="deuterosLogo" repeat="NoRepeat" />
@@ -9,18 +16,67 @@
 
     <control type="label" text="$=&quot;FPS: &quot; + FPS.ToString(&quot;d2&quot;);" font="fntMain" color="$=Color.Firebrick" x="0" y="0" />
   </Face>
+
+  <Face id="diskOperations">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="diskOperations.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+  
+  <Face id="newsBulletins">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="newsBulletins.Content" x="48" y="16" w="272" h="168" />
+  </Face>
   
   <Face id="earthCity">
     <size width="320" height="200" />
     <control type="cface" faceId="mainScreen" x="$=20 * 0" y="${ return 0; if (true) { return 200 * Game.Scale - Game.BackbufferHeight; } }" w="320" h="200" />
     
-    <control type="cface" faceId="earthCityContent" x="48" y="16" w="272" h="168" />
+    <control type="cface" faceId="earthCity.Content" x="48" y="16" w="272" h="168" />
   </Face>
 
+  <Face id="miningStore">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="miningStore.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+  
   <Face id="production">
     <size width="320" height="200" />
     <control type="cface" faceId="mainScreen" w="320" h="200" />
 
-    <control type="cface" faceId="productionContent" x="48" y="16" w="272" h="168" />
+    <control type="cface" faceId="production.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+
+  <Face id="training">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="training.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+
+  <Face id="research">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="research.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+  
+  <Face id="resource">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="resource.Content" x="48" y="16" w="272" h="168" />
+  </Face>
+
+  <Face id="shuttleBay">
+    <size width="320" height="200" />
+    <control type="cface" faceId="mainScreen" w="320" h="200" />
+
+    <control type="cface" faceId="shuttleBay.Content" x="48" y="16" w="272" h="168" />
   </Face>
 </FDRFile>

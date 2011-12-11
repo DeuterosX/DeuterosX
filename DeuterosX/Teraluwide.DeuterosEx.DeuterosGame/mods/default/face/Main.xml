@@ -19,10 +19,44 @@
   <Face id="controlPanel">
     <background color="#ff000000" image="controlPanel" repeat="NoRepeat" />
     <size width="48" height="64" />
+
+    <control type="cface" faceId="stationModule.AdvanceTimeButton" x="1" y="1" w="24" h="14" onclick="(s, e) => { }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }" />
+    <control type="cface" faceId="stationModule.NewsBulletinsButton" x="28" y="30" w="23" h="19" onclick="(s, e) => { ChangeGamescreen(&quot;newsBulletins&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;News Bulletins&quot;); }" />
+    <control type="cface" faceId="stationModule.DiskAccessButton" x="1" y="29" w="22" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;diskOperations&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Disk Access&quot;); }" />
+    <control type="cface" faceId="stationModule.EarthCityButton" x="1" y="48" w="19" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;earthCity&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Earth City&quot;); }" />
   </Face>
 
+  <Face id="stationModule.AdvanceTimeButton">
+  </Face>
+  <Face id="stationModule.EarthCityButton">    
+  </Face>
+  <Face id="stationModule.NewsBulletinsButton">
+  </Face>
+  <Face id="stationModule.DiskAccessButton">
+  </Face>
+  
   <Face id="stationModule.ProductionButton">
     <background color="#ff000000" image="stationModule.Production" repeat="NoRepeat" />
+  </Face>
+
+  <Face id="stationModule.TrainingButton">
+    <background color="#ff000000" image="stationModule.Training" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="stationModule.ResearchButton">
+    <background color="#ff000000" image="stationModule.Research" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="stationModule.ShuttleBayButton">
+    <background color="#ff000000" image="stationModule.ShuttleBay" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="stationModule.ResourceButton">
+    <background color="#ff000000" image="stationModule.Resource" repeat="NoRepeat" />
+  </Face>
+
+  <Face id="stationModule.MiningStoreButton">
+    <background color="#ff000000" image="stationModule.MiningStore" repeat="NoRepeat" />
   </Face>
   
   <Face id="stationModules">
@@ -30,6 +64,11 @@
     <size width="48" height="98" />
 
     <control type="cface" faceId="stationModule.ProductionButton" x="1" y="1" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;production&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Production&quot;); }" />
+    <control type="cface" faceId="stationModule.TrainingButton" x="1" y="49" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;training&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Training&quot;); }" />
+    <control type="cface" faceId="stationModule.ResearchButton" x="25" y="49" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;research&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Research&quot;); }" />
+    <control type="cface" faceId="stationModule.ShuttleBayButton" x="1" y="65" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;shuttleBay&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Shuttle Bay&quot;); }" />
+    <control type="cface" faceId="stationModule.ResourceButton" x="25" y="65" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;resource&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Resource&quot;); }" />
+    <control type="cface" faceId="stationModule.MiningStoreButton" x="25" y="81" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;miningStore&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Mining Store&quot;); }" />
   </Face>
 
   <Face id="mainScreen">
@@ -37,7 +76,7 @@
     <size width="320" height="200" />
     
     <control type="cface" faceId="controlPanel" x="0" y="16" w="48" h="64" />
-    <control type="cface" faceId="stationModules" x="0" y="88" w="48" h="64" />
+    <control type="cface" faceId="stationModules" x="0" y="88" w="48" h="98" />
     
     <control type="cface" faceId="systemName" x="$testX" w="80" h="16" hide="$testHide" onclick="(s,e) => { s.Hide.Value = true; }" />
     <control type="cface" id="eventTest" faceId="systemName" x="240" w="80" h="16" onclick="(s,e) => { Game.VariableManager.SetVariable(&quot;testX&quot;, e.X - 200); }"/>

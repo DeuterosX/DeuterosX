@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FDRFile version="0.10" type="face">
-  <Face id="productionContent">
-    <background color="#ff000000" image="productionBackground" repeat="NoRepeat" />
+  <Face id="production.SendTeamToBayButton">
+    <background color="#ff000000" image="production.SendTeamToBay" repeat="NoRepeat" />
+  </Face>
+  
+  <Face id="production.Content">
+    <background color="#ff000000" image="production.Background" repeat="NoRepeat" />
     <size width="272" height="168" />
     
+    <control type="cface" faceId="production.SendTeamToBayButton" x="120" y="147" w="22" h="14" onclick="(s, e) => { ChangeGamescreen(&quot;production&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Send Team To Bay&quot;); }" />  
   </Face>
 </FDRFile>

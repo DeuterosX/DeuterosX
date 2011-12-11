@@ -2,8 +2,15 @@
 <FDRFile version="0.01" type="screens">
   <GameScreenList>
     <GameScreen id="intro" faceId="intro" type="gameScreen" />
+    <GameScreen id="diskOperations" faceId="diskOperations" type="gameScreen" />
+    <GameScreen id="newsBulletins" faceId="newsBulletins" type="gameScreen" />
     <GameScreen id="earthCity" faceId="earthCity" type="gameScreen" />
+    <GameScreen id="miningStore" faceId="miningStore" type="gameScreen" />
+    <GameScreen id="resource" faceId="resource" type="gameScreen" />
     <GameScreen id="production" faceId="production" type="gameScreen" />
+    <GameScreen id="training" faceId="training" type="gameScreen" />
+    <GameScreen id="research" faceId="research" type="gameScreen" />
+    <GameScreen id="shuttleBay" faceId="shuttleBay" type="gameScreen" />
     <GameScreen id="testScreen" faceId="mainTestScreen" type="gameScreen" />
     <GameScreen id="testScreen.Basics" faceId="testScreen.Basics" type="gameScreen" />
   </GameScreenList>
