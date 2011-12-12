@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\UniverseComponent.cs" />
     <Compile Include="Core.GuiMethods.cs" />
     <Compile Include="Core.Variables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

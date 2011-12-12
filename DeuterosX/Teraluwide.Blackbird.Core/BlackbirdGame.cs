@@ -29,6 +29,23 @@ namespace Teraluwide.Blackbird.Core
 		}
 
 		/// <summary>
+		/// Gets or sets whether the simulation is currently running.
+		/// </summary>
+		public bool SimulationRunning
+		{
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// Gets the length of the simulation cycle in seconds.
+		/// </summary>
+		public float SimulationCycleSeconds
+		{
+			get { return 1f; }
+		}
+
+		/// <summary>
 		/// Occurs when the application is about to exit.
 		/// </summary>
 		public event EventHandler<QuitEventArgs> BeforeQuit;
@@ -174,9 +191,8 @@ namespace Teraluwide.Blackbird.Core
 			VariableManager.Load();
 			ScriptManager.Load();
 
-			// Load all the custom components.
-			foreach (var component in CustomComponents.Values)
-				component.Load();
+			// Load all the custom components - note that the instancing of the components occurs earlier, in GameInfo.Load
+			CustomComponents.Load();
 		}
 
 		/// <summary>
@@ -217,7 +233,7 @@ namespace Teraluwide.Blackbird.Core
 
 			Events.Quit += new EventHandler<QuitEventArgs>(Events_Quit);
 			Events.Tick += new EventHandler<TickEventArgs>(Tick);
-			
+
 			Events.Run();
 		}
 
@@ -259,14 +275,42 @@ namespace Teraluwide.Blackbird.Core
 				AfterQuit(sender, e);
 		}
 
+
+		float timeCounter = 0;
 		/// <summary>
-		/// Called every time the simulation is advanced.
+		/// Called every tick of the update-render cycle.
 		/// </summary>
 		/// <param name="sender">The sender.</param>
 		/// <param name="e">The <see cref="SdlDotNet.Core.TickEventArgs"/> instance containing the event data.</param>
 		public virtual void Tick(object sender, TickEventArgs e)
 		{
+			if (SimulationRunning)
+			{
+				timeCounter += e.SecondsElapsed;
 
+				if (timeCounter > SimulationCycleSeconds)
+				{
+					// The max is here for unreasonably short simulation cycle times
+					timeCounter = Math.Max(0f, timeCounter - SimulationCycleSeconds);
+
+					Advance();
+				}
+			}
+			else
+			{
+				if (timeCounter > 0)
+					timeCounter = 0;
+			}
+		}
+
+		/// <summary>
+		/// Called every time the simulation is advanced.
+		/// </summary>
+		public virtual void Advance()
+		{
+			Console.WriteLine("Advance!");
+
+			CustomComponents.Advance();
 		}
 
 		/// <summary>

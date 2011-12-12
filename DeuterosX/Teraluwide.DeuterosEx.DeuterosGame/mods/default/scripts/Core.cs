@@ -37,6 +37,10 @@ public partial class Core : BasicSimulationComponent
 		{
 			ChangeGamescreen("testScreen");
 		}
+		else if (e.Key == SdlDotNet.Input.Key.Pause)
+		{
+			Game.SimulationRunning = !Game.SimulationRunning;
+		}
 	}
 
 	/// <summary>

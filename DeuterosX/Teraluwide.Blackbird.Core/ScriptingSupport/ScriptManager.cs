@@ -85,6 +85,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			pars.ReferencedAssemblies.Add("System.dll");
 			pars.ReferencedAssemblies.Add("System.Core.dll");
 			pars.ReferencedAssemblies.Add("System.Drawing.dll");
+			pars.ReferencedAssemblies.Add("System.Xml.dll");
 			pars.ReferencedAssemblies.Add("SdlDotNet.dll");
 			pars.ReferencedAssemblies.Add("Teraluwide.Blackbird.Core.dll");
 

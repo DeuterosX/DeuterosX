@@ -10,7 +10,7 @@ namespace Teraluwide.Blackbird.Core
 	/// <summary>
 	/// Represents a base Blackbird simulation component. Does nothing by default.
 	/// </summary>
-	public class BasicSimulationComponent : IBlackbirdSimulationComponent
+	public class BasicSimulationComponent : IBlackbirdSimulationComponent, IBlackbirdSavegameComponent
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BasicSimulationComponent"/> class.

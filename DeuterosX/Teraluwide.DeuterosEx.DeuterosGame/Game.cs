@@ -77,9 +77,6 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 			Mouse.ShowCursor = false;
 		}
 
-		/// <summary>
-		/// Called every time the simulation is advanced.
-		/// </summary>
 		/// <param name="sender">The sender.</param>
 		/// <param name="e">The <see cref="SdlDotNet.Core.TickEventArgs"/> instance containing the event data.</param>
 		public override void Tick(object sender, SdlDotNet.Core.TickEventArgs e)
