@@ -17,7 +17,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// Gets or sets the game.
 		/// </summary>
 		/// <value>The game.</value>
-		protected BlackbirdGame Game { get; private set; }
+		public BlackbirdGame Game { get; private set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StationBase"/> class.
@@ -68,23 +68,17 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		}
 
 		/// <summary>
-		/// Loads the station from a XmlNode.
+		/// Loads the station from a XmlElement.
 		/// </summary>
 		/// <param name="node">The Xml node.</param>
-		public virtual void LoadXml(XmlNode node)
+		public virtual void LoadXml(XmlElement node)
 		{
-			this.title = node.Attributes["Title"].Value;
-			if (node.Attributes["Location"] != null)
-			{
-				this.location = node.Attributes["Location"].Value;
-			}
-			if (node.Attributes["Owner"] != null)
-			{
-				this.owner = node.Attributes["Owner"].Value;
-			}
+			this.title = node.GetAttributeOrNull("title");
+			this.location = node.GetAttributeOrNull("location");
+			this.owner = node.GetAttributeOrNull("owner");
 
 			this.modules.Clear();
-			foreach (XmlNode xMod in node["Modules"].ChildNodes)
+			foreach (XmlElement xMod in node["Modules"].ChildNodes.OfType<XmlElement>())
 			{
 				StationModuleBase mod = XmlHelper.CreateType(Game, xMod.Name) as StationModuleBase;
 				if (mod == null)
@@ -96,39 +90,37 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		}
 
 		/// <summary>
-		/// Saves the station to a XmlNode.
+		/// Saves the station to a XmlElement.
 		/// </summary>
 		/// <param name="node">The Xml node.</param>
-		public virtual void SaveXml(XmlNode node)
+		public virtual void SaveXml(XmlElement node)
 		{
 			XmlDocument doc = node.OwnerDocument;
 
-			XmlAttribute at = doc.CreateAttribute("Type");
+			XmlAttribute at = doc.CreateAttribute("type");
 			at.Value = this.GetType().ToString();
 			node.Attributes.Append(at);
 
-			at = doc.CreateAttribute("Title");
+			at = doc.CreateAttribute("title");
 			at.Value = title;
 			node.Attributes.Append(at);
 
-			at = doc.CreateAttribute("Location");
+			at = doc.CreateAttribute("location");
 			at.Value = this.location;
 			node.Attributes.Append(at);
 
-			at = doc.CreateAttribute("Owner");
+			at = doc.CreateAttribute("owner");
 			at.Value = this.owner;
 			node.Attributes.Append(at);
 
 			XmlElement el = doc.CreateElement("Modules");
 			node.AppendChild(el);
 
-			XmlNode xModule;
-
 			for (int i = 0; i < modules.Count; i++)
 			{
 				if (modules[i] != null)
 				{
-					xModule = doc.CreateElement(modules[i].GetType().ToString());
+					var xModule = doc.CreateElement(modules[i].GetType().ToString());
 					modules[i].SaveXml(xModule);
 					el.AppendChild(xModule);
 				}
@@ -179,6 +171,14 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		}
 
 		/// <summary>
+		/// Performs all that is needed to build the station (ie. create all the default modules etc.).
+		/// </summary>
+		public virtual void Build()
+		{
+
+		}
+
+		/// <summary>
 		/// Process turn
 		/// </summary>
 		public virtual void ProcessTurn()
@@ -190,6 +190,16 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 					Modules[i].ProcessTurn();
 				}
 			}
+		}
+		
+		/// <summary>
+		/// Gets the module.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
+		public T GetModule<T>()
+		{
+			return Modules.OfType<T>().FirstOrDefault();
 		}
 	}
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using Teraluwide.Blackbird.Core.Properties;
+using System.Security.AccessControl;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -39,6 +40,39 @@ namespace Teraluwide.Blackbird.Core
 				return ModFilePath + modName + "/" + originalPath;
 			else
 				return originalPath;
+		}
+
+		/// <summary>
+		/// Gets a read/write file stream for the specified virtual path.
+		/// </summary>
+		/// <param name="path">The virtual path to the file.</param>
+		/// <returns></returns>
+		public static Stream CreateFile(string path)
+		{
+			switch (GetPathKind(path))
+			{
+				case VirtualPathKind.ModFile:
+					{
+						string[] fragments = path.Split('/');
+
+						string modName = fragments[1];
+
+						string modPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, BaseModPath), modName);
+						string filePath = Path.Combine(modPath, string.Join(Path.DirectorySeparatorChar.ToString(), fragments, 2, fragments.Length - 2));
+
+						// When creating a file, unpacked mod pathway is used.
+
+						// Make sure the directory exists
+						Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+						if (File.Exists(filePath))
+							File.Delete(filePath);
+
+						return File.Create(filePath);
+					}
+
+				default: throw new ArgumentException(string.Format(Resources.InvalidVirtualPathException, path));
+			}
 		}
 
 		/// <summary>

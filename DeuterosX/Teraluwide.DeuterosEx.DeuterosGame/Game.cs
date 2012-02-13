@@ -7,6 +7,8 @@ using SdlDotNet.Graphics;
 using System.Drawing;
 using SdlDotNet.Input;
 using Tao.OpenGl;
+using System.Threading;
+using Teraluwide.DeuterosEx.DeuterosGame.Universe;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame
 {
@@ -35,6 +37,11 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		public override int Scale { get { return 4; } }
 
 		/// <summary>
+		/// Gets the universe manager.
+		/// </summary>
+		public UniverseManager UniverseManager { get { return CustomComponents["UniverseManager"] as UniverseManager; } }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="Game"/> class.
 		/// </summary>
 		public Game()
@@ -50,6 +57,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		void Game_BeforeQuit(object sender, SdlDotNet.Core.QuitEventArgs e)
 		{
 			TextureManager.ReturnTexture(cursor.Id);
+
+			SaveGame("_lastGame");
 		}
 
 		/// <summary>

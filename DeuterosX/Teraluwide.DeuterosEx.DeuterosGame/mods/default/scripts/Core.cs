@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
-using Teraluwide.Blackbird.Core;
 using SdlDotNet.Core;
+
+using Teraluwide.Blackbird.Core;
 using Teraluwide.Blackbird.Core.ScriptingSupport.EventArguments;
 using Teraluwide.Blackbird.Core.ScriptingSupport;
 using Teraluwide.Blackbird.Core.Gui.Controls;

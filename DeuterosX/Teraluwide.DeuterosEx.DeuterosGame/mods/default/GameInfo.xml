@@ -10,6 +10,7 @@
     <Website>http://www.deuterosx.org/</Website>    
   </GameInfo>
   <Components>
-    
+    <StationManager type="Teraluwide.DeuterosEx.DeuterosGame.Stations.StationManager, DeuterosGame" />
+    <UniverseManager type="Teraluwide.DeuterosEx.DeuterosGame.Universe.UniverseManager, DeuterosGame" />
   </Components>
 </FDRFile>

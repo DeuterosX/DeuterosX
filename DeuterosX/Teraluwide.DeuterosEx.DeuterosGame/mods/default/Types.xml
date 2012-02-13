@@ -5,5 +5,11 @@
     <Type id="cface" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiFaceControl, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
     <Type id="gameScreen" aqn="Teraluwide.Blackbird.Core.GameScreen, Teraluwide.Blackbird.Core" />
+
+    <Type id="spaceItem" aqn="Teraluwide.DeuterosEx.DeuterosGame.Universe.SpaceItem, DeuterosGame" />
+
+    <!-- Station modules -->
+    <Type id="MiningStore" aqn="Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningStoreStationModule, DeuterosGame" />
+    <Type id="MiningFacility" aqn="Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule, DeuterosGame" />
   </TypeList>
 </FDRFile>

@@ -13,21 +13,30 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 	public abstract class StationModuleBase
 	{
 		private StationBase parent;
+		/// <summary>
+		/// Gets the parent of this module.
+		/// </summary>
+		public StationBase Parent
+		{
+			get { return this.parent; }
+		}
 
 		/// <summary>
 		/// Loads the station module from a XmlNode.
 		/// </summary>
 		/// <param name="node">The Xml node.</param>
-		public virtual void LoadXml(XmlNode node)
+		public virtual void LoadXml(XmlElement node)
 		{
+
 		}
 
 		/// <summary>
 		/// Saves the station module to a XmlNode.
 		/// </summary>
 		/// <param name="node">The Xml node.</param>
-		public virtual void SaveXml(XmlNode node)
+		public virtual void SaveXml(XmlElement node)
 		{
+
 		}
 
 		/// <summary>

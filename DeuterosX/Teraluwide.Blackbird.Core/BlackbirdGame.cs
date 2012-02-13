@@ -11,6 +11,9 @@ using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 using System.IO;
 using System.Reflection;
+using System.Xml;
+using Teraluwide.Blackbird.Core.Properties;
+using System.Threading;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -143,6 +146,16 @@ namespace Teraluwide.Blackbird.Core
 		/// <value>The mouse Y.</value>
 		public int MouseY { get { return SdlDotNet.Input.Mouse.MousePosition.Y / Scale; } }
 
+		int randomSeed = new Random().Next();
+		/// <summary>
+		/// Gets the random seed.
+		/// </summary>
+		/// <returns></returns>
+		public int GetRandomSeed()
+		{
+			return Interlocked.Increment(ref randomSeed);
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BlackbirdGame"/> class.
 		/// </summary>
@@ -175,6 +188,8 @@ namespace Teraluwide.Blackbird.Core
 
 			Video.SetVideoMode(800, 600);
 			Video.WindowCaption = GameInfo.Title;
+
+			LoadGame("_newGame");
 		}
 
 		/// <summary>
@@ -193,6 +208,92 @@ namespace Teraluwide.Blackbird.Core
 
 			// Load all the custom components - note that the instancing of the components occurs earlier, in GameInfo.Load
 			CustomComponents.Load();
+		}
+
+		/// <summary>
+		/// Loads the specified save game.
+		/// </summary>
+		/// <param name="fileName">The game file name.</param>
+		public void LoadGame(string fileName)
+		{
+			XmlDocument doc = new XmlDocument();
+
+			using (var stream = VirtualPathProvider.GetFile(VirtualPathProvider.EnsureModVirtualPath("save/" + fileName + ".xml", ModName)))
+			{
+				try
+				{
+					doc.Load(stream);
+				}
+				catch (XmlException ex)
+				{
+					throw new BlackbirdException(string.Format(Resources.ModFileIsInIncorrectFormatException, fileName), ex);
+				}
+			}
+
+			LoadGame(doc);
+		}
+
+		/// <summary>
+		/// Loads the specified save game.
+		/// </summary>
+		/// <param name="fileName">The Xml document of the save game.</param>
+		protected virtual void LoadGame(XmlDocument doc)
+		{
+			foreach (XmlNode node in doc.SelectSingleNode("FDRFile/CustomComponents").ChildNodes)
+			{
+				if (node is XmlElement)
+				{
+					var el = node as XmlElement;
+
+					if (CustomComponents.ContainsKey(el.Name))
+					{
+						var bsc = CustomComponents[el.Name] as IBlackbirdSavegameComponent;
+
+						if (bsc != null)
+							bsc.LoadGame(el);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Saves the game to the specified game name.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		public void SaveGame(string fileName)
+		{
+			XmlDocument doc = new XmlDocument();
+			SaveGame(doc);
+
+			using (var stream = VirtualPathProvider.CreateFile(VirtualPathProvider.EnsureModVirtualPath("save/" + fileName + ".xml", ModName)))
+				doc.Save(stream);
+		}
+
+		/// <summary>
+		/// Loads the specified save game.
+		/// </summary>
+		/// <param name="fileName">The Xml document of the save game.</param>
+		protected virtual void SaveGame(XmlDocument doc)
+		{
+			doc.AppendChild(doc.CreateXmlDeclaration("1.0", "utf-8", "yes"));
+
+			XmlElement root;
+
+			doc.AppendChild(root = doc.CreateElement("FDRFile"));
+
+			root.Attributes.Append(doc.CreateAttributeWithValue("version", "0.1"));
+			root.Attributes.Append(doc.CreateAttributeWithValue("type", "save"));
+
+			XmlElement components = doc.CreateElement("CustomComponents");
+			root.AppendChild(components);
+
+			foreach (var component in CustomComponents.Select(i => i.Value).OfType<IBlackbirdSavegameComponent>())
+			{
+				var el = doc.CreateElement(component.Id);
+				components.AppendChild(el);
+
+				component.SaveGame(el);
+			}
 		}
 
 		/// <summary>

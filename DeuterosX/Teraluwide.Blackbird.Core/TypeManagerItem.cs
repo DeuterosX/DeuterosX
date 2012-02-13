@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Teraluwide.Blackbird.Core.Properties;
+using System.Reflection;
 
 namespace Teraluwide.Blackbird.Core
 {
@@ -38,7 +39,7 @@ namespace Teraluwide.Blackbird.Core
 		{
 			this.Id = id;
 			this.AssemblyQualifiedName = assemblyQualifiedName;
-			this.Type = Type.GetType(assemblyQualifiedName);
+			this.Type = Type.GetType(assemblyQualifiedName) ?? Assembly.GetEntryAssembly().GetType(assemblyQualifiedName);
 
 			if (this.Type == null)
 				throw new BlackbirdException(string.Format(Resources.TypeNotFound, assemblyQualifiedName));

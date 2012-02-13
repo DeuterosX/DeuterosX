@@ -8,99 +8,68 @@
     <CurrentYear>3100</CurrentYear>
     <CurrentCycle>1</CurrentCycle>
   </SaveInfo>
-  <SaveData>
-    <Station Type="Deuteros.Stations.StationBase" Title="Earth City" Location="MilkyWay.Sol.Earth" Owner="Player">
-      <Modules>
-        <Deuteros.Stations.StationModuleFactory>
-          <HasAOC>False</HasAOC>
-          <IsOrbital>False</IsOrbital>
-          <ProductionTeam Type="Deuteros.Teams.WorkTeamProduction">
-            <TeamLeader>Derek Smart</TeamLeader>
-            <TeamSize>100</TeamSize>
-            <ProductionTeamRank>Apprentice</ProductionTeamRank>
-          </ProductionTeam>
-          <BuildProgress>-1</BuildProgress>
-          <BuildQueueIndex>-1</BuildQueueIndex>
-          <BuildQueue>
-            <QueueItem>
-              <Repeat>True</Repeat>
-              <ItemId>Derrick</ItemId>
-            </QueueItem>
-          </BuildQueue>
-        </Deuteros.Stations.StationModuleFactory>
-        <Deuteros.Stations.StationModuleMiningFacility />
-        <Deuteros.Stations.StationModuleMiningStore>
-          <StoreMaterials>
-            <Iron>200</Iron>
-            <Titanium>200</Titanium>
-            <Aluminium>0</Aluminium>
-            <Carbon>200</Carbon>
-            <Copper>0</Copper>
-            <Hydrogen>0</Hydrogen>
-            <Deuterium>0</Deuterium>
-            <Methane>0</Methane>
-            <Helium>0</Helium>
-            <Paladium>0</Paladium>
-            <Platinum>0</Platinum>
-            <Silver>0</Silver>
-            <Gold>0</Gold>
-            <Silica>0</Silica>
-          </StoreMaterials>
-          <StoreItems>
-            <UnknownItem>0</UnknownItem>
-            <Derrick>0</Derrick>
-            <ShuttleChassis>0</ShuttleChassis>
-            <ShuttleDrive>0</ShuttleDrive>
-            <MeHFuel>0</MeHFuel>
-            <OFFrame>0</OFFrame>
-            <SupplyPod>0</SupplyPod>
-            <ToolPod>0</ToolPod>
-            <CryoPod>0</CryoPod>
-            <Blaser>0</Blaser>
-            <IOSChassis>0</IOSChassis>
-            <IOSDrive>0</IOSDrive>
-            <SCGChassis>0</SCGChassis>
-            <SCGDrive>0</SCGDrive>
-            <HeDFuel>0</HeDFuel>
-            <ACC>0</ACC>
-            <AOC>0</AOC>
-            <Bandaid>0</Bandaid>
-            <SDM>0</SDM>
-            <Grapple>0</Grapple>
-            <DFCC>0</DFCC>
-            <AMA>0</AMA>
-            <Hyperlight>0</Hyperlight>
-            <MTX>0</MTX>
-            <FuzLaser>0</FuzLaser>
-            <RFrame>0</RFrame>
-            <PTL>0</PTL>
-            <CommsPod>0</CommsPod>
-            <IOSDrone>0</IOSDrone>
-            <StarDrone>0</StarDrone>
-            <PrisonPod>0</PrisonPod>
-            <Blaster>0</Blaster>
-          </StoreItems>
-        </Deuteros.Stations.StationModuleMiningStore>
-      </Modules>
-    </Station>
-    <Station Type="Deuteros.Stations.StationBase" Title="Earth Orbital" Location="MilkyWay.Sol.Earth" Owner="Player">
-      <Modules>
-        <Deuteros.Stations.StationModuleFactory>
-          <HasAOC>True</HasAOC>
-          <IsOrbital>True</IsOrbital>
-          <ProductionTeam />
-          <BuildProgress>-1</BuildProgress>
-          <BuildQueueIndex>-1</BuildQueueIndex>
-          <BuildQueue>
-            <QueueItem>
-              <Repeat>True</Repeat>
-              <ItemId>Derrick</ItemId>
-            </QueueItem>
-          </BuildQueue>
-        </Deuteros.Stations.StationModuleFactory>
-      </Modules>
-    </Station>
-  </SaveData>
+  <CustomComponents>
+    <StationManager>
+      <Stations>
+        <Station type="Teraluwide.DeuterosEx.DeuterosGame.Stations.Station" title="Earth City" location="MilkyWay.Sol.Earth" owner="Player">
+          <Modules>
+            <MiningStore>
+              <StoreItems />
+              <StoreMaterials />
+            </MiningStore>
+            <MiningFacility derricks="5" />
+          </Modules>
+        </Station>
+      </Stations>
+    </StationManager>
+    <UniverseManager>
+      <Galaxies>
+        <MilkyWay name="Milky Way">
+          <Sol name="Sol">
+            <Mercury name="Mercury" type="spaceItem">
+              <Surveys>
+                <Iron maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Titanium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Aluminium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Carbon maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Copper maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Hydrogen maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Deuterium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Methane maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Helium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Paladium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Platinum maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Silver maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Gold maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Silica maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+              </Surveys>
+              <Satellites />
+            </Mercury>
+            <!-- !Not the correct data! -->
+            <Earth name="Earth" type="spaceItem">
+              <Surveys>
+                <Iron maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Titanium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Aluminium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Carbon maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Copper maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Hydrogen maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Deuterium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Methane maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Helium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Paladium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+                <Platinum maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Silver maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Gold maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
+                <Silica maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
+              </Surveys>
+              <Satellites />
+            </Earth>
+          </Sol>
+        </MilkyWay>
+      </Galaxies>
+    </UniverseManager>
+  </CustomComponents>  
   <ResearchedItems>
     <Iron />
     <Titanium />

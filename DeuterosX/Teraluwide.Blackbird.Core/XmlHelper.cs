@@ -72,6 +72,20 @@ namespace Teraluwide.Blackbird.Core
 		}
 
 		/// <summary>
+		/// Creates an attribute with value.
+		/// </summary>
+		/// <param name="document">The document.</param>
+		/// <param name="name">The name.</param>
+		/// <param name="value">The value.</param>
+		/// <returns></returns>
+		public static XmlAttribute CreateAttributeWithValue(this XmlDocument document, string name, string value)
+		{
+			var attribute = document.CreateAttribute(name);
+			attribute.Value = value;
+			return attribute;
+		}
+
+		/// <summary>
 		/// Gets the attribute.
 		/// </summary>
 		/// <param name="parent">The parent.</param>

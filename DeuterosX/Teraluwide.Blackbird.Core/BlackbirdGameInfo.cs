@@ -141,13 +141,13 @@ namespace Teraluwide.Blackbird.Core
 			// Load the component definitions and instantize them.
 			foreach (XmlElement el in root.SelectNodes("Components/*"))
 			{
-				if (el.Attributes["Type"] == null)
+				if (el.Attributes["type"] == null)
 					throw new BlackbirdException(string.Format(Resources.ComponentMissingType));
 
-				Type type = Type.GetType(el.Attributes["Type"].Value, false);
+				Type type = Type.GetType(el.Attributes["type"].Value, false);
 
 				if (type == null)
-					throw new BlackbirdException(string.Format(Resources.ComponentTypeNotFound, el.Attributes["Type"].Value));
+					throw new BlackbirdException(string.Format(Resources.ComponentTypeNotFound, el.Attributes["type"].Value));
 
 				ICustomBlackbirdComponent component = Activator.CreateInstance(type, Game) as ICustomBlackbirdComponent;
 
