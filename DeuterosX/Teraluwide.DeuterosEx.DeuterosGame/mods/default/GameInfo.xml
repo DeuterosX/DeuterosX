@@ -12,5 +12,6 @@
   <Components>
     <StationManager type="Teraluwide.DeuterosEx.DeuterosGame.Stations.StationManager, DeuterosGame" />
     <UniverseManager type="Teraluwide.DeuterosEx.DeuterosGame.Universe.UniverseManager, DeuterosGame" />
+    <StoreItemManager type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItemManager, DeuterosGame" />
   </Components>
 </FDRFile>

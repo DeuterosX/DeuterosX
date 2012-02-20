@@ -20,7 +20,7 @@
     <background color="#ff000000" image="controlPanel" repeat="NoRepeat" />
     <size width="48" height="64" />
 
-    <control type="cface" faceId="stationModule.AdvanceTimeButton" x="1" y="1" w="24" h="14" onclick="(s, e) => { }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }" />
+    <control type="cface" faceId="stationModule.AdvanceTimeButton" x="1" y="1" w="24" h="14" onclick="(s, e) => { ToggleSimulationRunning(); }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }" />
     <control type="cface" faceId="stationModule.NewsBulletinsButton" x="28" y="30" w="23" h="19" onclick="(s, e) => { ChangeGamescreen(&quot;newsBulletins&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;News Bulletins&quot;); }" />
     <control type="cface" faceId="stationModule.DiskAccessButton" x="1" y="29" w="22" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;diskOperations&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Disk Access&quot;); }" />
     <control type="cface" faceId="stationModule.EarthCityButton" x="1" y="48" w="19" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;earthCity&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Earth City&quot;); }" />

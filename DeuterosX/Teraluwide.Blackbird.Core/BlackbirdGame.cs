@@ -59,6 +59,11 @@ namespace Teraluwide.Blackbird.Core
 		public event EventHandler<QuitEventArgs> AfterQuit;
 
 		/// <summary>
+		/// Occurs when a save game is loaded.
+		/// </summary>
+		public event EventHandler GameLoaded;
+
+		/// <summary>
 		/// Gets the name of the currently selected mod.
 		/// </summary>
 		/// <value>The name of the currently selected mod.</value>
@@ -203,8 +208,9 @@ namespace Teraluwide.Blackbird.Core
 			FontManager.Load();
 			GameScreenManager.Load();
 			GuiManager.Load();
-			VariableManager.Load();
 			ScriptManager.Load();
+
+			CustomComponents.Add(VariableManager.Id, VariableManager);
 
 			// Load all the custom components - note that the instancing of the components occurs earlier, in GameInfo.Load
 			CustomComponents.Load();
@@ -231,6 +237,9 @@ namespace Teraluwide.Blackbird.Core
 			}
 
 			LoadGame(doc);
+
+			if (GameLoaded != null)
+				GameLoaded(this, EventArgs.Empty);
 		}
 
 		/// <summary>

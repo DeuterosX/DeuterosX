@@ -5,16 +5,20 @@ using System.Text;
 using Teraluwide.DeuterosEx.DeuterosGame.Universe;
 using System.Xml;
 using Teraluwide.Blackbird.Core;
+using Teraluwide.DeuterosEx.DeuterosGame.Items;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 {
 	public class MiningFacilityStationModule : StationModuleBase
 	{
-		public MiningFacilityStationModule()
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MiningFacilityStationModule"/> class.
+		/// </summary>
+		/// <param name="game">The game.</param>
+		public MiningFacilityStationModule(BlackbirdGame game)
+			: base(game)
 		{
 			mines = new Dictionary<string, MiningOperationInfo>();
-
-			PrepareMines();
 		}
 
 		private int derricks = 1;
@@ -123,16 +127,11 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// </summary>
 		public void PrepareMines()
 		{
-			// NOTE: Maybe this should be done with only the resources available in the current location? In that case, it should be called in Mount instead of the constructor.
-			
-			// TODO: Port the item templates
-			//foreach (KeyValuePair<string, StoreItem> min in GameEngine.Instance.ItemTemplates)
-			//{
-			//  if (min.Value.Type == ItemType.Mineral)
-			//  {
-			//    mines.Add(min.Key, new MiningOperationInfo());
-			//  }
-			//}
+			foreach (var min in (Game as Game).StoreItemManager.StoreItems)
+			{
+				if (min.Value.Type == ItemType.Mineral && Location.Minerals.ContainsKey(min.Key))
+					mines.Add(min.Key, new MiningOperationInfo());
+			}
 		}
 
 		/// <summary>
@@ -151,8 +150,6 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			if (xMines == null)
 			{
 				mines.Clear();
-
-				PrepareMines();
 			}
 			// Otherwise load the saved data.
 			else
@@ -166,6 +163,18 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 					mines.Add(moi.Id, moi);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Mounts the module to a station.
+		/// </summary>
+		/// <param name="parent"></param>
+		public override void Mount(StationBase parent)
+		{
+			base.Mount(parent);
+
+			if (mines.Count == 0)
+				PrepareMines();
 		}
 
 		/// <summary>
@@ -196,8 +205,6 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// </summary>
 		public override void ProcessTurn()
 		{
-			Console.WriteLine("Mining facility on {0} working...", Parent.Title);
-
 			foreach (KeyValuePair<string, MiningOperationInfo> moi in Mines)
 			{
 				if (moi.Value.SurveyProgress > 0) moi.Value.SurveyProgress--;
@@ -205,15 +212,13 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 				{
 					// Generate a new "deposit"
 					moi.Value.CurrentMiningLimit = Location.Minerals[moi.Key].NewSurvey();
+					Log.WriteMessage(string.Format("Mining facility on {0} found a new deposit of {1}!", Parent.Title, moi.Key));
 
 					moi.Value.SurveyProgress = -1;
 				}
 				else if (moi.Value.SurveyProgress == -1)
 				{
-					// TODO: Fix this with actual material template build time, like this:
-					// int amnt = -GameEngine.Instance.ItemTemplates[moi.Key].BuildTime * derricks;
-
-					int amnt = 4 * derricks;
+					int amnt = -(Game as Game).StoreItemManager.StoreItems[moi.Key].BuildTime * derricks;
 
 					if (moi.Value.CurrentMiningLimit < amnt) amnt = moi.Value.CurrentMiningLimit;
 
@@ -221,6 +226,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 
 					Store.AddToStorage(false, moi.Key, amnt);
 
+					// Once the deposit is mined out, start a new survey.
 					if (moi.Value.CurrentMiningLimit == 0)
 					{
 						moi.Value.SurveyProgress = 10;

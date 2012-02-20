@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace Teraluwide.Blackbird.Core.ScriptingSupport
 {
@@ -22,10 +23,11 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// Initializes a new instance of the <see cref="GameVariable&lt;T&gt;"/> class.
 		/// </summary>
 		/// <param name="value">The value.</param>
-		public GameVariable(T value)
+		public GameVariable(T value, bool isPersistent)
 			: this()
 		{
 			this.value = value;
+			this.isPersistent = isPersistent;
 		}
 
 		T value;
@@ -36,6 +38,15 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <value>The value.</value>
 		public T Value { get { return this.value; } set { this.value = value; } }
 
+		bool isPersistent;
+		/// <summary>
+		/// Gets or sets a value indicating whether this variable should be stored in the savegame.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if this instance is persistent; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsPersistent { get { return this.isPersistent; } set { this.isPersistent = value; } }
+
 		#region IGameVariable Members
 
 		/// <summary>
@@ -43,10 +54,9 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// </summary>
 		/// <param name="el">The Xml element.</param>
 		/// <param name="currentFileName">Name of the current file.</param>
-		public void LoadXml(System.Xml.XmlElement el)
+		public void LoadXml(XmlElement el)
 		{
-			
-			throw new NotImplementedException();
+			this.value = el.InnerText == "$null" ? default(T) : XmlHelper.Parse<T>(el.InnerText);
 		}
 
 		/// <summary>
@@ -54,9 +64,12 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// </summary>
 		/// <param name="el">The Xml element.</param>
 		/// <param name="currentFileName">Name of the current file.</param>
-		public void SaveXml(System.Xml.XmlElement el)
+		public void SaveXml(XmlElement el)
 		{
-			throw new NotImplementedException();
+			if (Activator.ReferenceEquals(this.value, null) || this.value.Equals(default(T)))
+				el.InnerText = "$null";
+			else
+				el.InnerText = string.Format("{0}", this.value);
 		}
 
 		#endregion

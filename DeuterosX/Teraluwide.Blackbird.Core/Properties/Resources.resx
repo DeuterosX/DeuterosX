@@ -155,7 +155,7 @@
   </data>
   <data name="GameScreenDefinitionVersion" xml:space="preserve">
     <value>Game screen definition file version: {0}</value>
-    <comment>Represents the format in which texture definition version is logged.</comment>
+    <comment>Represents the format in which game screen definition version is logged.</comment>
   </data>
   <data name="GameScreenAlreadyRegistered" xml:space="preserve">
     <value>The game screen {0} has already been registered.</value>

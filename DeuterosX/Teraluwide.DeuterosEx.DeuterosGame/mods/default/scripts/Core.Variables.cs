@@ -33,4 +33,16 @@ public partial class Core
 	{
 		get { return Game.VariableManager.GetVariable("FPS", 1); }
 	}
+
+	/// <summary>
+	/// Gets or sets the current station location.
+	/// </summary>
+	/// <value>
+	/// The current station location.
+	/// </value>
+	public string CurrentStationLocation
+	{
+		get { return Game.VariableManager.GetVariable("CurrentStationLocation", "MilkyWay.Sol.Earth"); }
+		set { Game.VariableManager.SetVariable("CurrentStationLocation", value, false); }
+	}
 }

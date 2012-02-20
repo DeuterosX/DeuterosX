@@ -6,6 +6,7 @@ using Teraluwide.Blackbird.Core;
 using Teraluwide.Blackbird.Core.ScriptingSupport.EventArguments;
 using Teraluwide.Blackbird.Core.ScriptingSupport;
 using Teraluwide.Blackbird.Core.Gui.Controls;
+using Teraluwide.DeuterosEx.DeuterosGame;
 
 public partial class Core : BasicSimulationComponent
 {
@@ -14,6 +15,21 @@ public partial class Core : BasicSimulationComponent
 	{
 		Events.KeyboardUp += Events_KeyboardUp;
 		Events.MouseMotion += Events_MouseMotion;
+
+		game.GameLoaded += new EventHandler(game_GameLoaded);
+	}
+
+	/// <summary>
+	/// Gets the game instance.
+	/// </summary>
+	/// <value>
+	/// The game.
+	/// </value>
+	public new Game Game { get { return base.Game as Game; } }
+
+	void game_GameLoaded(object sender, EventArgs e)
+	{
+		ChangeCurrentStation("MilkyWay.Sol.Earth");
 	}
 
 	void Events_MouseMotion(object sender, SdlDotNet.Input.MouseMotionEventArgs e)

@@ -126,6 +126,9 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		{
 			foreach (KeyValuePair<string, IGameVariable> variable in variables)
 			{
+				if (!variable.Value.IsPersistent)
+					continue;
+
 				XmlElement nVariable = node.OwnerDocument.CreateElement("var") as XmlElement;
 				XmlAttribute name = node.OwnerDocument.CreateAttribute("name");
 				name.Value = variable.Key;
@@ -148,10 +151,22 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <param name="value">The value.</param>
 		public void SetVariable<T>(string name, T value)
 		{
+			SetVariable(name, value, true);
+		}
+
+		/// <summary>
+		/// Sets the value of a variable with the specified name.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="name">The variable name.</param>
+		/// <param name="value">The value.</param>
+		/// <param name="isPersistent">if set to <c>true</c> [is persistent].</param>
+		public void SetVariable<T>(string name, T value, bool isPersistent)
+		{
 			if (variables.ContainsKey(name))
 				(variables[name] as GameVariable<T>).Value = value;
 			else
-				variables.Add(name, new GameVariable<T>(value));
+				variables.Add(name, new GameVariable<T>(value, isPersistent));
 		}
 
 		/// <summary>

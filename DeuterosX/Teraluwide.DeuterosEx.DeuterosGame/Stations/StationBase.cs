@@ -80,7 +80,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			this.modules.Clear();
 			foreach (XmlElement xMod in node["Modules"].ChildNodes.OfType<XmlElement>())
 			{
-				StationModuleBase mod = XmlHelper.CreateType(Game, xMod.Name) as StationModuleBase;
+				StationModuleBase mod = XmlHelper.CreateType(Game, xMod.Name, Game) as StationModuleBase;
 				if (mod == null)
 					throw new DeuterosException(string.Format(Resources.InvalidStationModule, xMod.Name));
 
@@ -147,7 +147,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 				modules.Add(module);
 				module.Mount(this);
 
-				return 0;
+				return modules.Count - 1;
 			}
 			else
 				return -3;

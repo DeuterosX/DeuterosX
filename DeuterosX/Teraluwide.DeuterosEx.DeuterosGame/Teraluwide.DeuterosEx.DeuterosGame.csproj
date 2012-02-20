@@ -77,7 +77,9 @@
     <Compile Include="Components\StationComponent.cs" />
     <Compile Include="DeuterosException.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Items\FactoryResource.cs" />
     <Compile Include="Items\ItemType.cs" />
+    <Compile Include="Items\StoreItemManager.cs" />
     <Compile Include="Items\StoreItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +118,8 @@
     <Compile Include="Stations\StationManager.cs" />
     <Compile Include="Stations\StationModuleBase.cs" />
     <Compile Include="Stations\MiningStoreStationModule.cs" />
+    <Compile Include="Teams\ProductionTeamRank.cs" />
+    <Compile Include="Teams\ResearchTeamRank.cs" />
     <Compile Include="Universe\Galaxy.cs" />
     <Compile Include="Universe\SolarSystem.cs" />
     <Compile Include="Universe\SpaceItem.cs" />

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Teraluwide.DeuterosEx.DeuterosGame.Items;
+using Teraluwide.Blackbird.Core;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 {
@@ -26,7 +28,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StationModuleMiningStore"/> class.
 		/// </summary>
-		public MiningStoreStationModule()
+		public MiningStoreStationModule(BlackbirdGame game)
+			: base(game)
 		{
 			this.StoreItems = new Dictionary<string, int>();
 			this.StoreMaterials = new Dictionary<string, int>();
@@ -126,22 +129,13 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		/// </summary>
 		void LoadItemTemplates()
 		{
-			// TODO: Port the item templates
-
-			//foreach (KeyValuePair<string, StoreItem> it in GameEngine.Instance.ItemTemplates)
-			//{
-			//  if (it.Value != null)
-			//  {
-			//    if (it.Value.Type == ItemType.Mineral)
-			//    {
-			//      this.StoreMaterials.Add(it.Key, 0);
-			//    }
-			//    else
-			//    {
-			//      this.StoreItems.Add(it.Key, 0);
-			//    }
-			//  }
-			//}
+			foreach (var item in (Game as Game).StoreItemManager.StoreItems)
+			{
+				if (item.Value.Type == ItemType.Mineral)
+					StoreMaterials.Add(item.Key, 0);
+				else
+					StoreItems.Add(item.Key, 0);
+			}
 		}
 
 		/// <summary>

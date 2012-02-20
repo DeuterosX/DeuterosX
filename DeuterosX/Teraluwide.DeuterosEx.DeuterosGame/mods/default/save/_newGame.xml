@@ -14,7 +14,9 @@
         <Station type="Teraluwide.DeuterosEx.DeuterosGame.Stations.Station" title="Earth City" location="MilkyWay.Sol.Earth" owner="Player">
           <Modules>
             <MiningStore>
-              <StoreItems />
+              <StoreItems>
+                <Derrick>10</Derrick>
+              </StoreItems>
               <StoreMaterials />
             </MiningStore>
             <MiningFacility derricks="5" />
@@ -22,53 +24,6 @@
         </Station>
       </Stations>
     </StationManager>
-    <UniverseManager>
-      <Galaxies>
-        <MilkyWay name="Milky Way">
-          <Sol name="Sol">
-            <Mercury name="Mercury" type="spaceItem">
-              <Surveys>
-                <Iron maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Titanium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Aluminium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Carbon maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Copper maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Hydrogen maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Deuterium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Methane maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Helium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Paladium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Platinum maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Silver maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Gold maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Silica maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-              </Surveys>
-              <Satellites />
-            </Mercury>
-            <!-- !Not the correct data! -->
-            <Earth name="Earth" type="spaceItem">
-              <Surveys>
-                <Iron maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Titanium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Aluminium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Carbon maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Copper maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Hydrogen maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Deuterium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Methane maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Helium maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Paladium maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-                <Platinum maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Silver maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Gold maxMineLimit="150000" mineralMineable="False" minMineLimit="1000" />
-                <Silica maxMineLimit="150000" mineralMineable="True" minMineLimit="1000" />
-              </Surveys>
-              <Satellites />
-            </Earth>
-          </Sol>
-        </MilkyWay>
-      </Galaxies>
-    </UniverseManager>
   </CustomComponents>  
   <ResearchedItems>
     <Iron />

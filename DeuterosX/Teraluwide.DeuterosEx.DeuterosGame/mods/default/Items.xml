@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FDRFile version="0.12" type="prods">
+<FDRFile version="0.12" type="items">
   <ItemTemplates>
-    <Iron type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Iron type="storeItem">
       <Title>Iron</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -14,12 +14,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Iron>
-    <Titanium type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Titanium type="storeItem">
       <Title>Titanium</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -32,12 +32,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Titanium>
-    <Aluminium type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Aluminium type="storeItem">
       <Title>Aluminium</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -50,12 +50,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Aluminium>
-    <Carbon type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Carbon type="storeItem">
       <Title>Carbon</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -68,12 +68,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Carbon>
-    <Copper type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Copper type="storeItem">
       <Title>Copper</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -86,12 +86,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Copper>
-    <Hydrogen type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Hydrogen type="storeItem">
       <Title>Hydrogen</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -104,12 +104,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Hydrogen>
-    <Deuterium type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Deuterium type="storeItem">
       <Title>Deuterium</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -122,12 +122,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Deuterium>
-    <Methane type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Methane type="storeItem">
       <Title>Methane</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -140,12 +140,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Methane>
-    <Helium type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Helium type="storeItem">
       <Title>Helium</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -158,12 +158,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Helium>
-    <Paladium type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Paladium type="storeItem">
       <Title>Paladium</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -176,12 +176,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Paladium>
-    <Platinum type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Platinum type="storeItem">
       <Title>Platinum</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -194,12 +194,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Platinum>
-    <Silver type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Silver type="storeItem">
       <Title>Silver</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -212,12 +212,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Silver>
-    <Gold type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Gold type="storeItem">
       <Title>Gold</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -230,12 +230,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Gold>
-    <Silica type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Silica type="storeItem">
       <Title>Silica</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -248,12 +248,12 @@
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>
       </Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>1</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Silica>
-    <UnknownItem type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <UnknownItem type="storeItem">
       <Title>Unknown Item</Title>
       <Researched>False</Researched>
       <CanResearch>False</CanResearch>
@@ -265,12 +265,12 @@
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.Derrick</Picture>
-      <TextureArea Left="0" Top="0" Width="138" Height="118" />
+      <TextureArea x="0" y="0" width="138" height="118" />
       <Resources />
       <Mass>0</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </UnknownItem>
-    <Derrick type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Derrick type="storeItem">
       <Title>Derrick</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -290,16 +290,16 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.Derrick</Picture>
-      <TextureArea Left="0" Top="0" Width="138" Height="118" />
+      <TextureArea x="0" y="0" width="138" height="118" />
       <Resources>
-        <Resource Id="Iron" Amount="3" />
-        <Resource Id="Titanium" Amount="4" />
-        <Resource Id="Carbon" Amount="1" />
+        <Iron amount="3" />
+        <Titanium amount="4" />
+        <Carbon amount="1" />
       </Resources>
       <Mass>8</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Derrick>
-    <ShuttleChassis type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <ShuttleChassis type="storeItem">
       <Title>Shuttle Chassis</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -311,18 +311,18 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.ShuttleChassis</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="20" />
-        <Resource Id="Titanium" Amount="50" />
-        <Resource Id="Aluminium" Amount="35" />
-        <Resource Id="Carbon" Amount="10" />
-        <Resource Id="Copper" Amount="15" />
+        <Iron amount="20" />
+        <Titanium amount="50" />
+        <Aluminium amount="35" />
+        <Carbon amount="10" />
+        <Copper amount="15" />
       </Resources>
       <Mass>130</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </ShuttleChassis>
-    <ShuttleDrive type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <ShuttleDrive type="storeItem">
       <Title>Shuttle Drive</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -334,16 +334,16 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.ShuttleDrive</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="6" />
-        <Resource Id="Titanium" Amount="10" />
-        <Resource Id="Copper" Amount="4" />
+        <Iron amount="6" />
+        <Titanium amount="10" />
+        <Copper amount="4" />
       </Resources>
       <Mass>20</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </ShuttleDrive>
-    <MeHFuel type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <MeHFuel type="storeItem">
       <Title>Methanol Hydrogen Fuel</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -355,15 +355,15 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.MeHFuel</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Methane" Amount="2" />
-        <Resource Id="Hydrogen" Amount="2" />
+        <Methane amount="2" />
+        <Hydrogen amount="2" />
       </Resources>
       <Mass>3</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </MeHFuel>
-    <OFFrame type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <OFFrame type="storeItem">
       <Title>Orbital Factory Frame</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -375,18 +375,18 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.OFFrame</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="55" />
-        <Resource Id="Titanium" Amount="80" />
-        <Resource Id="Aluminium" Amount="50" />
-        <Resource Id="Carbon" Amount="25" />
-        <Resource Id="Copper" Amount="40" />
+        <Iron amount="55" />
+        <Titanium amount="80" />
+        <Aluminium amount="50" />
+        <Carbon amount="25" />
+        <Copper amount="40" />
       </Resources>
       <Mass>250</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </OFFrame>
-    <SupplyPod type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <SupplyPod type="storeItem">
       <Title>Supply Pod</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -398,16 +398,16 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.SupplyPod</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Copper amount="1" />
       </Resources>
       <Mass>4</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </SupplyPod>
-    <ToolPod type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <ToolPod type="storeItem">
       <Title>Tool Pod</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -419,16 +419,16 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.ToolPod</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Copper amount="1" />
       </Resources>
       <Mass>4</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </ToolPod>
-    <CryoPod type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <CryoPod type="storeItem">
       <Title>Cryogenic Holding Pod</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -440,16 +440,16 @@ Any Mining Site.</Description>
       <ResearchRank>1</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.CryoPod</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Copper amount="1" />
       </Resources>
       <Mass>4</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </CryoPod>
-    <Blaser type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Blaser type="storeItem">
       <Title>Pulse Blast Laser</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -461,16 +461,16 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.Blaser</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Paladium" Amount="120" />
-        <Resource Id="Platinum" Amount="30" />
-        <Resource Id="HeDFuel" Amount="600" />
+        <Paladium amount="120" />
+        <Platinum amount="30" />
+        <HeDFuel amount="600" />
       </Resources>
       <Mass>750</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Blaser>
-    <IOSChassis type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <IOSChassis type="storeItem">
       <Title>IOS Chassis</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -482,18 +482,18 @@ Any Mining Site.</Description>
       <ResearchRank>2</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.IOSChassis</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="100" />
-        <Resource Id="Titanium" Amount="250" />
-        <Resource Id="Aluminium" Amount="175" />
-        <Resource Id="Carbon" Amount="50" />
-        <Resource Id="Copper" Amount="75" />
+        <Iron amount="100" />
+        <Titanium amount="250" />
+        <Aluminium amount="175" />
+        <Carbon amount="50" />
+        <Copper amount="75" />
       </Resources>
       <Mass>650</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </IOSChassis>
-    <IOSDrive type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <IOSDrive type="storeItem">
       <Title>IOS Drive</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -505,16 +505,16 @@ Any Mining Site.</Description>
       <ResearchRank>2</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.IOSDrive</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="30" />
-        <Resource Id="Titanium" Amount="50" />
-        <Resource Id="Copper" Amount="15" />
+        <Iron amount="30" />
+        <Titanium amount="50" />
+        <Copper amount="15" />
       </Resources>
       <Mass>95</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </IOSDrive>
-    <SCGChassis type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <SCGChassis type="storeItem">
       <Title>SCG Chassis</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -526,20 +526,20 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.SCGChassis</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="250" />
-        <Resource Id="Titanium" Amount="600" />
-        <Resource Id="Aluminium" Amount="400" />
-        <Resource Id="Copper" Amount="185" />
-        <Resource Id="Platinum" Amount="100" />
-        <Resource Id="Silver" Amount="100" />
-        <Resource Id="Gold" Amount="50" />
+        <Iron amount="250" />
+        <Titanium amount="600" />
+        <Aluminium amount="400" />
+        <Copper amount="185" />
+        <Platinum amount="100" />
+        <Silver amount="100" />
+        <Gold amount="50" />
       </Resources>
       <Mass>1585</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </SCGChassis>
-    <SCGDrive type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <SCGDrive type="storeItem">
       <Title>SCG Drive</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -551,19 +551,19 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.SCGDrive</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="50" />
-        <Resource Id="Titanium" Amount="100" />
-        <Resource Id="Copper" Amount="30" />
-        <Resource Id="Paladium" Amount="50" />
-        <Resource Id="Platinum" Amount="25" />
-        <Resource Id="Silver" Amount="10" />
+        <Iron amount="50" />
+        <Titanium amount="100" />
+        <Copper amount="30" />
+        <Paladium amount="50" />
+        <Platinum amount="25" />
+        <Silver amount="10" />
       </Resources>
       <Mass>265</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </SCGDrive>
-    <HeDFuel type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <HeDFuel type="storeItem">
       <Title>Helium Deuterium Fuel</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -575,15 +575,15 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.HeDFuel</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Deuterium" Amount="2" />
-        <Resource Id="Helium" Amount="2" />
+        <Deuterium amount="2" />
+        <Helium amount="2" />
       </Resources>
       <Mass>3</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </HeDFuel>
-    <ACC type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <ACC type="storeItem">
       <Title>Auto Cargo Computer</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -595,17 +595,17 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.ACC</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Carbon" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Carbon amount="1" />
+        <Copper amount="1" />
       </Resources>
       <Mass>5</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </ACC>
-    <AOC type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <AOC type="storeItem">
       <Title>Automatic Operations Computer</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -617,17 +617,17 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.ACC</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="4" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Carbon" Amount="2" />
-        <Resource Id="Silver" Amount="1" />
+        <Titanium amount="4" />
+        <Aluminium amount="1" />
+        <Carbon amount="2" />
+        <Silver amount="1" />
       </Resources>
       <Mass>8</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </AOC>
-    <Bandaid type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Bandaid type="storeItem">
       <Title>Installation Repair Equipment</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -639,18 +639,18 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.Bandaid</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="30" />
-        <Resource Id="Titanium" Amount="30" />
-        <Resource Id="Aluminium" Amount="30" />
-        <Resource Id="Carbon" Amount="30" />
-        <Resource Id="Copper" Amount="30" />
+        <Iron amount="30" />
+        <Titanium amount="30" />
+        <Aluminium amount="30" />
+        <Carbon amount="30" />
+        <Copper amount="30" />
       </Resources>
       <Mass>150</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Bandaid>
-    <SDM type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <SDM type="storeItem">
       <Title>Self Destruct Mechanism</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -662,17 +662,17 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.SDM</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Aluminium" Amount="5" />
-        <Resource Id="Copper" Amount="1" />
-        <Resource Id="Paladium" Amount="1" />
-        <Resource Id="Platinum" Amount="2" />
+        <Aluminium amount="5" />
+        <Copper amount="1" />
+        <Paladium amount="1" />
+        <Platinum amount="2" />
       </Resources>
       <Mass>9</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </SDM>
-    <Grapple type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Grapple type="storeItem">
       <Title>Hydrolic Grapple</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -684,16 +684,16 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.Grapple</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="2" />
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Copper" Amount="1" />
+        <Iron amount="2" />
+        <Titanium amount="2" />
+        <Copper amount="1" />
       </Resources>
       <Mass>5</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Grapple>
-    <DFCC type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <DFCC type="storeItem">
       <Title>D.F.C.C.</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -705,19 +705,19 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.DFCC</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Carbon" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
-        <Resource Id="Platinum" Amount="2" />
-        <Resource Id="Gold" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Carbon amount="1" />
+        <Copper amount="1" />
+        <Platinum amount="2" />
+        <Gold amount="1" />
       </Resources>
       <Mass>8</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </DFCC>
-    <AMA type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <AMA type="storeItem">
       <Title>Asteroid Mining Attachment</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -729,20 +729,20 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.AMA</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="6" />
-        <Resource Id="Titanium" Amount="70" />
-        <Resource Id="Aluminium" Amount="10" />
-        <Resource Id="Carbon" Amount="30" />
-        <Resource Id="Copper" Amount="2" />
-        <Resource Id="Platinum" Amount="5" />
-        <Resource Id="Silver" Amount="1" />
+        <Iron amount="6" />
+        <Titanium amount="70" />
+        <Aluminium amount="10" />
+        <Carbon amount="30" />
+        <Copper amount="2" />
+        <Platinum amount="5" />
+        <Silver amount="1" />
       </Resources>
       <Mass>124</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </AMA>
-    <Hyperlight type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Hyperlight type="storeItem">
       <Title>Hyperlight Travel</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -754,12 +754,12 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.Hyperlight</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources />
       <Mass>0</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </Hyperlight>
-    <MTX type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <MTX type="storeItem">
       <Title>Mass Transceiver</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -771,17 +771,17 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.MTX</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="500" />
-        <Resource Id="Copper" Amount="82" />
-        <Resource Id="Paladium" Amount="100" />
-        <Resource Id="Gold" Amount="40" />
+        <Titanium amount="500" />
+        <Copper amount="82" />
+        <Paladium amount="100" />
+        <Gold amount="40" />
       </Resources>
       <Mass>722</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </MTX>
-    <FuzLaser type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <FuzLaser type="storeItem">
       <Title>Methanoid Fusion Laser</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -793,16 +793,16 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.FuzLaser</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Copper" Amount="5" />
-        <Resource Id="Paladium" Amount="10" />
-        <Resource Id="Platinum" Amount="10" />
+        <Copper amount="5" />
+        <Paladium amount="10" />
+        <Platinum amount="10" />
       </Resources>
       <Mass>25</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </FuzLaser>
-    <RFrame type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <RFrame type="storeItem">
       <Title>Resource Station Section</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -814,21 +814,21 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.RFrame</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="35" />
-        <Resource Id="Titanium" Amount="50" />
-        <Resource Id="Aluminium" Amount="20" />
-        <Resource Id="Carbon" Amount="15" />
-        <Resource Id="Copper" Amount="30" />
-        <Resource Id="Platinum" Amount="25" />
-        <Resource Id="Silver" Amount="10" />
-        <Resource Id="Silica" Amount="15" />
+        <Iron amount="35" />
+        <Titanium amount="50" />
+        <Aluminium amount="20" />
+        <Carbon amount="15" />
+        <Copper amount="30" />
+        <Platinum amount="25" />
+        <Silver amount="10" />
+        <Silica amount="15" />
       </Resources>
       <Mass>200</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </RFrame>
-    <PTL type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <PTL type="storeItem">
       <Title>Prejudice Torpedo Launcher</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -840,16 +840,16 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.PTL</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="96" />
-        <Resource Id="Aluminium" Amount="45" />
-        <Resource Id="Copper" Amount="10" />
+        <Titanium amount="96" />
+        <Aluminium amount="45" />
+        <Copper amount="10" />
       </Resources>
       <Mass>151</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </PTL>
-    <CommsPod type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <CommsPod type="storeItem">
       <Title>Communications Adaptor</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -861,17 +861,17 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.CommsPod</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Aluminium" Amount="2" />
-        <Resource Id="Carbon" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
-        <Resource Id="Gold" Amount="1" />
+        <Aluminium amount="2" />
+        <Carbon amount="1" />
+        <Copper amount="1" />
+        <Gold amount="1" />
       </Resources>
       <Mass>5</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </CommsPod>
-    <IOSDrone type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <IOSDrone type="storeItem">
       <Title>IOS Drone</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -883,20 +883,20 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.IOSDrone</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="120" />
-        <Resource Id="Titanium" Amount="120" />
-        <Resource Id="Aluminium" Amount="120" />
-        <Resource Id="Carbon" Amount="15" />
-        <Resource Id="Copper" Amount="55" />
-        <Resource Id="Paladium" Amount="30" />
-        <Resource Id="Platinum" Amount="30" />
+        <Iron amount="120" />
+        <Titanium amount="120" />
+        <Aluminium amount="120" />
+        <Carbon amount="15" />
+        <Copper amount="55" />
+        <Paladium amount="30" />
+        <Platinum amount="30" />
       </Resources>
       <Mass>490</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </IOSDrone>
-    <StarDrone type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <StarDrone type="storeItem">
       <Title>Star Drone</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -908,21 +908,21 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.StarDrone</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Iron" Amount="300" />
-        <Resource Id="Titanium" Amount="300" />
-        <Resource Id="Aluminium" Amount="300" />
-        <Resource Id="Copper" Amount="100" />
-        <Resource Id="Paladium" Amount="90" />
-        <Resource Id="Platinum" Amount="80" />
-        <Resource Id="Silver" Amount="95" />
-        <Resource Id="Gold" Amount="50" />
+        <Iron amount="300" />
+        <Titanium amount="300" />
+        <Aluminium amount="300" />
+        <Copper amount="100" />
+        <Paladium amount="90" />
+        <Platinum amount="80" />
+        <Silver amount="95" />
+        <Gold amount="50" />
       </Resources>
       <Mass>1015</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </StarDrone>
-    <PrisonPod type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <PrisonPod type="storeItem">
       <Title>Cryogenic Prison Pod</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -934,16 +934,16 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>False</OrbitalOnly>
       <Picture>production.PrisonPod</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="2" />
-        <Resource Id="Aluminium" Amount="1" />
-        <Resource Id="Copper" Amount="1" />
+        <Titanium amount="2" />
+        <Aluminium amount="1" />
+        <Copper amount="1" />
       </Resources>
       <Mass>4</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
     </PrisonPod>
-    <Blaster type="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem">
+    <Blaster type="storeItem">
       <Title>Sonic Blaster</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
@@ -955,14 +955,14 @@ Any Mining Site.</Description>
       <ResearchRank>3</ResearchRank>
       <OrbitalOnly>True</OrbitalOnly>
       <Picture>production.Blaster</Picture>
-      <TextureArea Left="0" Top="0" Width="0" Height="0" />
+      <TextureArea x="0" y="0" width="0" height="0" />
       <Resources>
-        <Resource Id="Titanium" Amount="1000" />
-        <Resource Id="Aluminium" Amount="1500" />
-        <Resource Id="Copper" Amount="800" />
-        <Resource Id="Paladium" Amount="1200" />
-        <Resource Id="Silver" Amount="3000" />
-        <Resource Id="Gold" Amount="3000" />
+        <Titanium amount="1000" />
+        <Aluminium amount="1500" />
+        <Copper amount="800" />
+        <Paladium amount="1200" />
+        <Silver amount="3000" />
+        <Gold amount="3000" />
       </Resources>
       <Mass>10500</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>

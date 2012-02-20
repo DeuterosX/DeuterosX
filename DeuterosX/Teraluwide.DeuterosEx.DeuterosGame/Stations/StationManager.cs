@@ -10,7 +10,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 	public class StationManager : IBlackbirdSavegameComponent, IBlackbirdSimulationComponent
 	{
 		BlackbirdGame game;
-		List<StationBase> stations;
+		Dictionary<string, StationBase> stations;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StationManager"/> class.
@@ -19,7 +19,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		public StationManager(BlackbirdGame game)
 		{
 			this.game = game;
-			this.stations = new List<StationBase>();
+			this.stations = new Dictionary<string, StationBase>();
 		}
 
 		#region IBlackbirdSavegameComponent Members
@@ -34,7 +34,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			{
 				var station = (StationBase)XmlHelper.CreateType(game, el.Attributes["type"].Value, game);
 				station.LoadXml(el);
-				stations.Add(station);
+				stations.Add(station.Location, station);
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			foreach (var station in stations)
 			{
 				var el = doc.CreateElement("Station");
-				station.SaveXml(el);
+				station.Value.SaveXml(el);
 				xmlStations.AppendChild(el);
 			}
 		}
@@ -138,9 +138,22 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		public void Advance()
 		{
 			foreach (var station in stations)
-				station.ProcessTurn();
+				station.Value.ProcessTurn();
 		}
 
 		#endregion
+
+		/// <summary>
+		/// Gets a station at the specified location.
+		/// </summary>
+		/// <param name="location">The location.</param>
+		/// <returns></returns>
+		public StationBase GetStation(string location)
+		{
+			if (stations.ContainsKey(location))
+				return stations[location];
+			else
+				return null;
+		}
 	}
 }

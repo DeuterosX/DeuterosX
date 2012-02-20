@@ -6,29 +6,68 @@ using Teraluwide.Blackbird.Core;
 using System.Xml;
 using Teraluwide.DeuterosEx.DeuterosGame.Properties;
 
-namespace Teraluwide.DeuterosEx.DeuterosGame.Universe
+namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 {
-	public class UniverseManager : IBlackbirdSimulationComponent
+	public class StoreItemManager : IBlackbirdSavegameComponent, ICustomBlackbirdComponent
 	{
-		const string FileName = "Universe.xml";
+		const string FileName = "Items.xml";
 
 		BlackbirdGame game;
-		Dictionary<string, Galaxy> galaxies;
+		Dictionary<string, StoreItem> storeItems;
 
 		/// <summary>
-		/// Gets the galaxies.
+		/// Gets the store items.
 		/// </summary>
-		public Dictionary<string, Galaxy> Galaxies { get { return this.galaxies; } }
+		public Dictionary<string, StoreItem> StoreItems { get { return this.storeItems; } }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="StationManager"/> class.
+		/// Initializes a new instance of the <see cref="StoreItemManager"/> class.
 		/// </summary>
 		/// <param name="game">The game.</param>
-		public UniverseManager(BlackbirdGame game)
+		public StoreItemManager(BlackbirdGame game)
 		{
 			this.game = game;
-			this.galaxies = new Dictionary<string, Galaxy>();
+			this.storeItems = new Dictionary<string, StoreItem>();
 		}
+
+		#region IBlackbirdSavegameComponent Members
+
+		/// <summary>
+		/// Loads the component specific data from the specified save game node.
+		/// </summary>
+		/// <param name="node">The node.</param>
+		public void LoadGame(System.Xml.XmlNode node)
+		{
+			foreach (var el in node.SelectSingleNode("ResearchedItems").ChildNodes.OfType<XmlElement>())
+			{
+				string itemName = el.Name;
+
+				// Set as researched
+				if (storeItems.ContainsKey(itemName))
+					storeItems[itemName].ResearchProgress = int.Parse(el.GetAttributeOrNull("researchProgress") ?? "0");
+			}
+		}
+
+		/// <summary>
+		/// Saves the component specific data to the specified save game node.
+		/// </summary>
+		/// <param name="node">The node.</param>
+		public void SaveGame(System.Xml.XmlNode node)
+		{
+			var doc = node.OwnerDocument;
+
+			XmlElement xmlResearchedItems = doc.CreateElement("ResearchedItems");
+			node.AppendChild(xmlResearchedItems);
+
+			foreach (var item in storeItems)
+			{
+				var el = doc.CreateElement(item.Key);
+				el.Attributes.Append(doc.CreateAttributeWithValue("researchProgress", item.Value.ResearchProgress.ToString()));
+				xmlResearchedItems.AppendChild(el);
+			}
+		}
+
+		#endregion
 
 		#region ICustomBlackbirdComponent Members
 		/// <summary>
@@ -39,7 +78,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Universe
 		/// </value>
 		public string Id
 		{
-			get { return "UniverseManager"; }
+			get { return "StoreItemManager"; }
 		}
 
 		#endregion
@@ -87,16 +126,16 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Universe
 
 			XmlElement root = doc.SelectSingleNode("/FDRFile") as XmlElement;
 
-			if (root == null || root.Attributes["type"].Value != "universe")
+			if (root == null || root.Attributes["type"].Value != "items")
 				throw new BlackbirdException(string.Format(Teraluwide.Blackbird.Core.Properties.Resources.ModFileIsInIncorrectFormatException, FileName));
 
-			Log.WriteMessage(string.Format(Resources.UniverseDefinitionVersion, root.Attributes["version"].Value));
+			Log.WriteMessage(string.Format(Resources.ItemsDefinitionVersion, root.Attributes["version"].Value));
 
-			foreach (XmlElement el in root.SelectNodes("Galaxies/*"))
+			foreach (XmlElement el in root.SelectNodes("ItemTemplates/*"))
 			{
-				Galaxy galaxy = new Galaxy(this);
-				galaxy.FromXml(el);
-				galaxies.Add(galaxy.Id, galaxy);
+				StoreItem item = XmlHelper.CreateType(Game, el.GetAttributeOrNull("type")) as StoreItem;
+				item.FromXml(el);
+				storeItems.Add(item.Id, item);
 			}
 		}
 
@@ -131,17 +170,18 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Universe
 
 		#endregion
 
-		#region IBlackbirdSimulationComponent Members
 
 		/// <summary>
-		/// Performs all necessary changes when advancing the simulation (ie. "Next turn").
-		/// In UniverseManager, this means moving all the celestial bodies along their path. Maybe. Let me think about it a bit more :)
+		/// Gets the store item with the specified id.
 		/// </summary>
-		public void Advance()
+		/// <param name="id">The id.</param>
+		/// <returns></returns>
+		public StoreItem GetStoreItem(string id)
 		{
-
+			if (storeItems.ContainsKey(id))
+				return storeItems[id];
+			else
+				return null;
 		}
-
-		#endregion
 	}
 }

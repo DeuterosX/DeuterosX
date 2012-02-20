@@ -9,6 +9,8 @@ using SdlDotNet.Input;
 using Tao.OpenGl;
 using System.Threading;
 using Teraluwide.DeuterosEx.DeuterosGame.Universe;
+using Teraluwide.DeuterosEx.DeuterosGame.Stations;
+using Teraluwide.DeuterosEx.DeuterosGame.Items;
 
 namespace Teraluwide.DeuterosEx.DeuterosGame
 {
@@ -40,6 +42,16 @@ namespace Teraluwide.DeuterosEx.DeuterosGame
 		/// Gets the universe manager.
 		/// </summary>
 		public UniverseManager UniverseManager { get { return CustomComponents["UniverseManager"] as UniverseManager; } }
+
+		/// <summary>
+		/// Gets the station manager.
+		/// </summary>
+		public StationManager StationManager { get { return CustomComponents["StationManager"] as StationManager; } }
+
+		/// <summary>
+		/// Gets the store item manager.
+		/// </summary>
+		public StoreItemManager StoreItemManager { get { return CustomComponents["StoreItemManager"] as StoreItemManager; } }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Game"/> class.

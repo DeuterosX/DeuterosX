@@ -24,5 +24,13 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <param name="el">The Xml element.</param>
 		/// <param name="currentFileName">Name of the current file.</param>
 		void SaveXml(XmlElement el);
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this variable should be stored in the savegame.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if this instance is persistent; otherwise, <c>false</c>.
+		/// </value>
+		bool IsPersistent { get; set; }
 	}
 }

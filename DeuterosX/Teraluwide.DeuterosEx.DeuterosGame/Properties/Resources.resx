@@ -121,4 +121,12 @@
     <value>The type {0} is not a valid station module.</value>
     <comment>Represents the error message shown when a station module is being loaded with a type not descending from StationModuleBase.</comment>
   </data>
+  <data name="ItemsDefinitionVersion" xml:space="preserve">
+    <value>Item definition file version: {0}</value>
+    <comment>Represents the format in which item definition version is logged.</comment>
+  </data>
+  <data name="UniverseDefinitionVersion" xml:space="preserve">
+    <value>Universe definition file version: {0}</value>
+    <comment>Represents the format in which universe definition version is logged.</comment>
+  </data>
 </root>

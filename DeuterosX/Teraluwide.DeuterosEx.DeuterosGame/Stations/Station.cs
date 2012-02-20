@@ -17,6 +17,11 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		public MiningStoreStationModule MiningStore { get; private set; }
 
 		/// <summary>
+		/// Gets the mining facility.
+		/// </summary>
+		public MiningFacilityStationModule MiningFacility { get; private set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="Station"/> class.
 		/// </summary>
 		/// <param name="game"></param>
@@ -33,8 +38,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			base.Build();
 
-			MountModule(new MiningStoreStationModule());
-			MountModule(new MiningFacilityStationModule());
+			MountModule(new MiningStoreStationModule(Game));
+			MountModule(new MiningFacilityStationModule(Game));
 		}
 
 		/// <summary>
@@ -48,10 +53,12 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			int ret = base.MountModule(module);
 
-			if (ret > 0)
+			if (ret >= 0)
 			{
 				if (module is MiningStoreStationModule)
 					this.MiningStore = module as MiningStoreStationModule;
+				else if (module is MiningFacilityStationModule)
+					this.MiningFacility = module as MiningFacilityStationModule;
 			}
 
 			return ret;

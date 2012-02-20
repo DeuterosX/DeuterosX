@@ -22,6 +22,20 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		}
 
 		/// <summary>
+		/// Gets the game.
+		/// </summary>
+		protected BlackbirdGame Game { get; private set; }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="StationModuleBase"/> class.
+		/// </summary>
+		/// <param name="game">The game.</param>
+		public StationModuleBase(BlackbirdGame game)
+		{
+			this.Game = game;
+		}
+
+		/// <summary>
 		/// Loads the station module from a XmlNode.
 		/// </summary>
 		/// <param name="node">The Xml node.</param>

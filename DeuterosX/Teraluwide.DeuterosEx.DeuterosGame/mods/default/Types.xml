@@ -11,5 +11,8 @@
     <!-- Station modules -->
     <Type id="MiningStore" aqn="Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningStoreStationModule, DeuterosGame" />
     <Type id="MiningFacility" aqn="Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule, DeuterosGame" />
+    
+    <!-- Store items -->
+    <Type id="storeItem" aqn="Teraluwide.DeuterosEx.DeuterosGame.Items.StoreItem, DeuterosGame" />
   </TypeList>
 </FDRFile>

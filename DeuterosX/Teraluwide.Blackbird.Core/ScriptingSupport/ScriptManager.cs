@@ -88,6 +88,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			pars.ReferencedAssemblies.Add("System.Xml.dll");
 			pars.ReferencedAssemblies.Add("SdlDotNet.dll");
 			pars.ReferencedAssemblies.Add("Teraluwide.Blackbird.Core.dll");
+			pars.ReferencedAssemblies.Add(Assembly.GetEntryAssembly().Location);
 
 			if (Game.Debug)
 				System.IO.File.WriteAllText("inlineSources.cs", inlineMethods.ToString());
