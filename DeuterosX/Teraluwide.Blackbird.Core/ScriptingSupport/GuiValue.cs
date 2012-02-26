@@ -75,8 +75,12 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			if (inputString == null || inputString == "$null")
 				return new GuiNullValue<T>(game);
 
+			// Scripted values.
 			if (inputString.StartsWith("$=") || inputString.StartsWith("${"))
 				return new GuiScriptedValue<T>(game, inputString.Substring(1), sender);
+			else if (inputString.StartsWith("#=") || inputString.StartsWith("#{"))
+				return new GuiScriptedValue<T>(game, inputString, sender);
+
 			if (inputString.StartsWith("$"))
 				return new GuiVariableValue<T>(game, inputString.Substring(1));
 			else

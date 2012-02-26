@@ -90,14 +90,22 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			pars.ReferencedAssemblies.Add("Teraluwide.Blackbird.Core.dll");
 			pars.ReferencedAssemblies.Add(Assembly.GetEntryAssembly().Location);
 
+			string inlineCode
+				= "using System; using System.Linq; using System.Drawing; using System.Text; using Teraluwide.Blackbird.Core.Gui; using Teraluwide.Blackbird.Core.Gui.Controls; public partial class Core { " + inlineMethods.ToString() + " }";
+
 			if (Game.Debug)
-				System.IO.File.WriteAllText("inlineSources.cs", inlineMethods.ToString());
+				System.IO.File.WriteAllText("inlineSources.cs", inlineCode.ToString());
+
+			Stopwatch sw = Stopwatch.StartNew();
 
 			// NOTE: If we expect to have huge scripts, it may be necessary to use an alternate way to compile them; At present time, this implementation is sufficient.
-			CompilerResults res = codeProvider.CompileAssemblyFromSource(pars, VirtualPathProvider.FindFiles(VirtualPathProvider.EnsureModVirtualPath("scripts", Game.ModName), "*.cs").Select(i => VirtualPathProvider.GetFile(i).ReadToEnd()).Concat(new string[] { "using System; using System.Drawing; using System.Text; using Teraluwide.Blackbird.Core.Gui; using Teraluwide.Blackbird.Core.Gui.Controls; public partial class Core { " + inlineMethods.ToString() + " }" }).ToArray());
+			CompilerResults res = codeProvider.CompileAssemblyFromSource(pars, VirtualPathProvider.FindFiles(VirtualPathProvider.EnsureModVirtualPath("scripts", Game.ModName), "*.cs").Select(i => VirtualPathProvider.GetFile(i).ReadToEnd()).Concat(new string[] { inlineCode }).ToArray());
+
+			sw.Stop();
+			Console.WriteLine("Scripts compiled in {0:#,###,##0} ms.", sw.ElapsedMilliseconds);
 
 			// NOTE: Maybe there should be a better way to filter out warnings.
-			if (res.Errors.Count > 0 && !res.Errors.OfType<CompilerError>().All(i => i.IsWarning))
+			if (res.Errors.Count > 0 && res.Errors.OfType<CompilerError>().Any(i => !i.IsWarning))
 			{
 				System.IO.File.WriteAllLines("error.log", res.Errors.OfType<CompilerError>().Select(i => i.ToString()).ToArray());
 

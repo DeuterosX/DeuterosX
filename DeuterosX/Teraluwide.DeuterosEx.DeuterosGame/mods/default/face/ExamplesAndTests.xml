@@ -14,6 +14,7 @@
       Another event, onmousemove, allows the developer to do something when a mouse is moved over the control. In this case, it's used to show a tooltip.
     -->
     <control type="cface" faceId="testButtons.BasicsButton" x="1" y="1" w="80" h="16" onclick="(s, e) => { ChangeGamescreen(&quot;testScreen.Basics&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;All the basics&quot;); }" />
+    <control type="cface" faceId="testButtons.RepeatersButton" x="1" y="21" w="80" h="16" onclick="(s, e) => { ChangeGamescreen(&quot;testScreen.Repeaters&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Repeater usage&quot;); }" />
 
     <control type="label" x="0" y="$=GuiFace.All[0].Size.Height - sender.Height" h="16" w="320" text="$toolTip" font="fntGui" color="#dddddd" />
   </Face>
@@ -24,6 +25,12 @@
     <size width="80" height="16" />
 
     <control type="label" id="" x="4" y="4" text="Basics" color="#dddddd" font="fntGui" />
+  </Face>
+  <Face id="testButtons.RepeatersButton">
+    <background color="#ff000000" image="systemName" repeat="NoRepeat" />
+    <size width="80" height="16" />
+
+    <control type="label" id="" x="4" y="4" text="Repeaters" color="#dddddd" font="fntGui" />
   </Face>
 
   <!-- This face (actually also a game screen) is used to show basic face building -->
@@ -202,5 +209,45 @@
       have little direct control over their own children (just like real life!).
     -->
     <control type="cface" faceId="systemName" x="$=GuiFace.All[0].Size.Width - sender.Width" y="$=GuiFace.All[0].Size.Height - sender.Height" h="16" w="80" />
+  </Face>
+  
+  <!-- This example screen shows usage of the repeater control -->
+  <Face id="testScreen.Repeaters">
+    <background color="#00000000" />
+    <size width="320" height="200" />
+
+    <!-- 
+      The data source is an integer array and we want to arrange the children in 
+      two columns and as many rows as necessary.
+      
+      The properties childOffsetX and childOffsetY are used as offset for each
+      of the child faces - when combined with data bound values, this means you
+      can specify the layout of the items.
+      
+      Don't forget that the each of the values can be queried as often as every
+      frame - in a practical scenario, the integer array would be stored in memory
+      and only referenced, instead of being created anew each frame as in this
+      example.
+    -->
+    <control type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= new int[] { 0, 1, 2, 3, 4, 5, 11, 13, 17, 19, 23 }" childOffsetX="#= (container.DataIndex % 2) * 20" childOffsetY="#= (container.DataIndex / 2) * 16" />
+
+    <!--
+      This is a much more useful repeater - it displays the names of the first ten store items.
+      This provides a means to implement several features - item list in the research screen,
+      store contents and many more.
+    -->
+    <control x="40" type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= Game.StoreItemManager.StoreItems.Take(10).Select(i => i.Value.Title)" childOffsetY="#= container.DataIndex * 16" />
+  </Face>
+
+  <!-- 
+    This is the repeater item - it can access the parent data item by using the 
+    data binding script value construct (#= or #{...}). Note however, that there is only
+    one instance of the face and its controls.
+  -->
+  <Face id="testScreen.Repeaters.TestItem">
+    <background color="#= Color.FromArgb(255, 10 * container.DataIndex + 50, 0, 0)" />
+    <size width="20" height="16" />
+
+    <control type="label" font="fntGui" color="#ffffff" text="#= container.DataItem.ToString()" x="5" y="4" />
   </Face>
 </FDRFile>

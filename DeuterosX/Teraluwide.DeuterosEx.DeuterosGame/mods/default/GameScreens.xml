@@ -13,5 +13,6 @@
     <GameScreen id="shuttleBay" faceId="shuttleBay" type="gameScreen" />
     <GameScreen id="testScreen" faceId="mainTestScreen" type="gameScreen" />
     <GameScreen id="testScreen.Basics" faceId="testScreen.Basics" type="gameScreen" />
+    <GameScreen id="testScreen.Repeaters" faceId="testScreen.Repeaters" type="gameScreen" />
   </GameScreenList>
 </FDRFile>

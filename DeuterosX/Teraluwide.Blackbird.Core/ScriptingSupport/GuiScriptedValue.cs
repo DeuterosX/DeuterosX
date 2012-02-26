@@ -16,7 +16,10 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 	{
 		private string methodName;
 		private GuiScriptedValueDelegate<T> cachedDelegate;
+		private GuiScriptedDataBoundValueDelegate<T> cachedDataBoundDelegate;
 		private GuiControl sender;
+		private bool dataBound = false;
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GuiScriptedValue&lt;T&gt;"/> class.
 		/// </summary>
@@ -45,6 +48,18 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 			{
 				game.ScriptManager.RegisterInlineMethod(string.Format("\r\n#line 1 \"gc:{3}\" \r\nprivate {0} {1}(global::Teraluwide.Blackbird.Core.Gui.Controls.GuiControl sender) {2}", typeName, methodName, code, senderId), this);
 			}
+			// Code is data bound.
+			else if (code.StartsWith("#{"))
+			{
+				dataBound = true;
+				game.ScriptManager.RegisterInlineMethod(string.Format("\r\n#line 1 \"gc:{3}\" \r\nprivate {0} {1}(global::Teraluwide.Blackbird.Core.Gui.Controls.GuiControl sender, Teraluwide.Blackbird.Core.ScriptingSupport.IDataContainer container) {2}", typeName, methodName, code.Substring(1), senderId), this);
+			}
+			// Code is a data bound return value.
+			else if (code.StartsWith("#="))
+			{
+				dataBound = true;
+				game.ScriptManager.RegisterInlineMethod(string.Format("\r\n#line 1 \"gc:{3}\" \r\nprivate {0} {1}(global::Teraluwide.Blackbird.Core.Gui.Controls.GuiControl sender, Teraluwide.Blackbird.Core.ScriptingSupport.IDataContainer container) {{ return {2}; }}", typeName, methodName, code.Substring(2), senderId), this);
+			}
 		}
 
 		/// <summary>
@@ -65,17 +80,40 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		{
 			get
 			{
-				Debug.Assert(cachedDelegate != null);
+				Debug.Assert(cachedDelegate != null || cachedDataBoundDelegate != null);
 
-				// NOTE: Should probably have more "damage control".
-				if (sender != null)
-					return cachedDelegate(sender);
-				else
+				if (cachedDelegate != null)
 				{
-					// If we are rendering, try to find a GuiControl on top of this value.
-					// HACK: Probably not very clean approach. Does anyone have a better idea to get this? GuiFaces are not instanced and their values are more or less fixed...
-					return cachedDelegate(GuiControl.Current);
+					// NOTE: Should probably have more "damage control".
+					if (sender != null)
+						return cachedDelegate(sender);
+					else
+					{
+						// If we are rendering, try to find a GuiControl on top of this value.
+						// HACK: Probably not very clean approach. Does anyone have a better idea to get this? GuiFaces are not instanced and their values are more or less fixed...
+						return cachedDelegate(GuiControl.Current);
+					}
 				}
+				else if (cachedDataBoundDelegate != null)
+				{
+					// Try to find the container
+					IDataContainer container;
+					if (sender != null && sender is IDataContainer)
+						container = sender as IDataContainer;
+					else
+						container = GuiControl.DataContainer;
+
+					// NOTE: Should probably have more "damage control".
+					if (sender != null)
+						return cachedDataBoundDelegate(sender, container);
+					else
+					{
+						// If we are rendering, try to find a GuiControl on top of this value.
+						// HACK: Probably not very clean approach. Does anyone have a better idea to get this? GuiFaces are not instanced and their values are more or less fixed...
+						return cachedDataBoundDelegate(GuiControl.Current, container);
+					}
+				}
+				else throw new Exception("GuiScriptedValue has an unbound delegate.");
 			}
 			set
 			{
@@ -101,7 +139,10 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <param name="method">The method delegate.</param>
 		public void BindMethod(Delegate method)
 		{
-			this.cachedDelegate = method as GuiScriptedValueDelegate<T>;
+			if (method is GuiScriptedValueDelegate<T>)
+				this.cachedDelegate = method as GuiScriptedValueDelegate<T>;
+			else if (method is GuiScriptedDataBoundValueDelegate<T>)
+				this.cachedDataBoundDelegate = method as GuiScriptedDataBoundValueDelegate<T>;
 		}
 
 
@@ -120,7 +161,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		/// <value>The type of the delegate.</value>
 		public Type DelegateType
 		{
-			get { return typeof(GuiScriptedValueDelegate<T>); }
+			get { return dataBound ? typeof(GuiScriptedDataBoundValueDelegate<T>) : typeof(GuiScriptedValueDelegate<T>); }
 		}
 
 		#endregion

@@ -3,6 +3,7 @@
   <TypeList>
     <Type id="label" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiLabel, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Type id="cface" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiFaceControl, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Type id="crepeater" aqn="Teraluwide.Blackbird.Core.Gui.Controls.GuiRepeaterControl, Teraluwide.Blackbird.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
     <Type id="gameScreen" aqn="Teraluwide.Blackbird.Core.GameScreen, Teraluwide.Blackbird.Core" />
 

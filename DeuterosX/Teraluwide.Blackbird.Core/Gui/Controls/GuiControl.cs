@@ -15,6 +15,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 	public abstract class GuiControl
 	{
 		static Stack<GuiControl> renderingStack = new Stack<GuiControl>();
+		static Stack<IDataContainer> dataContainerStack = new Stack<IDataContainer>();
 
 		/// <summary>
 		/// Gets the currently rendering gui control.
@@ -28,6 +29,20 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 					return null;
 				else
 					return renderingStack.Peek();
+			}
+		}
+
+		/// <summary>
+		/// Gets the current data container.
+		/// </summary>
+		public static IDataContainer DataContainer
+		{
+			get
+			{
+				if (dataContainerStack.Count == 0)
+					return null;
+				else
+					return dataContainerStack.Peek();
 			}
 		}
 
@@ -116,7 +131,9 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 				return;
 
 			renderingStack.Push(this);
-			
+			if (this is IDataContainer)
+				dataContainerStack.Push(this as IDataContainer);
+
 			try
 			{
 				RenderControl(offsetX, offsetY);
@@ -124,6 +141,8 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			finally
 			{
 				renderingStack.Pop();
+				if (this is IDataContainer)
+					dataContainerStack.Pop();
 			}
 		}
 
@@ -140,6 +159,8 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 				return;
 
 			renderingStack.Push(this);
+			if (this is IDataContainer)
+				dataContainerStack.Push(this as IDataContainer);
 
 			try
 			{
@@ -148,6 +169,8 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			finally
 			{
 				renderingStack.Pop();
+				if (this is IDataContainer)
+					dataContainerStack.Pop();
 			}
 		}
 

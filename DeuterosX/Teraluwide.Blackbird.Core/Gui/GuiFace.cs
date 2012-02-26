@@ -192,7 +192,7 @@ namespace Teraluwide.Blackbird.Core.Gui
 				// split the original tile-set into multiple autonomous textures (tile-sets aren't implemented yet anyway)
 				if (this.Background.Repeat.GetValueOrDefault(GuiRepeatStyle.NoRepeat) != GuiRepeatStyle.NoRepeat)
 					throw new NotSupportedException("Background repeat not supported yet.");
-
+				
 				foreach (var control in Controls)
 					control.Render(offsetX, offsetY);
 			}

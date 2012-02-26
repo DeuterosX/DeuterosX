@@ -16,6 +16,15 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 	/// </summary>
 	public class GuiLabel : GuiControl
 	{
+		class GuiLabelTextCache
+		{
+			public TextureManagerItem cachedTexture;
+
+			public Color oldColor;
+			public string oldFont;
+			public string oldText;
+		}
+
 		static int uniqueId = 0;
 
 		/// <summary>
@@ -44,11 +53,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <value>The font.</value>
 		public GuiValue<string> Font { get; private set; }
 
-		TextureManagerItem cachedTexture;
-
-		Color oldColor;
-		string oldFont;
-		string oldText;
+		List<GuiLabelTextCache> privateCache = new List<GuiLabelTextCache>();
 
 		/// <summary>
 		/// Renders this control.
@@ -57,38 +62,54 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <param name="offsetY">The Y offset.</param>
 		public override void RenderControl(int offsetX, int offsetY)
 		{
+			// This is necessary to make the text cache useful in repeaters.
+			// It isn't actually necessary to always cache based on the data
+			// containers data index (it introduces some extra overhead for
+			// every label in any depth under any repeater), but it's better
+			// than discarding the cache every frame :)
+			IDataContainer container = GuiControl.DataContainer;
+
+			int index = 0;
+			if (container != null)
+				index = container.DataIndex + 1;
+
+			while (privateCache.Count < index + 1)
+				privateCache.Add(new GuiLabelTextCache());
+
+			GuiLabelTextCache cache = privateCache[index];
+
 			// TODO: Maybe most of this should be in a helper class/manager instead? Also, this is quite a slow way to do the job for constantly changing text.
 			// If it becomes necessary to display lots of changing text at the same time, this should be rewritten to render the text manually using
 			// polygons mapping to a bitmap font texture (which has to be made in FontManager - either from a bitmap font definiton (texture + char map) or
 			// from a system/vector font where we have to create both the texture and the char map at load time).
-			if (cachedTexture == null || oldColor != Color.Value || oldFont != Font.Value || oldText != Text.Value)
+			if (cache.cachedTexture == null || cache.oldColor != Color.Value || cache.oldFont != Font.Value || cache.oldText != Text.Value)
 			{
-				if (cachedTexture != null)
+				if (cache.cachedTexture != null)
 				{
-					cachedTexture.Dispose();
-					cachedTexture = null;
+					cache.cachedTexture.Dispose();
+					cache.cachedTexture = null;
 				}
 
 				Surface surface = Game.FontManager.DrawText(Font.Value, Text.Value, Color.Value);
 
 				try
 				{
-					cachedTexture = new TextureManagerItem(Game.TextureManager, "labelText-" + Interlocked.Increment(ref uniqueId).ToString("X4"), string.Empty, false, false, false, Rectangle.Empty, false, true, 1);
-					cachedTexture.LoadTexture(surface.Width, surface.Height, surface.Pixels);
+					cache.cachedTexture = new TextureManagerItem(Game.TextureManager, "labelText-" + Interlocked.Increment(ref uniqueId).ToString("X4"), string.Empty, false, false, false, Rectangle.Empty, false, true, 1);
+					cache.cachedTexture.LoadTexture(surface.Width, surface.Height, surface.Pixels);
 				}
 				finally
 				{
 					surface.Dispose();
 				}
 
-				oldColor = Color.Value;
-				oldFont = Font.Value;
-				oldText = Text.Value;
+				cache.oldColor = Color.Value;
+				cache.oldFont = Font.Value;
+				cache.oldText = Text.Value;
 			}
 
-			if (cachedTexture != null)
+			if (cache.cachedTexture != null)
 			{
-				cachedTexture.Draw(X + offsetX, Y + offsetY);
+				cache.cachedTexture.Draw(X + offsetX, Y + offsetY);
 			}
 		}
 
@@ -106,4 +127,5 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			this.Font = GuiValue<string>.Parse(Game, element.GetAttribute("font"), this);
 		}
 	}
+
 }
