@@ -164,7 +164,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 
 			try
 			{
-				action(this, e);				
+				PerformBubbleAction(action, e);				
 			}
 			finally
 			{
@@ -172,6 +172,18 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 				if (this is IDataContainer)
 					dataContainerStack.Pop();
 			}
+		}
+
+		/// <summary>
+		/// Performs the bubble action.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="action">The action.</param>
+		/// <param name="e">The e.</param>
+		public virtual void PerformBubbleAction<T>(GuiControlEventDelegate<T> action, T e)
+			where T : BlackbirdEventArgument
+		{
+			action(this, e);
 		}
 
 		/// <summary>

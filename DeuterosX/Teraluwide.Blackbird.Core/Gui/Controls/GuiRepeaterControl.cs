@@ -5,6 +5,7 @@ using System.Text;
 using Teraluwide.Blackbird.Core.ScriptingSupport;
 using System.Xml;
 using System.Collections;
+using Teraluwide.Blackbird.Core.ScriptingSupport.EventArguments;
 
 namespace Teraluwide.Blackbird.Core.Gui.Controls
 {
@@ -76,6 +77,55 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 
 					// Note that ChildOffsetX is usually a data bound and would be called with a different DataItem each time - exactly the way we want it.
 					face.Render(offsetX + X.GetValueOrDefault(0) + ChildOffsetX.GetValueOrDefault(0), offsetY + Y.GetValueOrDefault(0) + ChildOffsetY.GetValueOrDefault(0));
+
+					DataIndex++;
+				}
+
+				DataItem = null;
+			}
+		}
+
+		/// <summary>
+		/// Performs the bubble action.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="action">The action.</param>
+		/// <param name="e">The e.</param>
+		public override void PerformBubbleAction<T>(GuiControlEventDelegate<T> action, T e)
+		{
+			if (this.FaceId.HasValue && this.DataSource.HasValue)
+			{
+				GuiFace face = Game.GuiManager.GetFace(this.FaceId.Value);
+
+				DataIndex = 0;
+
+				int x = X.GetValueOrDefault(0);
+				int y = Y.GetValueOrDefault(0);
+
+				foreach (var dataItem in this.DataSource.Value)
+				{
+					DataItem = dataItem;
+
+					// Note that ChildOffsetX is usually a data bound and would be called with a different DataItem each time - exactly the way we want it.
+					int childOffsetX = ChildOffsetX.GetValueOrDefault(0);
+					int childOffsetY = ChildOffsetY.GetValueOrDefault(0);
+
+					if (e is MouseEventArgument)
+					{
+						(e as MouseEventArgument).X -= childOffsetX + x;
+						(e as MouseEventArgument).Y -= childOffsetY + y;
+					}
+
+					foreach (var control in Enumerable.Reverse(face.Controls))
+					{
+						control.Bubble(action, e);
+					}
+
+					if (e is MouseEventArgument)
+					{
+						(e as MouseEventArgument).X += childOffsetX + x;
+						(e as MouseEventArgument).Y += childOffsetY + y;
+					}
 
 					DataIndex++;
 				}

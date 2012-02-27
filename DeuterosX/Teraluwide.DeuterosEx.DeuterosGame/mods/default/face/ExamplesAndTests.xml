@@ -216,6 +216,7 @@
     <background color="#00000000" />
     <size width="320" height="200" />
 
+    <control type="label" font="fntGui" color="#ffffff" text="Int array" />
     <!-- 
       The data source is an integer array and we want to arrange the children in 
       two columns and as many rows as necessary.
@@ -229,14 +230,17 @@
       and only referenced, instead of being created anew each frame as in this
       example.
     -->
-    <control type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= new int[] { 0, 1, 2, 3, 4, 5, 11, 13, 17, 19, 23 }" childOffsetX="#= (container.DataIndex % 2) * 20" childOffsetY="#= (container.DataIndex / 2) * 16" />
+    <control y="12" type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= new int[] { 0, 1, 2, 3, 4, 5, 11, 13, 17, 19, 23 }" childOffsetX="#= (container.DataIndex % 2) * 61" childOffsetY="#= (container.DataIndex / 2) * 17" />
 
+    <control x="140" type="label" font="fntGui" color="#ffffff" text="Store items" />
     <!--
       This is a much more useful repeater - it displays the names of the first ten store items.
       This provides a means to implement several features - item list in the research screen,
       store contents and many more.
     -->
-    <control x="40" type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= Game.StoreItemManager.StoreItems.Take(10).Select(i => i.Value.Title)" childOffsetY="#= container.DataIndex * 16" />
+    <control x="140" y="12" type="crepeater" faceId="testScreen.Repeaters.TestItem" dataSource="$= Game.StoreItemManager.StoreItems.Take(10).Select(i => i.Value.Title)" childOffsetY="#= container.DataIndex * 16" />
+
+    <control type="label" x="0" y="$=GuiFace.All[0].Size.Height - sender.Height" h="16" w="320" text="$toolTip" font="fntGui" color="#dddddd" />
   </Face>
 
   <!-- 
@@ -245,9 +249,9 @@
     one instance of the face and its controls.
   -->
   <Face id="testScreen.Repeaters.TestItem">
-    <background color="#= Color.FromArgb(255, 10 * container.DataIndex + 50, 0, 0)" />
-    <size width="20" height="16" />
+    <background color="#= Color.FromArgb(255, 10 * container.DataIndex + 50, container.DataItem is string ? 100 : 0, 0)" />
+    <size width="60" height="16" />
 
-    <control type="label" font="fntGui" color="#ffffff" text="#= container.DataItem.ToString()" x="5" y="4" />
+    <control type="label" font="fntGui" color="#ffffff" text="#= container.DataItem.ToString()" w="60" h="16" hAlign="Center" vAlign="Middle" onmousemove="(s, e) => { SetToolTip((sender as GuiLabel).Text.Value); }" />
   </Face>
 </FDRFile>

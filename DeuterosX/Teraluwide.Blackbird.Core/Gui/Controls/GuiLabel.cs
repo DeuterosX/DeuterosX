@@ -53,6 +53,16 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <value>The font.</value>
 		public GuiValue<string> Font { get; private set; }
 
+		/// <summary>
+		/// Gets the horizontal alignment.
+		/// </summary>
+		public GuiValue<GuiHorizontalAlign> HorizontalAlignment { get; private set; }
+
+		/// <summary>
+		/// Gets the vertical alignment.
+		/// </summary>
+		public GuiValue<GuiVerticalAlign> VerticalAlignment { get; private set; }
+
 		List<GuiLabelTextCache> privateCache = new List<GuiLabelTextCache>();
 
 		/// <summary>
@@ -109,7 +119,34 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 
 			if (cache.cachedTexture != null)
 			{
-				cache.cachedTexture.Draw(X + offsetX, Y + offsetY);
+				int alignOffsetX = 0;
+				int alignOffsetY = 0;
+
+				if (Width.HasValue && HorizontalAlignment.HasValue)
+				{
+					int width = Width.Value;
+
+					switch (HorizontalAlignment.Value)
+					{
+						case GuiHorizontalAlign.Left: alignOffsetX = 0; break;
+						case GuiHorizontalAlign.Center: alignOffsetX = (width - cache.cachedTexture.RealSize.Width) / 2; break;
+						case GuiHorizontalAlign.Right: alignOffsetX = width - cache.cachedTexture.RealSize.Width; break;
+					}
+				}
+
+				if (Height.HasValue && VerticalAlignment.HasValue)
+				{
+					int height = Height.Value;
+
+					switch (VerticalAlignment.Value)
+					{
+						case GuiVerticalAlign.Top: alignOffsetY = 0; break;
+						case GuiVerticalAlign.Middle: alignOffsetY = (height - cache.cachedTexture.RealSize.Height) / 2; break;
+						case GuiVerticalAlign.Bottom: alignOffsetY = height - cache.cachedTexture.RealSize.Height; break;
+					}
+				}
+
+				cache.cachedTexture.Draw(X + offsetX + alignOffsetX, Y + offsetY + alignOffsetY);
 			}
 		}
 
@@ -125,6 +162,8 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			this.Text = GuiValue<string>.Parse(Game, element.GetAttribute("text"), this);
 			this.Color = GuiValue<Color>.Parse(Game, element.GetAttribute("color"), this);
 			this.Font = GuiValue<string>.Parse(Game, element.GetAttribute("font"), this);
+			this.HorizontalAlignment = GuiValue<GuiHorizontalAlign>.Parse(Game, element.GetAttributeOrNull("hAlign") ?? "Left", this);
+			this.VerticalAlignment = GuiValue<GuiVerticalAlign>.Parse(Game, element.GetAttributeOrNull("vAlign") ?? "Top", this);
 		}
 	}
 

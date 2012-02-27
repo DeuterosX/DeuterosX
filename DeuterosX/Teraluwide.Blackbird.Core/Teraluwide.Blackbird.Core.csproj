@@ -83,6 +83,8 @@
     <Compile Include="Gui\Controls\GuiLabel.cs" />
     <Compile Include="Gui\Controls\GuiRepeaterControl.cs" />
     <Compile Include="Gui\GuiBackground.cs" />
+    <Compile Include="Gui\GuiHorizontalAlign.cs" />
+    <Compile Include="Gui\GuiVerticalAlign.cs" />
     <Compile Include="IBlackbirdSavegameComponent.cs" />
     <Compile Include="MouseManager.cs" />
     <Compile Include="ScriptingSupport\EventArguments\BlackbirdEventArgument.cs" />
