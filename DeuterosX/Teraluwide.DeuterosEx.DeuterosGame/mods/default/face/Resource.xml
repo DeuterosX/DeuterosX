@@ -9,5 +9,11 @@
 
     <control type="label" x="235" y="115" w="30" h="20" text="$= CurrentStation.MiningFacility.Derricks.ToString()" color="#e0e000" font="fntGui" />
     <control type="cface" faceId="resource.AddMiningRigButton" x="235" y="125" w="22" h="14" onclick="(s, e) => { CurrentStation.MiningFacility.AddDerrick(); }" onmousemove="(s, e) => { SetToolTip(&quot;Add Mining Rig&quot;); }" />
+
+    <control x="100" y="12" type="crepeater" faceId="resource.Resources.Item" dataSource="$= CurrentStation.MiningFacility.Mines.Select(i => i.Value)" childOffsetY="#= container.DataIndex * 8" />
+  </Face>
+  <Face id="resource.Resources.Item">
+    <control type="label" font="fntGui" color="#ffffff" text="#= (container.DataItem as Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningOperationInfo).SurveyProgress > 0 ? &quot;Survey&quot; : (container.DataItem as Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningOperationInfo).CurrentMiningLimit.ToString()" />
+    <control type="label" font="fntGui" x="100" color="#ffffff" text="#= Game.StoreItemManager.StoreItems[(container.DataItem as Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningOperationInfo).Id].Title" />
   </Face>
 </FDRFile>
