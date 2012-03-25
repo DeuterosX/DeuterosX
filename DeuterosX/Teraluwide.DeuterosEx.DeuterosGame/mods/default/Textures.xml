@@ -45,7 +45,7 @@
     <Texture id="training.Recruit" fileName="gfx/training/recruit.png" />
     
     <!-- Research screen -->
-    <Texture id="research.Background" fileName="gfx/research/background.png" />
+    <Texture id="research.Background" fileName="gfx/research/background.png"/>
     
     <!-- Resource screen -->
     <Texture id="resource.Background" fileName="gfx/resource/background.png" />
@@ -54,5 +54,9 @@
     <!-- Mining screen -->
     <Texture id="shuttleBay.Background" fileName="gfx/shuttleBay/background.png" />
     <Texture id="shuttleBay.NewShuttle" fileName="gfx/shuttleBay/newShuttle.png" />
+	
+	<!-- Earth city animation-->
+	<Texture id="animations.EarthCity" fileName="gfx/animations/earthCity.png" animationFrames="7" animationTime="200"/>
+	
   </TextureList>
 </FDRFile>

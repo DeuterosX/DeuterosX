@@ -104,7 +104,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 
 				try
 				{
-					cache.cachedTexture = new TextureManagerItem(Game.TextureManager, "labelText-" + Interlocked.Increment(ref uniqueId).ToString("X4"), string.Empty, false, false, false, Rectangle.Empty, false, true, 1);
+					cache.cachedTexture = new TextureManagerItem(Game.TextureManager, "labelText-" + Interlocked.Increment(ref uniqueId).ToString("X4"), string.Empty, false, false, false, Rectangle.Empty, false, true, 1, 0, 0);
 					cache.cachedTexture.LoadTexture(surface.Width, surface.Height, surface.Pixels);
 				}
 				finally

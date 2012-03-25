@@ -95,7 +95,9 @@ namespace Teraluwide.Blackbird.Core
 								XmlHelper.ParseRectangle(el, "DrawArea", System.Drawing.Rectangle.Empty),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "1")),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "allowScaling", "1")),
-								XmlHelper.Parse<float>(XmlHelper.GetAttribute(el, "scalingModifier", "1"))								
+								XmlHelper.Parse<float>(XmlHelper.GetAttribute(el, "scalingModifier", "1")),
+								XmlHelper.Parse<int>(XmlHelper.GetAttribute(el, "animationFrames", "0")),
+                                XmlHelper.Parse<int>(XmlHelper.GetAttribute(el, "animationTime", "0"))
 							)
 					);
 
@@ -149,6 +151,28 @@ namespace Teraluwide.Blackbird.Core
 
 			innerData[id].RemoveUser();
 		}
+
+        /// <summary>
+        /// On screen change action 
+        /// </summary>
+        public void OnGameScreenChange()
+        {
+            ResetAnimations();
+        }
+
+        /// <summary>
+        /// Resets AnimationStartedFromTick for all animations
+        /// </summary>
+        private void ResetAnimations()
+        {
+            foreach (KeyValuePair<String, TextureManagerItem> item in innerData)
+            {
+                if (item.Value.IsAnimation)
+                {
+                    item.Value.ResetAnimation();
+                }
+            }
+        }
 
 		#region IDisposable Members
 

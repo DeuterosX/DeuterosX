@@ -26,6 +26,11 @@
     <control type="cface" faceId="stationModule.EarthCityButton" x="1" y="48" w="19" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;earthCity&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Earth City&quot;); }" />
   </Face>
 
+  <Face id="eartCityAnimation">
+    <background color="#ff000000" image="animations.EarthCity" repeat="NoRepeat"/>
+    <size width="19" height="17"/>
+  </Face>	
+  
   <Face id="stationModule.AdvanceTimeButton">
   </Face>
   <Face id="stationModule.EarthCityButton">    
@@ -76,6 +81,7 @@
     <size width="320" height="200" />
     
     <control type="cface" faceId="controlPanel" x="0" y="16" w="48" h="64" />
+    <control type="cface" faceId="eartCityAnimation" x="0" y="64" w="19" h="17"  />
     <control type="cface" faceId="stationModules" x="0" y="88" w="48" h="98" />
     
     <control type="cface" faceId="systemName" x="$testX" w="80" h="16" hide="$testHide" onclick="(s,e) => { s.Hide.Value = true; }" />

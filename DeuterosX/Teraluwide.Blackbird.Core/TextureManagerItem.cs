@@ -17,6 +17,42 @@ namespace Teraluwide.Blackbird.Core
 	/// </summary>
 	public sealed class TextureManagerItem : IDisposable
 	{
+        /// <summary>
+        /// Represents texture internal animation data 
+        /// </summary>
+        public class AnimationData
+        {
+            /// <summary>
+            /// Gets or set a value indicating number of animation frames
+            /// </summary>
+            public int AnimationFrames { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value of animation time
+            /// </summary>
+            public int AnimationTime { get; set; }
+
+            /// <summary>
+            /// Gets or sets information when animation started
+            /// </summary>
+            public int AnimationStartedFromTick { get; set; }
+
+            /// <summary>
+            /// Contains animation texture ids
+            /// </summary>
+            public int[] TextureIds;
+
+            public AnimationData(int animationFrames, int animationTime)
+            {
+                this.AnimationFrames = 0;
+                this.AnimationTime = 0;
+                this.AnimationStartedFromTick = -1;
+                AnimationFrames = animationFrames;
+                AnimationTime = animationTime;
+                TextureIds = new int[animationFrames];
+            }
+        }
+
 		private int userCount = 0;
 		private TextureManager manager;
 		private int textureId;
@@ -105,6 +141,16 @@ namespace Teraluwide.Blackbird.Core
 		/// <value><c>true</c> if smooth scaling is enabled; otherwise, <c>false</c>.</value>
 		public bool SmoothScale { get; private set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether texture is animation
+        /// </summary>
+        public bool IsAnimation { get; private set; }
+
+        /// <summary>
+        /// Gets or sets animation data
+        /// </summary>
+        public AnimationData Animation { get; private set; }
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TextureManagerItem"/> class.
 		/// </summary>
@@ -114,7 +160,7 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="onLoad">if set to <c>true</c> the texture will be loaded immediately.</param>
 		/// <param name="onDemand">if set to <c>true</c> the texture will be loaded on demand.</param>
 		/// <param name="trackUsers">if set to <c>true</c> the texture will have its users tracked.</param>
-		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers, Rectangle drawArea, bool smoothScale, bool allowScaling, float scalingModifier)
+		public TextureManagerItem(TextureManager manager, string id, string fileName, bool onLoad, bool onDemand, bool trackUsers, Rectangle drawArea, bool smoothScale, bool allowScaling, float scalingModifier, int animationFrames, int animationTime)
 		{
 			this.manager = manager;
 			this.Id = id;
@@ -126,6 +172,15 @@ namespace Teraluwide.Blackbird.Core
 			this.SmoothScale = smoothScale;
 			this.AllowScaling = allowScaling;
 			this.ScalingModifier = scalingModifier;
+
+            if (animationFrames > 0)
+            {
+                IsAnimation = true;
+                this.Animation = new AnimationData(animationFrames, animationTime);
+            }
+            else
+                IsAnimation = false;
+            
 		}
 
 		/// <summary>
@@ -136,18 +191,39 @@ namespace Teraluwide.Blackbird.Core
 		{
 			get
 			{
-				if (textureId != 0)
-					return textureId;
+                if (IsAnimation)
+                {
+                    
+                    if (Animation.AnimationStartedFromTick == -1)
+                        Animation.AnimationStartedFromTick = Environment.TickCount;
+                    int frame = ((Environment.TickCount - Animation.AnimationStartedFromTick) / Animation.AnimationTime) % Animation.AnimationFrames;                   
 
-				if (!OnDemand)
-					throw new BlackbirdException(string.Format(Resources.TextureNotLoaded, Id));
+                    if (!OnDemand)
+                        throw new BlackbirdException(string.Format(Resources.TextureNotLoaded, Id));
 
-				LoadTexture(true);
+                    if (Animation.TextureIds[frame] == 0)
+                        LoadTexture(true);
 
-				if (textureId == 0)
-					throw new BlackbirdException(string.Format(Resources.TextureCouldNotBeLoaded, Id));
+                    if (Animation.TextureIds[frame] == 0)
+                        throw new BlackbirdException(string.Format(Resources.TextureCouldNotBeLoaded, Id));
 
-				return textureId;
+                    return Animation.TextureIds[frame];
+                }
+                else
+                {
+                    if (textureId != 0)
+                        return textureId;
+
+                    if (!OnDemand)
+                        throw new BlackbirdException(string.Format(Resources.TextureNotLoaded, Id));
+
+                    LoadTexture(true);
+
+                    if (textureId == 0)
+                        throw new BlackbirdException(string.Format(Resources.TextureCouldNotBeLoaded, Id));
+
+                    return textureId;
+                }
 			}
 		}
 
@@ -200,14 +276,31 @@ namespace Teraluwide.Blackbird.Core
 					buf.Dispose();
 				}
 
-				// Lock the bitmap data of the texture.
-				BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                if (IsAnimation)
+                {
+                    for (int i = 0; i < Animation.AnimationFrames; ++i)
+                    {
+                        // Lock the bitmap data of the texture.
+                        int width = bmp.Width / Animation.AnimationFrames;
+                        BitmapData data = bmp.LockBits(new Rectangle(width*i, 0, width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
+                        LoadTexture(data, i);
 
-				LoadTexture(data);
+                        bmp.UnlockBits(data);   
+                    }
+                    bmp.Dispose();
+                }
+                else
+                {
+                    // Lock the bitmap data of the texture.
+                    BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
-				bmp.UnlockBits(data);
-				bmp.Dispose();
+                    LoadTexture(data);
+
+                    bmp.UnlockBits(data);
+                    bmp.Dispose();
+                }
+				
 			}
 		}
 
@@ -217,16 +310,27 @@ namespace Teraluwide.Blackbird.Core
 		/// <param name="data">The data.</param>
 		public void LoadTexture(BitmapData data)
 		{
-			LoadTexture(data.Width, data.Height, data.Scan0);
+			this.textureId = LoadTexture(data.Width, data.Height, data.Scan0);
 		}
 
+        /// <summary>
+        /// Loads the texture using the specified BitmapData (in 32bit ARGB format). Version for animations.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="frame">Animation frame number</param>
+        public void LoadTexture(BitmapData data, int frame)
+        {
+            this.Animation.TextureIds[frame] = LoadTexture(data.Width, data.Height, data.Scan0);
+        }
+
 		/// <summary>
-		/// Loads the texture using the specified pointer to bitmap data.
+		/// Loads the texture using the specified pointer to bitmap data. Texture ID is saved to this.textureId and it is also returned by function.
 		/// </summary>
 		/// <param name="width">The width.</param>
 		/// <param name="height">The height.</param>
 		/// <param name="data">The data.</param>
-		public void LoadTexture(int width, int height, IntPtr data)
+        /// <returns>Texture ID</returns>
+		public int LoadTexture(int width, int height, IntPtr data)
 		{
 			// Update meta information about the texture
 			RealSize = new Size(width, height);
@@ -239,13 +343,15 @@ namespace Teraluwide.Blackbird.Core
 			this.textureId = texids[0];
 
 			// Load the texture.
-			Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureId);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, this.textureId);
 			Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, width, height, 0, Gl.GL_BGRA, Gl.GL_UNSIGNED_BYTE, data);
 
 			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
 			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, SmoothScale ? Gl.GL_LINEAR : Gl.GL_NEAREST);
 			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_CLAMP);
 			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_CLAMP);
+
+            return this.textureId;
 		}
 
 		/// <summary>
@@ -299,6 +405,15 @@ namespace Teraluwide.Blackbird.Core
 			Gl.glBindTexture(Gl.GL_TEXTURE_2D, 0);
 			Gl.glPopMatrix();
 		}
+
+        /// <summary>
+        /// Resets animation
+        /// </summary>
+        public void ResetAnimation()
+        {
+            if (IsAnimation)
+                Animation.AnimationStartedFromTick = -1;
+        }
 
 		#region IDisposable Members
 

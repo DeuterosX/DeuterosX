@@ -16,6 +16,7 @@ public partial class Core
 		if (newGamescreenId == "earthCity")
 			ChangeCurrentStation("MilkyWay.Sol.Earth");
 
+        Game.TextureManager.OnGameScreenChange();
 		Game.GameScreenManager.CurrentGameScreen = Game.GameScreenManager[newGamescreenId];
 	}
 

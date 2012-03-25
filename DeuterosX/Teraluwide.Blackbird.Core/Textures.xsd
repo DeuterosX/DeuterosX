@@ -26,6 +26,8 @@
                   <xs:attribute name="smoothScale" type="xs:boolean" use="optional" />
                   <xs:attribute name="allowScaling" type="xs:boolean" use="optional" />
                   <xs:attribute name="scalingModifier" type="xs:float" use="optional" />
+				          <xs:attribute name="animationFrames" type="xs:int" use="optional" />
+				          <xs:attribute name="animationTime" type="xs:int" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
