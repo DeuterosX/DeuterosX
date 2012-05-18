@@ -7,6 +7,8 @@
     </Texture>
     <Texture id="controlPanel" fileName="gfx/controlPanel.png" />
     <Texture id="systemName" fileName="gfx/systemName.png" />
+    <Texture id="systemTime" fileName="gfx/systemTime.png" />
+    <Texture id="systemBottonRight" fileName="gfx/systemBottonRight.png" />
     <Texture id="stationModules" fileName="gfx/stationModules.png" />
     <Texture id="stationModule.Production" fileName="gfx/stationModule.Production.png" />
     <Texture id="stationModule.Training" fileName="gfx/stationModule.Training.png" />

@@ -9,11 +9,24 @@
     <control type="label" id="" x="4" y="4" text="$currentSystem" color="#e0e000" font="fntGui" />
   </Face>
 
-  <Face id="toolTip">
-    <background color="#ff000000" image="systemName" repeat="NoRepeat" />
+  <Face id="systemBottonRight">
+    <background color="#ff000000" image="systemBottonRight" repeat="NoRepeat" />
 
     <size width="80" height="16" />
     <control type="label" id="" x="4" y="4" text="$toolTip" color="#dddddd" font="fntGui" />
+  </Face>
+  <Face id="toolTip">
+    <background color="#ff000000" image="systemTime" repeat="NoRepeat" />
+
+    <size width="80" height="16" />
+    <control type="label" id="" x="4" y="4" text="$time" color="#dddddd" font="fntGui" />
+  </Face>
+
+  <Face id="systemTime">
+    <background color="#ff000000" image="systemTime" repeat="NoRepeat" />
+
+    <size width="80" height="16" />
+    <control type="label" id="" x="4" y="4" text="$time" color="#dddddd" font="fntGui" />
   </Face>
 
   <Face id="controlPanel">
@@ -91,8 +104,7 @@
       When used in a GuiValue with a GuiControl reference, it contains that reference.
       Otherwise, it is the last control on the rendering stack (ie. it should contain the nearest GuiControl above itself).
     -->
-    <control type="cface" faceId="systemName" x="$=GuiFace.All[1].Size.Width - sender.Width" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
-    
-    <control type="cface" faceId="toolTip" x="0" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
+    <control type="cface" faceId="systemTime" x="47" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="110" onclick="(s, e) => {AdvanceTime(); }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }"/>
+    <control type="cface" faceId="systemBottonRight" x="160" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
   </Face>
 </FDRFile>
