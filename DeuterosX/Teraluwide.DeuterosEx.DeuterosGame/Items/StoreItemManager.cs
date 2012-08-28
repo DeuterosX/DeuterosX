@@ -14,11 +14,17 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 
 		BlackbirdGame game;
 		Dictionary<string, StoreItem> storeItems;
+        Dictionary<string, StoreItem> researchItems;
+        Dictionary<string, StoreItem> productionItems;
 
 		/// <summary>
 		/// Gets the store items.
 		/// </summary>
 		public Dictionary<string, StoreItem> StoreItems { get { return this.storeItems; } }
+
+        public Dictionary<string, StoreItem> ProductionItems { get { return this.productionItems; } }
+
+        public Dictionary<string, StoreItem> ResearchItems { get { return this.productionItems; } }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StoreItemManager"/> class.
@@ -28,6 +34,8 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 		{
 			this.game = game;
 			this.storeItems = new Dictionary<string, StoreItem>();
+            this.researchItems = new Dictionary<string, StoreItem>();
+            this.productionItems = new Dictionary<string, StoreItem>();
 		}
 
 		#region IBlackbirdSavegameComponent Members
@@ -45,6 +53,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 				// Set as researched
 				if (storeItems.ContainsKey(itemName))
 					storeItems[itemName].ResearchProgress = int.Parse(el.GetAttributeOrNull("researchProgress") ?? "0");
+
 			}
 		}
 
@@ -136,6 +145,15 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 				StoreItem item = XmlHelper.CreateType(Game, el.GetAttributeOrNull("type")) as StoreItem;
 				item.FromXml(el);
 				storeItems.Add(item.Id, item);
+
+                if (item.ShowInProductionScreen)
+                {
+                    productionItems.Add(item.Id, item);
+                }
+                if (item.ShowInResearchScreen)
+                {
+                    researchItems.Add(item.Id, item);
+                }
 			}
 		}
 

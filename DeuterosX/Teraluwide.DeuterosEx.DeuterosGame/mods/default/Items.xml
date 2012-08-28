@@ -274,6 +274,7 @@
       <Title>Derrick</Title>
       <Researched>True</Researched>
       <CanResearch>False</CanResearch>
+      <Researchable>True</Researchable>
       <ItemType>Special</ItemType>
       <Description>Fully Automated
 Ore Recovery And
@@ -298,6 +299,8 @@ Any Mining Site.</Description>
       </Resources>
       <Mass>8</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
+      <ShowInProductionScreen>True</ShowInProductionScreen>
+      <ShowInResearchScreen>True</ShowInResearchScreen>
     </Derrick>
     <ShuttleChassis type="storeItem">
       <Title>Shuttle Chassis</Title>
@@ -321,6 +324,8 @@ Any Mining Site.</Description>
       </Resources>
       <Mass>130</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
+      <ShowInProductionScreen>True</ShowInProductionScreen>
+      <ShowInResearchScreen>True</ShowInResearchScreen>
     </ShuttleChassis>
     <ShuttleDrive type="storeItem">
       <Title>Shuttle Drive</Title>
@@ -342,6 +347,8 @@ Any Mining Site.</Description>
       </Resources>
       <Mass>20</Mass>
       <ResearchPointsNeeded>0</ResearchPointsNeeded>
+      <ShowInProductionScreen>True</ShowInProductionScreen>
+      <ShowInResearchScreen>True</ShowInResearchScreen>
     </ShuttleDrive>
     <MeHFuel type="storeItem">
       <Title>Methanol Hydrogen Fuel</Title>

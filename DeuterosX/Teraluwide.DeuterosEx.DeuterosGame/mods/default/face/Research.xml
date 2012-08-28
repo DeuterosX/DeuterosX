@@ -3,6 +3,15 @@
   <Face id="research.Content">
     <background color="#ff000000" image="research.Background" repeat="NoRepeat" />
     <size width="272" height="168" />
-    
+
+    <control y="14" x="233" type="crepeater" faceId="research.Items" dataSource="$= Game.StoreItemManager.ResearchItems.Select(i => i.Value.Title)" childOffsetX="#= (container.DataIndex / 17) * 17" childOffsetY="#= (container.DataIndex % 17) * 8" />
+  </Face>
+
+  <Face id="research.Items">
+    <size width="3" height="2" />
+    <!--<background color="#= Color.FromArgb(255, (145+(Environment.TickCount/16 % 120 >= 60 ? 60 - Environment.TickCount/16 % 60 : Environment.TickCount/16 % 60)) % 230, 0, 0)" />-->
+    <background color="#= Color.FromArgb(255, 0, 136, 0)" />
+
+    <control type="label" font="fntGui" color="#ffffff" text="" label="#= container.DataItem.ToString()" w="3" h="3" hAlign="Center" vAlign="Middle"  onmousemove="(s, e) => { SetToolTip((sender as GuiLabel).Label.Value); }" />
   </Face>
 </FDRFile>

@@ -202,6 +202,28 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 			set { this.mass = value; }
 		}
 
+        private bool showInProductionScreen = false;
+        /// <summary>
+        /// Should the item be presented in production screen?
+        /// </summary>
+        [Description("Show item in production screen.")]
+        public bool ShowInProductionScreen
+        {
+            get { return this.showInProductionScreen; }
+            set { this.showInProductionScreen = value; }
+        }
+
+        private bool showInResearchScreen = false;
+        /// <summary>
+        /// Should the item be presented in research screen?
+        /// </summary>
+        [Description("Show item in research screen.")]
+        public bool ShowInResearchScreen
+        {
+            get { return this.showInResearchScreen; }
+            set { this.showInResearchScreen = value; }
+        }
+
 		private int researchProgress = 0;
 		/// <summary>
 		/// Research progress. Doesn't save into template.
@@ -246,6 +268,10 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Items
 			this.orbitalOnly = bool.Parse(node.SelectSingleNode("OrbitalOnly").InnerText);
 			this.picture = node.SelectSingleNode("Picture").InnerText;
 
+            if (node.SelectSingleNode("ShowInProductionScreen") != null)
+                this.showInProductionScreen = bool.Parse(node.SelectSingleNode("ShowInProductionScreen").InnerText);
+            if (node.SelectSingleNode("ShowInResearchScreen") != null)
+                this.showInResearchScreen = bool.Parse(node.SelectSingleNode("ShowInResearchScreen").InnerText);
 			if (node.SelectSingleNode("Mass") != null)
 				this.mass = int.Parse(node.SelectSingleNode("Mass").InnerText);
 			if (node.SelectSingleNode("ResearchPointsNeeded") != null)

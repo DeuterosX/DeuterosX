@@ -111,8 +111,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Research\ResearchManager.cs" />
     <Compile Include="Stations\MiningFacilityStationModule.cs" />
     <Compile Include="Stations\MiningOperationInfo.cs" />
+    <Compile Include="Stations\MiningStoreInfo.cs" />
     <Compile Include="Stations\Station.cs" />
     <Compile Include="Stations\StationBase.cs" />
     <Compile Include="Stations\StationManager.cs" />

@@ -41,6 +41,12 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 		/// <value>The text.</value>
 		public GuiValue<string> Text { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the label
+        /// </summary>
+        /// <value>The label.</value>
+        public GuiValue<string> Label { get; private set; }
+
 		/// <summary>
 		/// Gets or sets the color.
 		/// </summary>
@@ -160,6 +166,7 @@ namespace Teraluwide.Blackbird.Core.Gui.Controls
 			base.Load(element, currentFileName);
 
 			this.Text = GuiValue<string>.Parse(Game, element.GetAttribute("text"), this);
+            this.Label = GuiValue<string>.Parse(Game, element.GetAttribute("label"), this);
 			this.Color = GuiValue<Color>.Parse(Game, element.GetAttribute("color"), this);
 			this.Font = GuiValue<string>.Parse(Game, element.GetAttribute("font"), this);
 			this.HorizontalAlignment = GuiValue<GuiHorizontalAlign>.Parse(Game, element.GetAttributeOrNull("hAlign") ?? "Left", this);
