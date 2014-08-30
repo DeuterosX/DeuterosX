@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<FDRFile version="0.1" type="save">
+  <CustomComponents>
+    <StationManager>
+      <Stations>
+        <Station type="Teraluwide.DeuterosEx.DeuterosGame.Stations.Station" title="Earth City" location="MilkyWay.Sol.Earth" owner="Player">
+          <Modules>
+            <Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningStoreStationModule>
+              <StoreMaterials>
+                <Iron>0</Iron>
+                <Titanium>0</Titanium>
+                <Aluminium>0</Aluminium>
+                <Carbon>0</Carbon>
+                <Copper>0</Copper>
+                <Hydrogen>0</Hydrogen>
+                <Deuterium>0</Deuterium>
+                <Methane>0</Methane>
+                <Helium>0</Helium>
+                <Paladium>0</Paladium>
+                <Platinum>0</Platinum>
+                <Silver>0</Silver>
+                <Gold>0</Gold>
+                <Silica>0</Silica>
+              </StoreMaterials>
+              <StoreItems>
+                <UnknownItem>0</UnknownItem>
+                <Derrick>10</Derrick>
+                <ShuttleChassis>0</ShuttleChassis>
+                <ShuttleDrive>0</ShuttleDrive>
+                <MeHFuel>0</MeHFuel>
+                <OFFrame>0</OFFrame>
+                <SupplyPod>0</SupplyPod>
+                <ToolPod>0</ToolPod>
+                <CryoPod>0</CryoPod>
+                <Blaser>0</Blaser>
+                <IOSChassis>0</IOSChassis>
+                <IOSDrive>0</IOSDrive>
+                <SCGChassis>0</SCGChassis>
+                <SCGDrive>0</SCGDrive>
+                <HeDFuel>0</HeDFuel>
+                <ACC>0</ACC>
+                <AOC>0</AOC>
+                <Bandaid>0</Bandaid>
+                <SDM>0</SDM>
+                <Grapple>0</Grapple>
+                <DFCC>0</DFCC>
+                <AMA>0</AMA>
+                <Hyperlight>0</Hyperlight>
+                <MTX>0</MTX>
+                <FuzLaser>0</FuzLaser>
+                <RFrame>0</RFrame>
+                <PTL>0</PTL>
+                <CommsPod>0</CommsPod>
+                <IOSDrone>0</IOSDrone>
+                <StarDrone>0</StarDrone>
+                <PrisonPod>0</PrisonPod>
+                <Blaster>0</Blaster>
+              </StoreItems>
+            </Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningStoreStationModule>
+            <Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule derricks="5">
+              <Mines>
+                <Iron currentMiningLimit="0" surveyProgress="10" />
+                <Titanium currentMiningLimit="0" surveyProgress="10" />
+                <Aluminium currentMiningLimit="0" surveyProgress="10" />
+                <Carbon currentMiningLimit="0" surveyProgress="10" />
+                <Copper currentMiningLimit="0" surveyProgress="10" />
+                <Hydrogen currentMiningLimit="0" surveyProgress="10" />
+                <Deuterium currentMiningLimit="0" surveyProgress="10" />
+                <Methane currentMiningLimit="0" surveyProgress="10" />
+                <Helium currentMiningLimit="0" surveyProgress="10" />
+                <Paladium currentMiningLimit="0" surveyProgress="10" />
+                <Platinum currentMiningLimit="0" surveyProgress="10" />
+                <Silver currentMiningLimit="0" surveyProgress="10" />
+                <Gold currentMiningLimit="0" surveyProgress="10" />
+                <Silica currentMiningLimit="0" surveyProgress="10" />
+              </Mines>
+            </Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule>
+          </Modules>
+        </Station>
+      </Stations>
+    </StationManager>
+    <StoreItemManager>
+      <ResearchedItems>
+        <Iron researchProgress="0" />
+        <Titanium researchProgress="0" />
+        <Aluminium researchProgress="0" />
+        <Carbon researchProgress="0" />
+        <Copper researchProgress="0" />
+        <Hydrogen researchProgress="0" />
+        <Deuterium researchProgress="0" />
+        <Methane researchProgress="0" />
+        <Helium researchProgress="0" />
+        <Paladium researchProgress="0" />
+        <Platinum researchProgress="0" />
+        <Silver researchProgress="0" />
+        <Gold researchProgress="0" />
+        <Silica researchProgress="0" />
+        <UnknownItem researchProgress="0" />
+        <Derrick researchProgress="0" />
+        <ShuttleChassis researchProgress="0" />
+        <ShuttleDrive researchProgress="0" />
+        <MeHFuel researchProgress="0" />
+        <OFFrame researchProgress="0" />
+        <SupplyPod researchProgress="0" />
+        <ToolPod researchProgress="0" />
+        <CryoPod researchProgress="0" />
+        <Blaser researchProgress="0" />
+        <IOSChassis researchProgress="0" />
+        <IOSDrive researchProgress="0" />
+        <SCGChassis researchProgress="0" />
+        <SCGDrive researchProgress="0" />
+        <HeDFuel researchProgress="0" />
+        <ACC researchProgress="0" />
+        <AOC researchProgress="0" />
+        <Bandaid researchProgress="0" />
+        <SDM researchProgress="0" />
+        <Grapple researchProgress="0" />
+        <DFCC researchProgress="0" />
+        <AMA researchProgress="0" />
+        <Hyperlight researchProgress="0" />
+        <MTX researchProgress="0" />
+        <FuzLaser researchProgress="0" />
+        <RFrame researchProgress="0" />
+        <PTL researchProgress="0" />
+        <CommsPod researchProgress="0" />
+        <IOSDrone researchProgress="0" />
+        <StarDrone researchProgress="0" />
+        <PrisonPod researchProgress="0" />
+        <Blaster researchProgress="0" />
+      </ResearchedItems>
+    </StoreItemManager>
+    <GameVariableManager>
+      <var name="currentSystem">Sol</var>
+      <var name="toolTip">
+      </var>
+      <var name="FPS">60</var>
+    </GameVariableManager>
+  </CustomComponents>
+</FDRFile>
