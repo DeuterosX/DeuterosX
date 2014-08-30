@@ -149,19 +149,7 @@ namespace Teraluwide.Blackbird.Core
 		/// Gets the mouse Y-coordinate.
 		/// </summary>
 		/// <value>The mouse Y.</value>
-        public int MouseY { get { return SdlDotNet.Input.Mouse.MousePosition.Y / Scale; } }
-
-        /// <summary>
-        /// Gets current time.
-        /// </summary>
-        /// <value>Integer value of time</value>
-        public int Time { get; set; }
-
-        /// <summary>
-        /// Gets the string formatted game time.
-        /// </summary>
-        /// <value>The formatted time</value>
-        public String FormattedTime { get { return Time.ToString().Length > 4 ? Time.ToString().Insert(4, " ") : ""; } }
+		public int MouseY { get { return SdlDotNet.Input.Mouse.MousePosition.Y / Scale; } }
 
 		int randomSeed = new Random().Next();
 		/// <summary>
@@ -189,8 +177,6 @@ namespace Teraluwide.Blackbird.Core
 			VariableManager = new GameVariableManager(this);
 			ScriptManager = new ScriptManager(this);
 			MouseManager = new MouseManager(this);
-            
-            VariableManager.SetVariable("time", "");
 		}
 
 		/// <summary>
@@ -433,8 +419,7 @@ namespace Teraluwide.Blackbird.Core
 		public virtual void Advance()
 		{
 			Console.WriteLine("Advance!");
-            Time += 1;
-            VariableManager.SetVariable("time", FormattedTime);
+
 			CustomComponents.Advance();
 		}
 
