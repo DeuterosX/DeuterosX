@@ -20,11 +20,6 @@ public partial class Core
 		Game.GameScreenManager.CurrentGameScreen = Game.GameScreenManager[newGamescreenId];
 	}
 
-    public void AdvanceTime()
-    {
-        Game.Advance();
-    }
-
 	/// <summary>
 	/// Changes the current station.
 	/// </summary>
