@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.DeuterosEx.DeuterosGame", "Teraluwide.DeuterosEx.DeuterosGame\Teraluwide.DeuterosEx.DeuterosGame.csproj", "{EDB192F6-9BC3-410F-A4B6-D82D58CE49D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.Blackbird.Core", "Teraluwide.Blackbird.Core\Teraluwide.Blackbird.Core.csproj", "{7838BF6B-03CC-4175-BAB7-42BD8A6E6C39}"
