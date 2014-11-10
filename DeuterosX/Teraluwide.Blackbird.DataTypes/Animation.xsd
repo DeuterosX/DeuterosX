@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Animation"
+           targetNamespace="http://Teraluwide/Blackbird/Animation"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns="http://Teraluwide/Blackbird/Animation"
+           xmlns:bt="http://Teraluwide/Blackbird/BaseTypes"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Teraluwide/Blackbird/BaseTypes" schemaLocation="BaseTypes.xsd"/>
+  <xs:complexType name="FrameType">
+    <xs:attribute name="TileX" type="xs:int" use="required"/>
+    <xs:attribute name="TileY" type="xs:int" use="required"/>
+    <xs:attribute name="Sequence" type="xs:int" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AnimationType">
+    <xs:complexContent>
+      <xs:extension base="bt:BaseLeafType">
+        <xs:sequence>
+          <xs:element name="Frames" type="FrameListType"/>
+        </xs:sequence>
+        <xs:attribute name="TileSet" type="xs:string" use="required"/>
+        <xs:attribute name="FrameDuration" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AnimationListType">
+    <xs:sequence>
+      <xs:element name="Animation" minOccurs="0" maxOccurs="unbounded" type="AnimationType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FrameListType">
+    <xs:sequence>
+      <xs:element name="Frame" minOccurs="0" maxOccurs="unbounded" type="FrameType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

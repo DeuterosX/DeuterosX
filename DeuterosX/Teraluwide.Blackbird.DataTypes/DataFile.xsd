@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataFile" 
+           targetNamespace="http://Teraluwide/Blackbird/DataFile" 
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns="http://Teraluwide/Blackbird/DataFile" 
+           xmlns:ani="http://Teraluwide/Blackbird/Animation" 
+           xmlns:tex="http://Teraluwide/Blackbird/Texture" 
+           xmlns:ts="http://Teraluwide/Blackbird/TileSet" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Teraluwide/Blackbird/Animation" schemaLocation="Animation.xsd"/>
+  <xs:import namespace="http://Teraluwide/Blackbird/Texture" schemaLocation="Texture.xsd"/>
+  <xs:import namespace="http://Teraluwide/Blackbird/TileSet" schemaLocation="TileSet.xsd"/>
+  <xs:element name="GameData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TileSetList" minOccurs="0" maxOccurs="1" type="ts:TileSetListType"/>
+        <xs:element name="TextureList" minOccurs="0" maxOccurs="1" type="tex:TextureListType"/>
+        <xs:element name="AnimationList" minOccurs="0" maxOccurs="1" type="ani:AnimationListType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

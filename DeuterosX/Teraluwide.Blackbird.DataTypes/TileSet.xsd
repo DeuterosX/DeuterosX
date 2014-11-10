@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TileSet"
+           targetNamespace="http://Teraluwide/Blackbird/TileSet"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns="http://Teraluwide/Blackbird/TileSet"
+           xmlns:bt="http://Teraluwide/Blackbird/BaseTypes"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Teraluwide/Blackbird/BaseTypes" schemaLocation="BaseTypes.xsd"/>
+  <xs:complexType name="TileSetType">
+    <xs:complexContent>
+      <xs:extension base="bt:BaseLeafType">
+        <xs:attribute name="File" type="xs:string" use="required"/>
+        <xs:attribute name="TileSetWidth" type="xs:int" use="required"/>
+        <xs:attribute name="TileSetHeight" type="xs:int" use="required"/>
+        <xs:attribute name="TileWidth" type="xs:int" use="required"/>
+        <xs:attribute name="TileHeight" type="xs:int" use="required"/>
+        <xs:attribute name="TilesX" type="xs:int" use="required"/>
+        <xs:attribute name="TilesY" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TileSetListType">
+    <xs:sequence>
+      <xs:element name="TileSet" minOccurs="0" maxOccurs="unbounded" type="TileSetType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

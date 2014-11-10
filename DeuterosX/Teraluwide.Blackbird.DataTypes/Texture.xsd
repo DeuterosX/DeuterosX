@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Texture"
+           targetNamespace="http://Teraluwide/Blackbird/Texture"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns="http://Teraluwide/Blackbird/Texture"
+           xmlns:bt="http://Teraluwide/Blackbird/BaseTypes"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Teraluwide/Blackbird/BaseTypes" schemaLocation="BaseTypes.xsd"/>
+  <xs:complexType name="TextureType">
+    <xs:complexContent>
+      <xs:extension base="bt:BaseLeafType">
+        <xs:attribute name="TileSet" type="xs:string" use="required"/>
+        <xs:attribute name="TileX" type="xs:int" use="required"/>
+        <xs:attribute name="TileY" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TextureListType">
+    <xs:sequence>
+      <xs:element name="Texture" minOccurs="0" maxOccurs="unbounded" type="TextureType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
