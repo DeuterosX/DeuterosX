@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuterosMod", "Teraluwide.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.Blackbird.DataTypes", "Teraluwide.Blackbird.DataTypes\Teraluwide.Blackbird.DataTypes.csproj", "{56E06873-0E66-47A6-8D2C-CA7A76EADD41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teraluwide.Blackbird.DataEditor", "Teraluwide.Blackbird.DataEditor\Teraluwide.Blackbird.DataEditor.csproj", "{FF971385-0E13-4578-82F5-EDAA1897BD92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{56E06873-0E66-47A6-8D2C-CA7A76EADD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56E06873-0E66-47A6-8D2C-CA7A76EADD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56E06873-0E66-47A6-8D2C-CA7A76EADD41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF971385-0E13-4578-82F5-EDAA1897BD92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF971385-0E13-4578-82F5-EDAA1897BD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF971385-0E13-4578-82F5-EDAA1897BD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF971385-0E13-4578-82F5-EDAA1897BD92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
