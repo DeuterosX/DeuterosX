@@ -221,6 +221,8 @@ namespace Teraluwide.Blackbird.DataEditor
             _tileset.Name = textBoxTileSetName.Text;
             _tsnode.Name = textBoxTileSetName.Text;
             _tsnode.Text = textBoxTileSetName.Text;
+            GameData tmpData = (GameData)_tsnode.TreeView.TopNode.Tag;
+            tmpData.UpdateTileSetReferences();
         }
 
         private void numericUpDownTileX_ValueChanged(object sender, EventArgs e)

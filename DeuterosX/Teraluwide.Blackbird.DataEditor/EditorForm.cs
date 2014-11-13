@@ -68,6 +68,7 @@ namespace Teraluwide.Blackbird.DataEditor
             RootNode.Name = "GameData";
             RootNode.ToolTipText = "Manage data types";
             RootNode.ContextMenuStrip = rootMenu;
+            RootNode.Tag = thisData;
             if (thisData.TileSetList != null)
             {
                 if (thisData.TileSetList.Count > 0)

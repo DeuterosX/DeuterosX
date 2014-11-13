@@ -151,8 +151,11 @@ namespace Teraluwide.Blackbird.DataEditor
         {
             UpdateTileSetImage();
             UpdatePreview();
-            numericUpDownTileX.Enabled = true;
-            numericUpDownTileY.Enabled = true;
+            if (_currentframe != null)
+            {
+                numericUpDownTileX.Enabled = true;
+                numericUpDownTileY.Enabled = true;
+            }
             numericUpDownTileSetViewScale.Enabled = true;
             numericUpDownPreviewViewScale.Enabled = true;
             labelImageSize.Text = _tileset.TileSetWidth.ToString() + "*" + _tileset.TileSetHeight.ToString();

@@ -104,5 +104,17 @@ namespace Teraluwide.Blackbird.DataTypes
                 a.LoadFrameBitmaps();
             }
         }
+
+        public void UpdateTileSetReferences()
+        {
+            foreach (TextureType tx in TextureList)
+            {
+                tx.TileSet = tx.TileSetObject.Name;
+            }
+            foreach (AnimationType a in AnimationList)
+            {
+                a.TileSet = a.TileSetObject.Name;
+            }
+        }
     }
 }
