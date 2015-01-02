@@ -18,6 +18,8 @@ public partial class Core : BasicSimulationComponent
 		Events.MouseMotion += Events_MouseMotion;
 
 		game.GameLoaded += new EventHandler(game_GameLoaded);
+        game.Time = 3100000;
+        game.VariableManager.SetVariable("time", game.FormattedTime);
 	}
 
 	/// <summary>
