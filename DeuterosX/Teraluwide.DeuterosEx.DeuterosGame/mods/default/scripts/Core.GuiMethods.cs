@@ -20,6 +20,19 @@ public partial class Core
 		Game.GameScreenManager.CurrentGameScreen = Game.GameScreenManager[newGamescreenId];
 	}
 
+    /// <summary>
+    /// Returns whether the given screen is currently selected or not.
+    /// </summary>
+    public bool IsScreenSelected(string gamescreenId)
+    {
+        return Game.GameScreenManager.CurrentGameScreen != null && Game.GameScreenManager.CurrentGameScreen == Game.GameScreenManager[gamescreenId];
+    }
+
+    public void AdvanceTime()
+    {
+        Game.Advance();
+    }
+
 	/// <summary>
 	/// Changes the current station.
 	/// </summary>

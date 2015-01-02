@@ -9,11 +9,18 @@
     <control type="label" id="" x="4" y="4" text="$currentSystem" color="#e0e000" font="fntGui" />
   </Face>
 
-  <Face id="toolTip">
-    <background color="#ff000000" image="systemName" repeat="NoRepeat" />
+  <Face id="systemTooltip">
+    <background color="#ff000000" image="systemTooltip" repeat="NoRepeat" />
 
     <size width="80" height="16" />
     <control type="label" id="" x="4" y="4" text="$toolTip" color="#dddddd" font="fntGui" />
+  </Face>
+
+  <Face id="systemTime">
+    <background color="#ff000000" image="systemTime" repeat="NoRepeat" />
+
+    <size width="80" height="16" />
+    <control type="label" x="4" y="4" w="104" h="8" text="$time" color="#dddddd" font="fntGui" hAlign="Right" />
   </Face>
 
   <Face id="controlPanel">
@@ -26,14 +33,15 @@
     <control type="cface" faceId="stationModule.EarthCityButton" x="1" y="48" w="19" h="17" onclick="(s, e) => { ChangeGamescreen(&quot;earthCity&quot;); }" onmousemove="(s, e) => { SetToolTip(&quot;Earth City&quot;); }" />
   </Face>
 
-  <Face id="eartCityAnimation">
+  <Face id="earthCityAnimation">
     <background color="#ff000000" image="animations.EarthCity" repeat="NoRepeat"/>
     <size width="19" height="17"/>
   </Face>	
   
   <Face id="stationModule.AdvanceTimeButton">
   </Face>
-  <Face id="stationModule.EarthCityButton">    
+  <Face id="stationModule.EarthCityButton">
+    <control type="cface" faceId="earthCityAnimation" x="0" y="0" w="19" h="17" hide="$=!IsScreenSelected(&quot;earthCity&quot;)" />
   </Face>
   <Face id="stationModule.NewsBulletinsButton">
   </Face>
@@ -81,18 +89,16 @@
     <size width="320" height="200" />
     
     <control type="cface" faceId="controlPanel" x="0" y="16" w="48" h="64" />
-    <control type="cface" faceId="eartCityAnimation" x="0" y="64" w="19" h="17"  />
     <control type="cface" faceId="stationModules" x="0" y="88" w="48" h="98" />
-    
-    <control type="cface" faceId="systemName" x="$testX" w="80" h="16" hide="$testHide" onclick="(s,e) => { s.Hide.Value = true; }" />
-    <control type="cface" id="eventTest" faceId="systemName" x="240" w="80" h="16" onclick="(s,e) => { Game.VariableManager.SetVariable(&quot;testX&quot;, e.X - 200); }"/>
+
+    <control type="cface" faceId="systemName" x="240" w="80" h="16" />
+
     <!-- 
       "sender" is kind of a tricky reference:
       When used in a GuiValue with a GuiControl reference, it contains that reference.
       Otherwise, it is the last control on the rendering stack (ie. it should contain the nearest GuiControl above itself).
     -->
-    <control type="cface" faceId="systemName" x="$=GuiFace.All[1].Size.Width - sender.Width" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
-    
-    <control type="cface" faceId="toolTip" x="0" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
+    <control type="cface" faceId="systemTime" x="47" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="110" onclick="(s, e) => {AdvanceTime(); }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }"/>
+    <control type="cface" faceId="systemTooltip" x="160" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
   </Face>
 </FDRFile>

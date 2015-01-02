@@ -93,7 +93,7 @@ namespace Teraluwide.Blackbird.Core
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "onDemand", "1")),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "trackUsers", "1")),
 								XmlHelper.ParseRectangle(el, "DrawArea", System.Drawing.Rectangle.Empty),
-								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "1")),
+								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "smoothScale", "0")),
 								XmlHelper.ParseBool(XmlHelper.GetAttribute(el, "allowScaling", "1")),
 								XmlHelper.Parse<float>(XmlHelper.GetAttribute(el, "scalingModifier", "1")),
 								XmlHelper.Parse<int>(XmlHelper.GetAttribute(el, "animationFrames", "0")),
