@@ -187,7 +187,9 @@
     <Content Include="mods\default\face\ExamplesAndTests.xml" />
     <Content Include="mods\default\face\Production.xml" />
     <Content Include="mods\default\face\EarthCity.xml" />
-    <Content Include="mods\default\face\Main.xml" />
+    <Content Include="mods\default\face\Main.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="mods\default\face\Screens.xml" />
     <Content Include="mods\default\GameScreens.xml" />
     <Content Include="mods\default\gfx\cursor.png" />
