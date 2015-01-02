@@ -59,20 +59,20 @@
             </Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningStoreStationModule>
             <Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule derricks="5">
               <Mines>
-                <Iron currentMiningLimit="0" surveyProgress="10" />
-                <Titanium currentMiningLimit="0" surveyProgress="10" />
-                <Aluminium currentMiningLimit="0" surveyProgress="10" />
-                <Carbon currentMiningLimit="0" surveyProgress="10" />
-                <Copper currentMiningLimit="0" surveyProgress="10" />
-                <Hydrogen currentMiningLimit="0" surveyProgress="10" />
-                <Deuterium currentMiningLimit="0" surveyProgress="10" />
-                <Methane currentMiningLimit="0" surveyProgress="10" />
-                <Helium currentMiningLimit="0" surveyProgress="10" />
-                <Paladium currentMiningLimit="0" surveyProgress="10" />
-                <Platinum currentMiningLimit="0" surveyProgress="10" />
-                <Silver currentMiningLimit="0" surveyProgress="10" />
-                <Gold currentMiningLimit="0" surveyProgress="10" />
-                <Silica currentMiningLimit="0" surveyProgress="10" />
+                <Iron currentMiningLimit="0" surveyProgress="5" />
+                <Titanium currentMiningLimit="0" surveyProgress="5" />
+                <Aluminium currentMiningLimit="0" surveyProgress="5" />
+                <Carbon currentMiningLimit="0" surveyProgress="5" />
+                <Copper currentMiningLimit="0" surveyProgress="5" />
+                <Hydrogen currentMiningLimit="0" surveyProgress="5" />
+                <Deuterium currentMiningLimit="0" surveyProgress="5" />
+                <Methane currentMiningLimit="0" surveyProgress="5" />
+                <Helium currentMiningLimit="0" surveyProgress="5" />
+                <Paladium currentMiningLimit="0" surveyProgress="5" />
+                <Platinum currentMiningLimit="0" surveyProgress="5" />
+                <Silver currentMiningLimit="0" surveyProgress="5" />
+                <Gold currentMiningLimit="0" surveyProgress="5" />
+                <Silica currentMiningLimit="0" surveyProgress="5" />
               </Mines>
             </Teraluwide.DeuterosEx.DeuterosGame.Stations.MiningFacilityStationModule>
           </Modules>
@@ -130,6 +130,7 @@
       </ResearchedItems>
     </StoreItemManager>
     <GameVariableManager>
+      <var name="time">3100 005</var>
       <var name="currentSystem">Sol</var>
       <var name="toolTip">
       </var>
