@@ -129,7 +129,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			foreach (var min in (Game as Game).StoreItemManager.StoreItems)
 			{
-				if (min.Value.Type == ItemType.Mineral && Location.Minerals.ContainsKey(min.Key))
+				if (min.Value.Type == ItemType.Mineral && Location.Minerals.ContainsKey(min.Key) && Location.Minerals[min.Key].MineralMineable)
 					mines.Add(min.Key, new MiningOperationInfo { Id = min.Key });
 			}
 		}
