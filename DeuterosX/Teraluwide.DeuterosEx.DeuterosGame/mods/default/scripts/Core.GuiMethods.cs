@@ -40,6 +40,7 @@ public partial class Core
 	public void ChangeCurrentStation(string newStationLocation)
 	{
 		CurrentStationLocation = newStationLocation;
+        CurrentLocation = Game.StationManager.GetStation(newStationLocation).Title;
 
 		Log.WriteMessage(string.Format("Station changed to {0}.", newStationLocation));
 	}

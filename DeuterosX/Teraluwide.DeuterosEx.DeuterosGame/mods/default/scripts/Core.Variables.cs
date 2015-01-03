@@ -45,4 +45,10 @@ public partial class Core
 		get { return Game.VariableManager.GetVariable("currentStationLocation", "MilkyWay.Sol.Earth:Ground"); }
 		set { Game.VariableManager.SetVariable("currentStationLocation", value, false); }
 	}
+
+    public string CurrentLocation
+    {
+        get { return Game.VariableManager.GetVariable("currentLocation", "Earth City"); }
+        set { Game.VariableManager.SetVariable("currentLocation", value, false); }
+    }
 }

@@ -6,21 +6,28 @@
   <Face id="systemName">
     <background color="#ff000000" image="systemName" repeat="NoRepeat" />
     <size width="80" height="16" />
-    <control type="label" id="" x="4" y="4" text="$currentSystem" color="#e0e000" font="fntGui" />
+    <control type="label" id="" x="5" y="4" text="$currentSystem" color="#e0e000" font="fntGui" />
   </Face>
 
   <Face id="systemTooltip">
-    <background color="#ff000000" image="systemTooltip" repeat="NoRepeat" />
+    <background color="#ff000000" repeat="NoRepeat" />
+
+    <size width="240" height="16" />
+    <control type="label" id="" x="1" y="3" w="238" h="12" text="$toolTip" color="#ffffff" font="fntGui" />
+  </Face>
+
+  <Face id="systemLocation">
+    <background color="#ff000000" image="systemLocation" />
 
     <size width="80" height="16" />
-    <control type="label" id="" x="4" y="4" text="$toolTip" color="#dddddd" font="fntGui" />
+    <control type="label" id="" x="4" y="4" text="$currentLocation" color="#ffffff" font="fntGui" />
   </Face>
 
   <Face id="systemTime">
     <background color="#ff000000" image="systemTime" repeat="NoRepeat" />
 
     <size width="80" height="16" />
-    <control type="label" x="4" y="4" w="104" h="8" text="$time" color="#dddddd" font="fntGui" hAlign="Right" />
+    <control type="label" x="4" y="4" w="104" h="8" text="$time" color="#ffffff" font="fntGui" hAlign="Right" />
   </Face>
 
   <Face id="controlPanel">
@@ -92,13 +99,14 @@
     <control type="cface" faceId="stationModules" x="0" y="88" w="48" h="98" />
 
     <control type="cface" faceId="systemName" x="240" w="80" h="16" />
-
+    <control type="cface" faceId="systemTooltip" x="0" y="0" h="16" w="240" />
+    
     <!-- 
       "sender" is kind of a tricky reference:
       When used in a GuiValue with a GuiControl reference, it contains that reference.
       Otherwise, it is the last control on the rendering stack (ie. it should contain the nearest GuiControl above itself).
     -->
     <control type="cface" faceId="systemTime" x="47" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="110" onclick="(s, e) => {AdvanceTime(); }" onmousemove="(s, e) => { SetToolTip(&quot;Advance Time&quot;); }"/>
-    <control type="cface" faceId="systemTooltip" x="160" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
+    <control type="cface" faceId="systemLocation" x="160" y="$=GuiFace.All[1].Size.Height - sender.Height" h="16" w="80" />
   </Face>
 </FDRFile>
