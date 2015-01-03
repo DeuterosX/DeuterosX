@@ -132,7 +132,7 @@
     <Content Include="mods\default\gfx\stationModule.ShuttleBay.png" />
     <Content Include="mods\default\gfx\stationModule.Training.png" />
     <Content Include="mods\default\gfx\stationModules.png" />
-    <Content Include="mods\default\gfx\systemTooltip.png" />
+    <Content Include="mods\default\gfx\systemLocation.png" />
     <Content Include="mods\default\gfx\systemTime.png" />
     <Content Include="mods\default\gfx\training\backgroundDark.png" />
     <Content Include="mods\default\gfx\training\backgroundLight.png" />
