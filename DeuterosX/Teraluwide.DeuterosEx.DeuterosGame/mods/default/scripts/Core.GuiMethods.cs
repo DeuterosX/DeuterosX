@@ -14,7 +14,7 @@ public partial class Core
 	{
 		// If the game screen is EarthCity, change the current station too
 		if (newGamescreenId == "earthCity")
-			ChangeCurrentStation("MilkyWay.Sol.Earth");
+			ChangeCurrentStation("MilkyWay.Sol.Earth:Ground");
 
         Game.TextureManager.OnGameScreenChange();
 		Game.GameScreenManager.CurrentGameScreen = Game.GameScreenManager[newGamescreenId];

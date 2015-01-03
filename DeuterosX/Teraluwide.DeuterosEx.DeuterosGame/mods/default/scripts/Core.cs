@@ -32,7 +32,7 @@ public partial class Core : BasicSimulationComponent
 
 	void game_GameLoaded(object sender, EventArgs e)
 	{
-		ChangeCurrentStation("MilkyWay.Sol.Earth");
+		ChangeCurrentStation("MilkyWay.Sol.Earth:Ground");
 	}
 
 	void Events_MouseMotion(object sender, SdlDotNet.Input.MouseMotionEventArgs e)

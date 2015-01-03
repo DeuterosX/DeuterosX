@@ -11,7 +11,7 @@
   <CustomComponents>
     <StationManager>
       <Stations>
-        <Station type="Teraluwide.DeuterosEx.DeuterosGame.Stations.Station" title="Earth City" location="MilkyWay.Sol.Earth" owner="Player">
+        <Station type="Teraluwide.DeuterosEx.DeuterosGame.Stations.Station" title="Earth City" location="MilkyWay.Sol.Earth:Ground" owner="Player">
           <Modules>
             <MiningStore>
               <StoreItems>

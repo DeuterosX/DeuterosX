@@ -39,8 +39,40 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			get { return mines; }
 		}
+        
+        private SpaceItem location = null;
+        private string stationId = null;
 
-		private SpaceItem location = null;
+        private SpaceItem loadLocation()
+        {
+            var idIndex = Parent.Location.IndexOf(':');
+            stationId = Parent.Location.Substring(idIndex + 1);
+
+            var locstr = Parent.Location.Substring(0, idIndex).Split('.');
+
+            // Find the galaxy...
+            if (!(Parent.Game as Game).UniverseManager.Galaxies.ContainsKey(locstr[0])) return null;
+            var gal = (Parent.Game as Game).UniverseManager.Galaxies[locstr[0]];
+
+            // The solar system...
+            if (!gal.Systems.ContainsKey(locstr[1])) return null;
+            var sys = gal.Systems[locstr[1]];
+
+            // The planet...
+            if (!sys.Bodies.ContainsKey(locstr[2])) return null;
+            var body = sys.Bodies[locstr[2]];
+
+            // And check the satellites too...
+            for (int i = 3; i < locstr.Length; i++)
+            {
+                if (!body.Satellites.ContainsKey(locstr[i])) return null;
+
+                body = body.Satellites[locstr[i]];
+            }
+
+            return location = body;
+        }
+
 		/// <summary>
 		/// Gets the body this module binds to.
 		/// </summary>
@@ -48,48 +80,22 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 		{
 			get
 			{
-				if (location == null)
-				{
-					Galaxy gal;
-					SolarSystem sys;
-					SpaceItem body;
-					
-					string[] locstr = Parent.Location.Split('.');
-
-					// Find the galaxy...
-					if ((Parent.Game as Game).UniverseManager.Galaxies.ContainsKey(locstr[0]))
-						gal = (Parent.Game as Game).UniverseManager.Galaxies[locstr[0]];
-					else
-						return null;
-
-					// The solar system...
-					if (gal.Systems.ContainsKey(locstr[1]))
-						sys = gal.Systems[locstr[1]];
-					else
-						return null;
-
-					// The planet...
-					if (sys.Bodies.ContainsKey(locstr[2]))
-						body = sys.Bodies[locstr[2]];
-					else
-						return null;
-
-					// And check the satellites too...
-					for (int i = 3; i < locstr.Length; i++)
-					{
-						if (body.Satellites.ContainsKey(locstr[i]))
-							body = body.Satellites[locstr[i]];
-						else
-							return null;
-					}
-
-					// And store the location for later.
-					return location = body;
-				}
-				else
-					return location;
+                return location ?? loadLocation();
 			}
 		}
+
+        /// <summary>
+        /// Gets the station ID this module binds to (e.g. "Ground" or "Orbit").
+        /// </summary>
+        public string StationId
+        {
+            get
+            {
+                if (stationId == null) loadLocation();
+
+                return stationId;
+            }
+        }
 
 		private MiningStoreStationModule store = null;
 		/// <summary>

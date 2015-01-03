@@ -38,7 +38,7 @@ namespace Teraluwide.DeuterosEx.DeuterosGame.Stations
 			set { title = value; }
 		}
 
-		private string location = "MilkyWay.Sol.Earth";
+		private string location = "MilkyWay.Sol.Earth:Ground";
 		/// <summary>
 		/// Gets or sets the station location (Galaxy.SolarSystem.Body).
 		/// </summary>

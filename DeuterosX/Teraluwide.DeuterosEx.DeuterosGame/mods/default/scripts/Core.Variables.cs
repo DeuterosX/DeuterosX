@@ -42,7 +42,7 @@ public partial class Core
 	/// </value>
 	public string CurrentStationLocation
 	{
-		get { return Game.VariableManager.GetVariable("CurrentStationLocation", "MilkyWay.Sol.Earth"); }
-		set { Game.VariableManager.SetVariable("CurrentStationLocation", value, false); }
+		get { return Game.VariableManager.GetVariable("currentStationLocation", "MilkyWay.Sol.Earth:Ground"); }
+		set { Game.VariableManager.SetVariable("currentStationLocation", value, false); }
 	}
 }
