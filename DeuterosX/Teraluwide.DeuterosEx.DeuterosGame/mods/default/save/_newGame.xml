@@ -24,6 +24,13 @@
         </Station>
       </Stations>
     </StationManager>
+    <GameVariableManager>
+      <variables>
+        <var name="time" type="System.String">3100 000</var>
+        <var name="currentSystem" type="System.String">Sol</var>
+        <var name="manpowerPool" type="System.Int32">6000</var>
+      </variables>
+    </GameVariableManager>
   </CustomComponents>  
   <ResearchedItems>
     <Iron />
