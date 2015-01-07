@@ -137,7 +137,7 @@
     <Content Include="mods\default\gfx\training\backgroundDark.png" />
     <Content Include="mods\default\gfx\training\backgroundLight.png" />
     <Content Include="mods\default\gfx\training\recruit.png" />
-    <Content Include="mods\default\gfx\training\removeToPull.png" />
+    <Content Include="mods\default\gfx\training\removeToPool.png" />
     <Content Include="mods\default\Textures.xml">
       <SubType>Designer</SubType>
     </Content>

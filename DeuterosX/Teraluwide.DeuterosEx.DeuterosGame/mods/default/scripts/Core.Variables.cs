@@ -51,4 +51,10 @@ public partial class Core
         get { return Game.VariableManager.GetVariable("currentLocation", "Earth City"); }
         set { Game.VariableManager.SetVariable("currentLocation", value, false); }
     }
+
+    public int ManpowerPool
+    {
+        get { return Game.VariableManager.GetVariable("manpowerPool", 6000); }
+        set { Game.VariableManager.SetVariable("manpowerPool", value, true); }
+    }
 }

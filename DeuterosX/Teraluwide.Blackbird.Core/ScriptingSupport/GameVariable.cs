@@ -57,6 +57,7 @@ namespace Teraluwide.Blackbird.Core.ScriptingSupport
 		public void LoadXml(XmlElement el)
 		{
 			this.value = el.InnerText == "$null" ? default(T) : XmlHelper.Parse<T>(el.InnerText);
+            this.isPersistent = true;
 		}
 
 		/// <summary>

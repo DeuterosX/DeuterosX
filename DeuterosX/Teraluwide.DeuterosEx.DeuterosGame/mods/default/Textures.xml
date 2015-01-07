@@ -43,7 +43,7 @@
     
     <!-- Training screen -->
     <Texture id="training.Background" fileName="gfx/training/backgroundLight.png" />
-    <Texture id="training.RemoveToPull" fileName="gfx/training/removeToPull.png" />
+    <Texture id="training.RemoveToPool" fileName="gfx/training/removeToPool.png" />
     <Texture id="training.Recruit" fileName="gfx/training/recruit.png" />
     
     <!-- Research screen -->
